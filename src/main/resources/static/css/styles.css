@@ -1,0 +1,60 @@
+html {
+    position: relative;
+    width: 100%;
+    height: 1080px;
+    /*height: 100vh;*/
+    font-family: 'Montserrat', sans-serif;
+    background: #FFFFFF
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    height: 144px;
+    left: 0px;
+    top: 0px;
+
+    background: #025167;
+}
+
+header > .LOGO {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    left: 104px;
+    top: 0px;
+}
+
+.LOGO > p {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 36px;
+
+    color: #FFFFFF;
+}
+
+
+.main {
+    position: absolute;
+    width: 100%;
+    max-width: 1920px;
+    height: 1080px;
+    left: 0px;
+    top: 130px;
+
+    background: #FFFFFF;
+    border-radius: 15px;
+}
