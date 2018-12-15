@@ -38,6 +38,7 @@ header > .LOGO {
     top: 0%;
     bottom: 0%;
 
+    font-family: Montserrat;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -46,6 +47,67 @@ header > .LOGO {
     color: #FFFFFF;
 }
 
+header #city{
+    position: absolute;
+    width: 164px;
+    height: 16px;
+    left: 299px;
+    top: 27px;
+
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    outline: none; /* убирать контур в Mozilla */
+
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 18px;
+
+    color: #FFFFFF;
+}
+
+header .btn_group{
+    position: relative;
+    width: 248px;
+    height: 48px;
+    left: 260px;
+    top: 66px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 18px;
+    text-align: center;
+}
+
+.btn_group a.buttonCINEMAS, .btn_group a.buttonAFISHA{
+    position: absolute;
+    width: 100%;
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    padding: .7em 1.5em; /* отступ от текста */
+    outline: none; /* убирать контур в Mozilla */
+
+    background: #057D9F;
+    border-radius: 4px;
+
+    color: #FFFFFF;
+}
+
+.btn_group a.buttonCINEMAS {
+    left: 268px;
+}
+
+.btn_group a.buttonAFISHA {
+    left: 0;
+}
+
+.btn_group a.buttonAFISHA:hover, a.buttonCINEMAS:hover{
+    background: #216477;
+}
+
+.btn_group a.buttonAFISHA:active, a.buttonCINEMAS:active{
+    background: #61B7CF;
+}
 
 .main {
     position: absolute;
