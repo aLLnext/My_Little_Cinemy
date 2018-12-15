@@ -1,8 +1,7 @@
 html {
     position: relative;
     width: 100%;
-    height: 1080px;
-    /*height: 100vh;*/
+    height: 100vh;
     font-family: 'Montserrat', sans-serif;
     background: #FFFFFF
 }
@@ -65,54 +64,84 @@ header #city{
 
     color: #FFFFFF;
 }
-
-header .btn_group{
-    position: relative;
-    width: 248px;
-    height: 48px;
-    left: 260px;
+header .btn_group_menu {
     top: 66px;
+    height: 48px;
+
+}
+
+.btn_group_menu a.buttonAFISHA, .btn_group_menu a.buttonCINEMAS {
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    padding: .7em 1.5em; /* отступ от текста */
+    outline: none;
+
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     font-size: 18px;
     text-align: center;
-}
 
-.btn_group a.buttonCINEMAS, .btn_group a.buttonAFISHA{
-    position: absolute;
-    width: 100%;
-    text-decoration: none; /* убирать подчёркивание у ссылок */
-    user-select: none; /* убирать выделение текста */
-    padding: .7em 1.5em; /* отступ от текста */
-    outline: none; /* убирать контур в Mozilla */
+    color: #FFFFFF;
 
     background: #057D9F;
     border-radius: 4px;
+}
 
+.btn_group_menu a.buttonAFISHA {
+    position: absolute;
+    width: 248px;
+    left: 260px;
+}
+
+.btn_group_menu a.buttonCINEMAS {
+    position: absolute;
+    width: 248px;
+    left: 524px;
+}
+
+header .btn_group_account {
+    top: 66px;
+    height: 48px;
+    text-align: right;
+    padding: .7em 2em; /* отступ от текста */
+    word-spacing: 1.5em;
+}
+
+.btn_group_account a.profile, .btn_group_account a.login {
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    outline: none;
+    padding: .6em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 18px;
+
+    box-sizing: border-box;
+    border-radius: 32px;
     color: #FFFFFF;
 }
 
-.btn_group a.buttonCINEMAS {
-    left: 268px;
+.btn_group_account a.profile:hover, .btn_group_account a.login:hover {
+    box-shadow: 0 0 0 3px #FFFFFF;
 }
 
-.btn_group a.buttonAFISHA {
-    left: 0;
+.btn_group_account a.profile:active, .btn_group_account a.login:active {
+    box-shadow: 0 0 0 3px #FFFFFF;
 }
 
-.btn_group a.buttonAFISHA:hover, a.buttonCINEMAS:hover{
+.btn_group_menu a.buttonAFISHA:hover,.btn_group_menu a.buttonCINEMAS:hover{
     background: #216477;
 }
 
-.btn_group a.buttonAFISHA:active, a.buttonCINEMAS:active{
+.btn_group_menu a.buttonAFISHA:active,.btn_group_menu a.buttonCINEMAS:active{
     background: #61B7CF;
 }
 
 .main {
-    position: absolute;
     width: 100%;
-    max-width: 1920px;
+    max-width: 3840px;
     height: 1080px;
     left: 0px;
     top: 130px;
