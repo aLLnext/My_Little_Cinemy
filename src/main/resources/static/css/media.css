@@ -1,0 +1,272 @@
+@media screen and (max-width: 1135px){
+    header .btn_group_account {
+        white-space: nowrap;
+        width: 244px;
+        top: 66px;
+        word-spacing: 0.5em;
+    }
+
+    .btn_group_menu a.buttonAFISHA{
+        width: 180px;
+    }
+
+    .btn_group_menu a.buttonCINEMAS{
+        width: 180px;
+        left: 460px;
+    }
+
+    header #city{
+        width: 164px;
+        height: 16px;
+        left: 245px;
+        top: 27px;
+    }
+}
+
+@media screen and (max-width: 850px){
+    header{
+        height: 84px;
+    }
+
+    .main{
+        top: 64px;
+    }
+
+    .LOGO, .btn_group_menu, .btn_group_account, #city{
+        display: none;
+    }
+
+
+    nav .LOGO{
+        display: block;
+        position: absolute;
+        width: 130px;
+        height: 127px;
+        left: 32px;
+        top: 64px;
+
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        font-size: 36px;
+
+        color: #FFFFFF;
+    }
+
+    nav *{
+        display: block;
+    }
+
+    nav{
+        background: #025167;
+        width: 100%;
+        max-height: 100px;
+        transition-duration: 0.5s;
+        transition-timing-function: swing;
+        position: relative;
+        overflow: hidden;
+    }
+
+    nav a.buttonAFISHA, nav a.buttonCINEMAS{
+        position: absolute;
+        left: 32px;
+
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        font-size: 16px;
+        text-align: center;
+
+        color: #FFFFFF;
+
+
+        text-decoration: none; /* убирать подчёркивание у ссылок */
+        user-select: none; /* убирать выделение текста */
+        outline: none;
+
+    }
+
+    nav a.buttonCINEMAS{
+        top: 240px;
+    }
+
+    nav a.buttonAFISHA{
+        top: 210px;
+    }
+
+    nav .btn_group_account {
+        display: block;
+        top: 0px;
+        height: 48px;
+        padding: .8em 2em; /* отступ от текста */
+        word-spacing: 1.5em;
+
+    }
+
+    .btn_group_account a.profile {
+        text-decoration: none; /* убирать подчёркивание у ссылок */
+        user-select: none; /* убирать выделение текста */
+        outline: none;
+        padding: .6em;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        font-size: 18px;
+
+        box-sizing: border-box;
+        border-radius: 32px;
+        left: 100px;
+        color: #FFFFFF;
+    }
+
+    .btn_group_account a.profile:hover {
+        box-shadow: 0 0 0 0px #FFFFFF;
+    }
+
+    .btn_group_account a.profile:active {
+        box-shadow: 0 0 0 0px #FFFFFF;
+    }
+
+    nav.open {
+        max-height: 464px;
+        transition: max-height 0.5s ease-in;
+    }
+
+    .main.open{
+        top: 300px;
+        transition: top 0.4s ease-in;
+
+    }
+
+    nav h2 {
+        transition: 0.5s;
+        position: absolute;
+        font-size: 1.75em;
+        top: 15px;
+        right: 32px;
+        font-weight: 300;
+    }
+    nav h2 b {
+        font-weight: 500;
+    }
+
+    nav ul {
+        padding-top: 250px;
+    }
+    nav ul li {
+        list-style: none;
+        padding: 1em 2em 1em 1.5em;
+        transition: all 0.5s;
+    }
+    nav ul li a {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 1.1em;
+        color: rgba(0, 0, 0, 0.87);
+    }
+    nav ul li:hover {
+        background: #b3e5fc;
+    }
+    nav ul li:hover a {
+        text-decoration: none;
+    }
+    nav ul li:active {
+        background: #82d4fa;
+    }
+    nav ul li:last-child {
+        margin-bottom: 1em;
+    }
+
+    .navToggle {
+        position: absolute;
+        width: 30px;
+        height: 60px;
+        top: 5px;
+        left: 32px;
+        transition-duration: 0.5s;
+    }
+    .navToggle:hover {
+        cursor: pointer;
+    }
+    .navToggle .icon-left {
+        transition-duration: 0.5s;
+        position: absolute;
+        height: 4px;
+        top: 25px;
+        width: 15px;
+        background-color: rgba(255, 255, 255, 0.54);
+    }
+    .navToggle .icon-left:before {
+        transition-duration: 0.5s;
+        position: absolute;
+        width: 15px;
+        height: 4px;
+        background-color: rgba(255, 255, 255, 0.54);
+        content: "";
+        top: -10px;
+    }
+    .navToggle .icon-left:after {
+        transition-duration: 0.5s;
+        position: absolute;
+        width: 15px;
+        height: 4px;
+        background-color: rgba(255, 255, 255, 0.54);
+        content: "";
+        top: 10px;
+    }
+    .navToggle .icon-right {
+        transition-duration: 0.5s;
+        position: absolute;
+        height: 4px;
+        top: 25px;
+        width: 15px;
+        background-color: rgba(255, 255, 255, 0.54);
+        left: 15px;
+    }
+    .navToggle .icon-right:before {
+        transition-duration: 0.5s;
+        position: absolute;
+        width: 15px;
+        height: 4px;
+        background-color: rgba(255, 255, 255, 0.54);
+        content: "";
+        top: -10px;
+    }
+    .navToggle .icon-right:after {
+        transition-duration: 0.5s;
+        position: absolute;
+        width: 15px;
+        height: 4px;
+        background-color: rgba(255, 255, 255, 0.54);
+        content: "";
+        top: 10px;
+    }
+    .navToggle.open .icon-left {
+        transition-duration: 0.5s;
+        background: transparent;
+    }
+    .navToggle.open .icon-left:before {
+        -webkit-transform: rotateZ(45deg) scaleX(1.4) translate(2px, 2px);
+        transform: rotateZ(45deg) scaleX(1.4) translate(2px, 2px);
+    }
+    .navToggle.open .icon-left:after {
+        -webkit-transform: rotateZ(-45deg) scaleX(1.4) translate(2px, -2px);
+        transform: rotateZ(-45deg) scaleX(1.4) translate(2px, -2px);
+    }
+    .navToggle.open .icon-right {
+        transition-duration: 0.5s;
+        background: transparent;
+    }
+    .navToggle.open .icon-right:before {
+        -webkit-transform: rotateZ(-45deg) scaleX(1.4) translate(-2px, 2px);
+        transform: rotateZ(-45deg) scaleX(1.4) translate(-2px, 2px);
+    }
+    .navToggle.open .icon-right:after {
+        -webkit-transform: rotateZ(45deg) scaleX(1.4) translate(-2px, -2px);
+        transform: rotateZ(45deg) scaleX(1.4) translate(-2px, -2px);
+    }
+    .x {
+        padding: 0;
+        margin: 0;
+    }
+}

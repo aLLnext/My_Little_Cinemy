@@ -5,6 +5,7 @@
     <title>My_Little_Cinemy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/media.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700&amp;subset=cyrillic,cyrillic-ext"
           rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -14,16 +15,35 @@
 </head>
 <body>
 <header>
+    <nav>
+        <div class="row">
+            <div class="col-4">
+                <div class="navToggle">
+                    <div class="icon-left"></div>
+                    <div class="icon-right"></div>
+                </div>
+            </div>
+            <div class="col-8 btn_group_account">
+                <a href="#" class="profile">ПРОФИЛЬ</a>
+            </div>
+        </div>
+
+        <ul>
+            <div class="LOGO">НАШ КИНО ТЕАТР</div>
+            <a href="#" class="buttonAFISHA">КИНОАФИША</a>
+            <a href="#" class="buttonCINEMAS">КИНОТЕТРЫ</a>
+        </ul>
+    </nav>
     <div class="LOGO">
         <p>НАШ КИНО ТЕАТР</p>
     </div>
     <a href="#" id="city">ВЛАДИВОСТОК</a>
     <div class="row">
-        <div class="col-9 btn_group_menu">
+        <div class="col-6 btn_group_menu">
             <a href="#" class="buttonAFISHA">КИНОАФИША</a>
             <a href="#" class="buttonCINEMAS">КИНОТЕТРЫ</a>
         </div>
-        <div class="col-3 btn_group_account">
+        <div class="col-6 btn_group_account">
             <a href="#" class="login">ВОЙТИ</a>
             <a href="#" class="profile">ПРОФИЛЬ</a>
         </div>
@@ -42,5 +62,14 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
+<script>
+    $(".navToggle").click(function () {
+        $(this).toggleClass("open");
+        $("nav").toggleClass("open");
+        $(".main").toggleClass("open");
+    });
+
+</script>
 </body>
 </html>

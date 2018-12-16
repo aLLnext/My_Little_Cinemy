@@ -45,7 +45,7 @@ header > .LOGO {
     color: #FFFFFF;
 }
 
-header #city{
+header #city {
     position: absolute;
     width: 164px;
     height: 16px;
@@ -63,10 +63,15 @@ header #city{
 
     color: #FFFFFF;
 }
+
+
+nav *{
+    display: none;
+}
+
 header .btn_group_menu {
     top: 66px;
     height: 48px;
-
 }
 
 .btn_group_menu a.buttonAFISHA, .btn_group_menu a.buttonCINEMAS {
@@ -103,7 +108,7 @@ header .btn_group_account {
     top: 66px;
     height: 48px;
     text-align: right;
-    padding: .7em 2em; /* отступ от текста */
+    padding: .8em 2em; /* отступ от текста */
     word-spacing: 1.5em;
 }
 
@@ -119,6 +124,7 @@ header .btn_group_account {
 
     box-sizing: border-box;
     border-radius: 32px;
+
     color: #FFFFFF;
 }
 
@@ -144,6 +150,7 @@ header .btn_group_account {
     height: 100vh;
     left: 0px;
     top: 130px;
+
     background: #FFFFFF;
     border-radius: 15px;
 }
