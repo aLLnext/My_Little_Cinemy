@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`posts` (
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
-AUTO_INCREMENT = 5
+AUTO_INCREMENT = 7
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -372,6 +372,19 @@ BEGIN
 	select picture from Media where Films_id = i;
     select name, publication_date, text, mark from
 		Users inner join Reviews on Users_id = Users.id where Films_id = i order by publication_date;
+END$$
+
+DELIMITER ;
+
+-- -----------------------------------------------------
+-- procedure start_insert
+-- -----------------------------------------------------
+
+DELIMITER $$
+USE `mydb`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `start_insert`()
+BEGIN
+	insert into posts(name) values('director'),('producer'),('screenwriter'),('actor');
 END$$
 
 DELIMITER ;
