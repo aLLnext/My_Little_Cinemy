@@ -146,7 +146,7 @@ header .btn_group_account {
 }
 
 .main {
-    position: absolute;
+    position: relative;
     width: 100%;
     height: 100vh;
     left: 0px;
@@ -155,3 +155,43 @@ header .btn_group_account {
     background: #FFFFFF;
     border-radius: 15px;
 }
+
+.MyHistory{
+    position: relative;
+    top: 100px;
+    height: 164px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 24px;
+    color: #000000;
+    text-align: center;
+}
+
+.PersonalInfo{
+    position: relative;
+    top: 100px;
+    height: 164px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 24px;
+    text-align: center;
+
+    color: #000000;
+}
+
+#vertical_line{
+    position: relative;
+    width: 1000px;
+    border: 1.5px solid rgba(97, 183, 207, 0.6);
+    top: 484px;
+    right: 500px;
+    transform: rotate(90deg);
+}
+
+.mob_info{
+    display: none;
+}
+
+

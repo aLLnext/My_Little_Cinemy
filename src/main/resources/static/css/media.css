@@ -30,6 +30,8 @@
 
     .main {
         top: 64px;
+        transition-duration: 0.5s;
+        transition-timing-function: swing;
     }
 
     .LOGO, .btn_group_menu, .btn_group_account, #city {
@@ -79,8 +81,8 @@
         color: #FFFFFF;
 
 
-        text-decoration: none; /* убирать подчёркивание у ссылок */
-        user-select: none; /* убирать выделение текста */
+        text-decoration: none;
+        user-select: none;
         outline: none;
 
     }
@@ -97,14 +99,14 @@
         display: block;
         top: 0px;
         height: 48px;
-        padding: .8em 2em; /* отступ от текста */
+        padding: .8em 2em;
         word-spacing: 1.5em;
         text-align: center;
     }
 
     .btn_group_account a.profile {
-        text-decoration: none; /* убирать подчёркивание у ссылок */
-        user-select: none; /* убирать выделение текста */
+        text-decoration: none;
+        user-select: none;
         outline: none;
         padding: .6em;
         font-style: normal;
@@ -132,9 +134,13 @@
     }
 
     .main.open {
-        top: 300px;
-        transition: top 0.4s ease-in;
+        top: 280px;
+        transition: top 0.5s ease-in;
+    }
 
+
+    #vertical_line {
+        display: none;
     }
 
     nav h2 {

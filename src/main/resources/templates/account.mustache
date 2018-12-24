@@ -1,17 +1,14 @@
-<!DOCTYPE HTML>
-<!-- TODO: Change shortcut icon!!!-->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>My_Little_Cinemy</title>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/media.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700&amp;subset=cyrillic,cyrillic-ext"
           rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    
 </head>
 <body>
 <header>
@@ -23,35 +20,54 @@
                     <div class="icon-right"></div>
                 </div>
             </div>
-            <div class="col-4 btn_group_account">
-                <a href="account.mustache" class="profile">ПРОФИЛЬ</a>
-            </div>
         </div>
 
         <ul>
             <div class="LOGO">НАШ КИНО ТЕАТР</div>
-            <a href="#" class="buttonAFISHA">КИНОАФИША</a>
+            <a href="greeting.mustache" class="buttonAFISHA">КИНОАФИША</a>
             <a href="#" class="buttonCINEMAS">КИНОТЕТРЫ</a>
         </ul>
     </nav>
+
     <div class="LOGO">
         <p>НАШ КИНО ТЕАТР</p>
     </div>
     <a href="#" id="city">ВЛАДИВОСТОК</a>
     <div class="row">
         <div class="col-6 btn_group_menu">
-            <a href="#" class="buttonAFISHA">КИНОАФИША</a>
+            <a href="greeting.mustache" class="buttonAFISHA">КИНОАФИША</a>
             <a href="#" class="buttonCINEMAS">КИНОТЕТРЫ</a>
-        </div>
-        <div class="col-6 btn_group_account">
-            <a href="#" class="login">ВОЙТИ</a>
-            <a href="account.mustache" class="profile">ПРОФИЛЬ</a>
         </div>
     </div>
 </header>
 <div class="main">
-    <p>test</p>
+    <div class="mob_info">
+        <div class="row">
+            <div class="col-md-6 сol-sm-2">
+                <p class="MyHistory">Мои сеансы</p>
+            </div>
+            <div class="col-md-5 col-sm-2">
+                <p class="PersonalInfo">Персональная информация</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="desktop_info">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="MyHistory">Мои сеансы</p>
+            </div>
+            <div class="col-md-1">
+                <hr id="vertical_line">
+            </div>
+            <div class="col-md-5">
+                <p class="PersonalInfo">Персональная информация</p>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -59,17 +75,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <script>
+    a = 0;
     $(".navToggle").click(function () {
-        $(this).toggleClass("open");
         $("nav").toggleClass("open");
+        $(this).toggleClass("open");
         $(".main").toggleClass("open");
-    });
 
+    });
 </script>
+
 </body>
 </html>
