@@ -2,7 +2,7 @@ html {
     width: 100%;
     font-family: 'Montserrat', sans-serif;
     background: #FFFFFF;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 *,
@@ -73,7 +73,6 @@ header .btn_group_menu {
     top: 66px;
     height: 48px;
 }
-
 
 .btn_group_menu a.buttonAFISHA, .btn_group_menu a.buttonCINEMAS {
     text-decoration: none; /* убирать подчёркивание у ссылок */
@@ -163,7 +162,7 @@ header .btn_group_account {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    font-size: 24px;
+    font-size: 28px;
     color: #000000;
     text-align: center;
 }
@@ -175,8 +174,8 @@ header .btn_group_account {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    font-size: 24px;
-    text-align: center;
+    font-size: 28px;
+    text-align: left;
 
     color: #000000;
 }
@@ -186,12 +185,100 @@ header .btn_group_account {
     width: 1000px;
     border: 1.5px solid rgba(97, 183, 207, 0.6);
     top: 484px;
-    right: 500px;
+    right: 410px;
     transform: rotate(90deg);
+}
+
+#tab_name{
+    position: absolute;
+    width: 149px;
+    height: 32px;
+    left: 245px;
+    top: 27px;
+
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 24px;
+
+    color: #FFFFFF;
+
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    outline: none;
 }
 
 .mob_info{
     display: none;
 }
+
+.text-field-container{
+    height: 75px;
+    top: 20px;
+}
+
+.text-field {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    max-width: 33em;
+    margin: 0.75em 0.5em 0.25em 0;
+    align-items: center;
+    background-color: #fff;
+}
+.text-field input {
+    border: 0;
+    background: transparent;
+    width: 100%;
+    padding: 1em;
+}
+.text-field input:focus {
+    outline: none;
+}
+.text-field label {
+    position: absolute;
+    background-color: #fff;
+    left: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 85ms ease-in-out;
+    padding: 0;
+    max-width: calc(100% - (1em * 2));
+    color: #025167;
+    font-weight: bold;
+}
+.text-field.has-focus label, .text-field.has-value label {
+    top: 0;
+    left: 0.5em !important;
+    font-size: 1em;
+    padding: 0 4px;
+}
+.text-field.has-focus {
+    color: #081073;
+}
+.text-field.text-field--outlined {
+    border: 2px solid #081073;
+    border-radius: 4px;
+}
+.text-field.text-field--outlined:hover {
+    border-color: black;
+}
+.text-field.text-field--outlined.has-focus {
+    border-color: #081073;
+    box-shadow: 0px 0px 0px 1px #081073;
+}
+
+/*.col-md-5{
+    box-shadow: 0 0 0 3px black;
+}
+
+.col-md-6{
+    box-shadow: 0 0 0 3px black;
+}
+
+.col-md-1{
+    box-shadow: 0 0 0 3px black;
+}*/
+
 
 

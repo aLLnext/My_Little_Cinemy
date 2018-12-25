@@ -32,7 +32,7 @@
     <div class="LOGO">
         <p>НАШ КИНО ТЕАТР</p>
     </div>
-    <a href="#" id="city">ВЛАДИВОСТОК</a>
+    <a href="#" id="tab_name">ПРОФИЛЬ</a>
     <div class="row">
         <div class="col-6 btn_group_menu">
             <a href="greeting.mustache" class="buttonAFISHA">КИНОАФИША</a>
@@ -54,19 +54,40 @@
 
     <div class="desktop_info">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-4 col-md-5">
                 <p class="MyHistory">Мои сеансы</p>
             </div>
-            <div class="col-md-1">
+            <div class="col-lg-2 col-md-1">
                 <hr id="vertical_line">
             </div>
-            <div class="col-md-5">
+            <div class="col-lg-6 col-md-6">
                 <p class="PersonalInfo">Персональная информация</p>
+
+                <div class="text-field-container">
+                    <div class="text-field text-field--outlined">
+                        <input id="name" type="text"/>
+                        <label for="name">имя</label>
+                    </div>
+                </div>
+
+                <div class="text-field-container">
+                    <div class="text-field text-field--outlined">
+                        <input id="email" type="text"/>
+                        <label for="email">email</label>
+                    </div>
+                </div>
+
+                <div class="text-field-container">
+                    <div class="text-field text-field--outlined">
+                        <input id="phone" type="text"/>
+                        <label for="phone">телефон</label>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 </div>
-
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -84,6 +105,25 @@
         $(this).toggleClass("open");
         $(".main").toggleClass("open");
 
+    });
+
+    $('input').on('focus', function () {
+        $(this).closest('.text-field').addClass('has-focus');
+    });
+
+    $('input').on('blur', function () {
+        $(this).closest('.text-field').removeClass('has-focus');
+    });
+
+    $('input').on('change', function () {
+        $wrapper = $(this).closest('.text-field');
+        $value = $(this).val();
+        console.log($value);
+        if ($value) {
+            $wrapper.addClass('has-value');
+        } else {
+            $wrapper.removeClass('has-value');
+        }
     });
 </script>
 
