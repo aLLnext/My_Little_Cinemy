@@ -1,18 +1,21 @@
 <!DOCTYPE HTML>
-<!-- TODO: Change shortcut icon!!!-->
+<!-- TODO: Change shortcut icon, title!!!-->
 <html>
 <head>
-    <title>My_Little_Cinemy</title>
+    <title>Getting Started: Serving Web Content</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/media.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700&amp;subset=cyrillic,cyrillic-ext"
           rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    
+
+    <!--<p>Hey, {{name}}!</p>!-->
 </head>
+
+
 <body>
 <header>
     <nav>
@@ -24,7 +27,7 @@
                 </div>
             </div>
             <div class="col-4 btn_group_account">
-                <a href="account.mustache" class="profile">ПРОФИЛЬ</a>
+                <a href="account.html" class="profile">ПРОФИЛЬ</a>
             </div>
         </div>
 
@@ -34,24 +37,29 @@
             <a href="#" class="buttonCINEMAS">КИНОТЕТРЫ</a>
         </ul>
     </nav>
+
     <div class="LOGO">
         <p>НАШ КИНО ТЕАТР</p>
     </div>
     <a href="#" id="city">ВЛАДИВОСТОК</a>
     <div class="row">
-        <div class="col-6 btn_group_menu">
+        <div class="col-md-6 col-sm-4 btn_group_menu">
             <a href="#" class="buttonAFISHA">КИНОАФИША</a>
             <a href="#" class="buttonCINEMAS">КИНОТЕТРЫ</a>
         </div>
-        <div class="col-6 btn_group_account">
+        <div class="col-md-6 col-sm-4 btn_group_account">
             <a href="#" class="login">ВОЙТИ</a>
-            <a href="account.mustache" class="profile">ПРОФИЛЬ</a>
+            <a href="account.html" class="profile">ПРОФИЛЬ</a>
         </div>
     </div>
 </header>
 <div class="main">
-
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-2"></div>
+        <p></p>
+    </div>
 </div>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -59,9 +67,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <script>
     $(".navToggle").click(function () {
@@ -71,5 +77,6 @@
     });
 
 </script>
+
 </body>
 </html>

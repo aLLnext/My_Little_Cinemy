@@ -1,3 +1,4 @@
+
 html {
     width: 100%;
     font-family: 'Montserrat', sans-serif;
@@ -136,11 +137,13 @@ header .btn_group_account {
     box-shadow: 0 0 0 3px #FFFFFF;
 }
 
-.btn_group_menu a.buttonAFISHA:hover,.btn_group_menu a.buttonCINEMAS:hover{
+.btn_group_menu a.buttonAFISHA:hover,.btn_group_menu a.buttonCINEMAS:hover,
+.btn_save_account:hover{
     background: #216477;
 }
 
-.btn_group_menu a.buttonAFISHA:active,.btn_group_menu a.buttonCINEMAS:active{
+.btn_group_menu a.buttonAFISHA:active,.btn_group_menu a.buttonCINEMAS:active,
+.btn_save_account:active{
     background: #61B7CF;
 }
 
@@ -226,46 +229,77 @@ header .btn_group_account {
     align-items: center;
     background-color: #fff;
 }
+
 .text-field input {
     border: 0;
     background: transparent;
     width: 100%;
     padding: 1em;
 }
+
 .text-field input:focus {
     outline: none;
 }
+
 .text-field label {
     position: absolute;
-    background-color: #fff;
+    background-color: #FFFFFF;
     left: 1em;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-60%);
     transition: 85ms ease-in-out;
     padding: 0;
     max-width: calc(100% - (1em * 2));
+    border-radius: 10px;
     color: #025167;
     font-weight: bold;
 }
+
 .text-field.has-focus label, .text-field.has-value label {
     top: 0;
     left: 0.5em !important;
     font-size: 1em;
     padding: 0 4px;
 }
+
 .text-field.has-focus {
     color: #081073;
 }
+
 .text-field.text-field--outlined {
     border: 2px solid #081073;
     border-radius: 4px;
 }
+
 .text-field.text-field--outlined:hover {
     border-color: black;
 }
+
 .text-field.text-field--outlined.has-focus {
     border-color: #081073;
     box-shadow: 0px 0px 0px 1px #081073;
+}
+
+.btn_save_account{
+    position: relative;
+    top: 20px;
+    width: 352px;
+    height: 49px;
+    border: 0;
+
+    background: #057D9F;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 18px;
+    text-align: center;
+
+    cursor: pointer;
+    outline: none !important;
+    color: #FFFFFF;
 }
 
 /*.col-md-5{
