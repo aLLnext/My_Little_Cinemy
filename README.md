@@ -1,4 +1,4 @@
-# My_Little_Teamy
+# My_Little_Cinemy
 
 ## About Us
 Course project of the students group B8203b.
