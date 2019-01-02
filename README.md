@@ -4,6 +4,7 @@
 Course project of the students group B8203b.
 Command *My_Little_Teamy*.
 This is a simple web application that performs cinema poster.
+
 ---
 ## Our tools and kits
 ### Front-end tools and kits
