@@ -326,8 +326,18 @@
         display: none;
     }
 
-    .PersonalInfo{
+    .PersonalInfo,  .text-field-container{
         text-align: center;
     }
 
+    .col-md-6 form{
+        position: relative;
+        top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn_save_account{
+        top: 0;
+    }
 }
