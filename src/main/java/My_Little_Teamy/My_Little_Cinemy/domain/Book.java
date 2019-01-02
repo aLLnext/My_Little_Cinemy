@@ -5,14 +5,16 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Data
-@Entity(name = "books")
+@Entity
+@Table(name = "books")
 public class Book {
-
     @Id
     @GeneratedValue
     private long id;
-    @Column(name = "users_id")
-    @ManyToOne(targetEntity = Users.class)
-    private Users user;
+//    private long Users_id;
+
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = User.class)
+    @JoinColumn(name = "Users_id")
+    private User owner;
 
 }
