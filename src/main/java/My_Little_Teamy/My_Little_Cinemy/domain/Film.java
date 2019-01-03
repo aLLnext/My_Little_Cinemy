@@ -3,6 +3,8 @@ package My_Little_Teamy.My_Little_Cinemy.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -20,8 +22,18 @@ public class Film {
     private String mainPhoto;
     private String description;
     @Column(name = "imdb_rate")
-    private double IMDBRate;
+    private Double IMDBRate;
     @Column(name = "kinopoisk_rate")
     private double kinopoiskRate;
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "films_countries",
+            joinColumns = {@JoinColumn(name = "country_id")},
+            inverseJoinColumns = {@JoinColumn(name = "film_id")}
+    )
+    private Set<Country> countries = new HashSet<>();
 
 }
