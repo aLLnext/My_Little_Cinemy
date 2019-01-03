@@ -25,4 +25,9 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, targetEntity = Book.class, mappedBy = "owner")
     private Collection<Book> books;
 
+    @Override
+    public String toString(){
+        return super.toString();
+    }
+
 }

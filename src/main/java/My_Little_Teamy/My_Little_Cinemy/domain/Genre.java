@@ -16,4 +16,9 @@ public class Genre {
     @GeneratedValue
     private long id;
     private String name;
+
+    @Override
+    public String toString(){
+        return super.toString();
+    }
 }

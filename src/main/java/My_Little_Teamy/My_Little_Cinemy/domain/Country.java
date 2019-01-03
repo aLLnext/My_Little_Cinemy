@@ -17,4 +17,8 @@ public class Country {
     @ManyToMany(mappedBy = "countries")
     private Set<Film> films = new HashSet<>();
 
+    public String toString(){
+        return super.toString();
+    }
+
 }

@@ -36,4 +36,9 @@ public class Film {
     )
     private Set<Country> countries = new HashSet<>();
 
+    @Override
+    public String toString(){
+        return super.toString();
+    }
+
 }
