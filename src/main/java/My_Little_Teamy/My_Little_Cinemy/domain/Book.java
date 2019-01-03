@@ -11,7 +11,6 @@ public class Book {
     @Id
     @GeneratedValue
     private long id;
-//    private long Users_id;
 
     @ManyToOne(cascade = CascadeType.ALL, targetEntity = User.class)
     @JoinColumn(name = "Users_id")
