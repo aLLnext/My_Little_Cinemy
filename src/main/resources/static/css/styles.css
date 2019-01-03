@@ -1,9 +1,14 @@
 
 html {
     width: 100%;
+    height: 100%;
     font-family: 'Montserrat', sans-serif;
     background: #FFFFFF;
-    overflow: hidden;
+    overflow-x: hidden;
+}
+
+body{
+    height: 100%;
 }
 
 *,
@@ -37,7 +42,7 @@ header > .LOGO {
     top: 0%;
     bottom: 0%;
 
-    font-family: Montserrat;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -66,7 +71,7 @@ header #city {
     color: #FFFFFF;
 }
 
-nav *{
+nav * {
     display: none;
 }
 
@@ -137,13 +142,13 @@ header .btn_group_account {
     box-shadow: 0 0 0 3px #FFFFFF;
 }
 
-.btn_group_menu a.buttonAFISHA:hover,.btn_group_menu a.buttonCINEMAS:hover,
-.btn_save_account:hover{
+.btn_group_menu a.buttonAFISHA:hover, .btn_group_menu a.buttonCINEMAS:hover,
+.btn_save_account:hover {
     background: #216477;
 }
 
-.btn_group_menu a.buttonAFISHA:active,.btn_group_menu a.buttonCINEMAS:active,
-.btn_save_account:active{
+.btn_group_menu a.buttonAFISHA:active, .btn_group_menu a.buttonCINEMAS:active,
+.btn_save_account:active {
     background: #61B7CF;
 }
 
@@ -158,7 +163,7 @@ header .btn_group_account {
     border-radius: 15px;
 }
 
-.MyHistory{
+.MyHistory {
     position: relative;
     top: 100px;
     height: 164px;
@@ -170,7 +175,7 @@ header .btn_group_account {
     text-align: center;
 }
 
-.PersonalInfo{
+.PersonalInfo {
     position: relative;
     top: 100px;
     height: 164px;
@@ -183,7 +188,7 @@ header .btn_group_account {
     color: #000000;
 }
 
-#vertical_line{
+#vertical_line {
     position: relative;
     width: 1000px;
     border: 1.5px solid rgba(97, 183, 207, 0.6);
@@ -192,7 +197,7 @@ header .btn_group_account {
     transform: rotate(90deg);
 }
 
-#tab_name{
+#tab_name {
     position: absolute;
     width: 149px;
     height: 32px;
@@ -211,11 +216,11 @@ header .btn_group_account {
     outline: none;
 }
 
-.mob_info{
+.mob_info {
     display: none;
 }
 
-.text-field-container{
+.text-field-container {
     height: 75px;
     top: 20px;
 }
@@ -280,7 +285,7 @@ header .btn_group_account {
     box-shadow: 0px 0px 0px 1px #081073;
 }
 
-.btn_save_account{
+.btn_save_account {
     position: relative;
     top: 20px;
     width: 352px;
@@ -301,6 +306,73 @@ header .btn_group_account {
     outline: none !important;
     color: #FFFFFF;
 }
+
+.main_text {
+    position: absolute;
+    width: 296px;
+    height: 68px;
+    left: 253px;
+    top: 152px;
+
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    font-size: 18px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.all_films {
+    position: relative;
+    margin-right: 10%;
+    margin-left: 10%;
+    top: 200px;
+    display: grid;
+    grid-gap: 20px;
+    height: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(326px, 1fr));
+    grid-template-rows: repeat(10, 468px);
+}
+
+.film_lg .pic {
+    height: 70%;
+    width: 100%;
+    object-fit: cover;
+    background: #3D3D3D;
+}
+
+.film_lg .text {
+    height: 30%;
+    width: 100%;
+    background: #C4C4C4;
+}
+
+.film_lg:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+/*footer > .content{
+    box-sizing: border-box;
+    min-height: 100%;
+    padding-bottom: 306px;
+    width: 100%;
+
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+footer  .LOGO{
+    position: relative;
+    width: 143px;
+    height: 139.65px;
+    left: 326px;
+    top: 72.91px;
+
+    background: #025167;
+}*/
+
 
 /*.col-md-5{
     box-shadow: 0 0 0 3px black;

@@ -22,24 +22,44 @@
         top: 27px;
     }
 
-    .PersonalInfo, .MyHistory{
+    .PersonalInfo, .MyHistory {
         font-size: 24px;
     }
 
-    .text-field{
+    .text-field {
         max-width: 22em;
     }
+
+    .main_text {
+        position: absolute;
+        width: 296px;
+        height: 68px;
+        left: 129px;
+        top: 152px;
+
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        font-size: 18px;
+        text-align: center;
+
+        color: #000000;
+    }
+
 }
 
-@media screen and (max-width: 990px){
-    #vertical_line{
+@media screen and (max-width: 990px) {
+    #vertical_line {
         right: 500px;
     }
 }
 
 @media screen and (max-width: 850px) {
-    .login{
+    .login {
         display: none;
+    }
+    .all_films {
+        grid-template-rows: repeat(10, 500px);
     }
 }
 
@@ -322,22 +342,34 @@
         margin: 0;
     }
 
-    #tab_name{
+    #tab_name {
         display: none;
     }
 
-    .PersonalInfo,  .text-field-container{
+    .PersonalInfo, .text-field-container {
         text-align: center;
     }
 
-    .col-md-6 form{
+    .col-md-6 form {
         position: relative;
         top: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .btn_save_account{
+
+    .btn_save_account {
         top: 0;
+    }
+
+    .main_text {
+        margin-right: 15%;
+        margin-left: 10%;
+        left: 0;
+    }
+
+    .all_films {
+        margin-left: 6%;
+        grid-template-rows: repeat(10, 500px);
     }
 }
