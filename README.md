@@ -15,9 +15,15 @@ This is a simple web application that performs cinema poster.
 Our IDE is **IntelliJ IDEA** and our language JAVA version 8 with "*Spring Boot*" framework.
 For link MySQL DataBase we are using *JPA* + *Hibernate* both of which latest version. 
 Also we have [lombok](https://projectlombok.org) plug-in for less words.  
-### To Install LOMBOK
+### To install LOMBOK
 1) Go to File > Settings > Plugins
 2) Click on Browse repositories...
 3) Search for Lombok Plugin
 4) Click on Install plugin
 5) Restart IntelliJ IDEA
+### To install JPA
+1) Go to File > Project Structure > Modules
+2) Click "**+**"
+3) Select JPA 
+4) Set "Default JPA Provider" <_no provider_>
+5) Click _apply_
