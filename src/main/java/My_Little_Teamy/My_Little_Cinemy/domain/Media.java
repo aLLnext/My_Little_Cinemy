@@ -1,7 +1,6 @@
 package My_Little_Teamy.My_Little_Cinemy.domain;
 
 import lombok.Data;
-import org.springframework.data.annotation.TypeAlias;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,11 +9,11 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "genres")
-public class Genre {
+@Table(name = "medias")
+public class Media {
     @Id
     @GeneratedValue
     private long id;
-    private String name;
-
+    private String picture;
+    private long film_id;
 }

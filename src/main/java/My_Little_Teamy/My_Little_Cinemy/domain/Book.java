@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -12,15 +14,9 @@ public class Book {
     @Id
     @GeneratedValue
     private long id;
+    private long user_id;
 
-
-    @ManyToOne(cascade = CascadeType.ALL, targetEntity = User.class)
-    @JoinColumn(name = "Users_id")
-    private User owner;
-
-    @Override
-    public String toString(){
-        return super.toString();
-    }
-
+    @OneToMany(targetEntity = Ticket.class)
+    @JoinColumn(name = "book_id")
+    private Set<Ticket> tickets = new HashSet<>();
 }
