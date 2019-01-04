@@ -74,7 +74,7 @@
         top: 64px;
     }
 
-    .LOGO, .btn_group_menu, .btn_group_account, #city {
+    header .LOGO, .btn_group_menu, .btn_group_account, #city {
         display: none;
     }
 
@@ -85,7 +85,7 @@
         height: 127px;
         left: 32px;
         top: 64px;
-
+        font-family: 'Montserrat', sans-serif;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
@@ -371,5 +371,25 @@
     .all_films {
         margin-left: 6%;
         grid-template-rows: repeat(10, 500px);
+    }
+
+    .footer .LOGO{
+        top: 10%;
+        margin-left: 20%;
+    }
+
+    .first_column > p{
+        margin-left: 20%;
+        top: 10%;
+    }
+
+    .second_column > .sections, .third_column > .sections, .fourth_column > a{
+        top: 5%;
+        margin-left: 20%;
+    }
+
+    .second_column > p, .third_column > a{
+        top: 10%;
+        margin-left: 20%;
     }
 }

@@ -58,6 +58,35 @@
         <p class="main_text">АФИША ВО ВЛАДИВОСТОКЕ</p>
         <div class="all_films"></div>
     </div>
+    <div class="footer">
+        <div class="row">
+            <div class="first_column col-lg-3 col-md-4 col-sm-6">
+                <div class="LOGO">НАШ КИНО ТЕАТР</div>
+                <p>@2018 ourcinema.ru</p>
+            </div>
+            <div class="second_column col-lg-2 col-md-2 col-sm-6">
+                <div class="sections">
+                    <h6>Разделы</h6>
+                    <a href="#">Кинотеатры</a>
+                    <a href="#">Киноафиша</a>
+                    <a href="#">Профиль</a>
+                </div>
+                <p>+79990009900</p>
+            </div>
+            <div class="third_column col-lg-3 col-md-3 col-sm-6">
+                <div class="sections">
+                    <h6>Информация</h6>
+                    <a href="#">Пользовательское соглашение</a>
+                    <a href="#">Вернуть билет</a>
+                </div>
+                <a href="#">bilet@ourcinema.ru</a>
+            </div>
+            <div class="fourth_column col-lg-4 col-md-2 col-sm-6">
+                <a href="#">Правила и условия</a>
+                <a href="#">Реклама</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -76,31 +105,43 @@
         $(".main").toggleClass("open");
     });
     var elems = [];
-    {{#films_titles}}
+        {{#films_titles}}
         var text = document.createElement('div');
         text.className = "text";
         text.innerHTML = "{{.}}";
         var obj = {};
         obj.text = text;
         elems.push(obj);
-    {{/films_titles}}
+        {{/films_titles}}
     var index = 0;
 
-    {{#films_pic}}
+        {{#films_pic}}
         var pic = document.createElement('img');
         pic.className = "pic";
-        pic.src = "{{.}}"
+        pic.src = "{{.}}";
         elems[index].pic = pic;
         index = index + 1;
-    {{/films_pic}}
+        {{/films_pic}}
 
-    for (let i = 0; i < elems.length; i++){
+    for (let i = 0; i < elems.length; i++) {
         var elem = document.createElement('div');
         elem.className = "film_lg";
         elem.appendChild(elems[i].pic);
         elem.appendChild(elems[i].text);
         $(".all_films").append(elem)
     }
+
+    function checkSize(current_size) {
+        if (current_size.matches) {
+            $(".main").css("height", (elems.length + 1) * 500)
+        } else{
+            $(".main").css("height", ((elems.length + 1) / 1.5) * 468)
+        }
+
+    }
+    var size = window.matchMedia("(max-width: 855px)");
+    checkSize(size);
+    size.addListener(checkSize)
 </script>
 
 
