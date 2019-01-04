@@ -11,8 +11,6 @@
           rel="stylesheet">
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-
-    <!--<p>Hey, {{name}}!</p>!-->
 </head>
 
 
@@ -28,7 +26,7 @@
                     </div>
                 </div>
                 <div class="col-5 btn_group_account">
-                    <a href="account.html" class="profile">ПРОФИЛЬ</a>
+                    <a href="account" class="profile">ПРОФИЛЬ</a>
                 </div>
             </div>
 
@@ -36,6 +34,7 @@
                 <div class="LOGO">НАШ КИНО ТЕАТР</div>
                 <a href="#" class="buttonAFISHA">КИНОАФИША</a>
                 <a href="#" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
+                <p>Hey, {{title}}</p>!
             </ul>
         </nav>
 
@@ -50,39 +49,14 @@
             </div>
             <div class="col-md-6 col-sm-4 btn_group_account">
                 <a href="#" class="login">ВОЙТИ</a>
-                <a href="account.html" class="profile">ПРОФИЛЬ</a>
+                <a href="account" class="profile">ПРОФИЛЬ</a>
             </div>
         </div>
     </header>
     <div class="main">
         <div class="col-lg-3 col-md-3 col-sm-2"></div>
         <p class="main_text">АФИША ВО ВЛАДИВОСТОКЕ</p>
-        <div class="all_films">
-            <div class="film_lg">
-                <div class="pic">А ТУТ КАРТИНКА</div>
-                <div class="text">ТУТ БУДЕТ ТЕКСТ</div>
-            </div>
-            <div class="film_lg">
-                <div class="pic"></div>
-                <div class="text"></div>
-            </div>
-            <div class="film_lg">
-                <div class="pic"></div>
-                <div class="text"></div>
-            </div>
-            <div class="film_lg">
-                <div class="pic"></div>
-                <div class="text"></div>
-            </div>
-            <div class="film_lg">
-                <div class="pic"></div>
-                <div class="text"></div>
-            </div>
-            <div class="film_lg">
-                <div class="pic"></div>
-                <div class="text"></div>
-            </div>
-        </div>
+        <div class="all_films"></div>
     </div>
 </div>
 
@@ -94,14 +68,41 @@
         crossorigin="anonymous"></script>
 <script src="js/bootstrap.min.js"></script>
 
+
 <script>
     $(".navToggle").click(function () {
         $(this).toggleClass("open");
         $("nav").toggleClass("open");
         $(".main").toggleClass("open");
     });
+    var elems = [];
+    {{#films_titles}}
+        var text = document.createElement('div');
+        text.className = "text";
+        text.innerHTML = "{{.}}";
+        var obj = {};
+        obj.text = text;
+        elems.push(obj);
+    {{/films_titles}}
+    var index = 0;
 
+    {{#films_pic}}
+        var pic = document.createElement('img');
+        pic.className = "pic";
+        pic.src = "{{.}}"
+        elems[index].pic = pic;
+        index = index + 1;
+    {{/films_pic}}
+
+    for (let i = 0; i < elems.length; i++){
+        var elem = document.createElement('div');
+        elem.className = "film_lg";
+        elem.appendChild(elems[i].pic);
+        elem.appendChild(elems[i].text);
+        $(".all_films").append(elem)
+    }
 </script>
+
 
 </body>
 </html>

@@ -10,5 +10,7 @@ public interface FilmRepo extends CrudRepository<Film, Long> {
     @Query(value = "SELECT title FROM films", nativeQuery = true)
     Iterable<String> getFilmsTitles();
 
-    Iterable<String> f
+    @Query(value = "SELECT main_photo FROM films", nativeQuery = true)
+    Iterable<String> getFilmsImages();
+    //Iterable<String> f;
 }

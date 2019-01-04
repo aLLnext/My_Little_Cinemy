@@ -338,8 +338,7 @@ header .btn_group_account {
 .film_lg .pic {
     height: 70%;
     width: 100%;
-    object-fit: cover;
-    background: #3D3D3D;
+    object-fit: fill;
 }
 
 .film_lg .text {
