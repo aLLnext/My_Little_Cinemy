@@ -170,7 +170,7 @@
 .cd-form input[type=submit] {
     padding: 16px 0;
     cursor: pointer;
-    background: #2f889a;
+    background: #057D9F;
     color: #FFF;
     font-weight: bold;
     border: none;
@@ -181,7 +181,7 @@
     appearance: none;
 }
 .no-touch .cd-form input[type=submit]:hover, .no-touch .cd-form input[type=submit]:focus {
-    background: #3599ae;
+    background: #216477;
     outline: none;
 }
 .cd-form .hide-password {
