@@ -19,6 +19,17 @@
                 $wrapper.removeClass('has-value');
             }
         });
+        /*TODO чекать размер на основе количества сеансов
+        function checkSize(current_size) {
+            if (current_size.matches) {
+                $(".main").css("height", (elems.length + 1) * 500 + 206)
+            } else {
+                $(".main").css("height", ((elems.length + 1) / 1.5) * 468 + 206)
+            }}
+
+        var size = window.matchMedia("(max-width: 855px)");
+        checkSize(size);
+        size.addListener(checkSize);*/
     </script>
 </#assign>
 
