@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -22,12 +24,12 @@ public class User {
     private String phoneNumber;
 
 
-    @OneToMany(cascade = CascadeType.ALL, targetEntity = Book.class, mappedBy = "owner")
-    private Collection<Book> books;
+    @OneToMany(targetEntity = Book.class)
+    @JoinColumn(name = "user_id")
+    private Set<Book> books = new HashSet<>();
 
-    @Override
-    public String toString(){
-        return super.toString();
-    }
+    @OneToMany(targetEntity = Review.class)
+    @JoinColumn(name = "user_id")
+    private Set<Review> reviews = new HashSet<>();
 
 }

@@ -10,7 +10,12 @@ This is a simple web application that performs cinema poster.
 ---
 ## Our tools and kits
 ### Front-end tools and kits
+Use CSS, HTML, JS, JQuery, Bootstrap 4
 
+USE template engine:\
+Mustache → FreeMaker
+
+Try in adaptivity with rows and flexboxes and other crutch features
 ### Back-end tools and kits
 Our IDE is **IntelliJ IDEA** and our language JAVA version 8 with "*Spring Boot*" framework.
 For link MySQL DataBase we are using *JPA* + *Hibernate* both of which latest version. 
@@ -27,6 +32,12 @@ Also we have [lombok](https://projectlombok.org) plug-in for less words.
 3) Select JPA 
 4) Set "Default JPA Provider" <_no provider_>
 5) Click _apply_
+
+### Add this in "application.properties'
+```
+spring.freemarker.expose-request-attributes=true
+```
+=======
 ### To see your database in Idea
 1) Click vertical button **Database** in the right side
 2) Click "**+**"

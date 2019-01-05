@@ -3,6 +3,8 @@ package My_Little_Teamy.My_Little_Cinemy.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Entity
@@ -18,4 +20,12 @@ public class Cinema {
     private String icon;
     @Column(name = "email")
     private String eMail;
+
+    @OneToMany(targetEntity = Hall.class)
+    @JoinColumn(name = "cinema_id")
+    private Set<Hall> halls = new HashSet<>();
+
+    @OneToMany(targetEntity = Session.class)
+    @JoinColumn(name = "cinema_id")
+    private Set<Session> sessions = new HashSet<>();
 }

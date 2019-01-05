@@ -26,19 +26,17 @@ public class Film {
     @Column(name = "kinopoisk_rate")
     private double kinopoiskRate;
 
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    @JoinTable(name = "films_countries",
-            joinColumns = {@JoinColumn(name = "country_id")},
-            inverseJoinColumns = {@JoinColumn(name = "film_id")}
-    )
-    private Set<Country> countries = new HashSet<>();
+    @OneToMany(targetEntity = Media.class)
+    @JoinColumn(name = "film_id")
+    private Set<Media> medias = new HashSet<>();
 
-    @Override
-    public String toString(){
-        return super.toString();
-    }
+    @OneToMany(targetEntity = Review.class)
+    @JoinColumn(name = "film_id")
+    private Set<Review> reviews = new HashSet<>();
+
+    @OneToMany(targetEntity = Session.class)
+    @JoinColumn(name = "film_id")
+    private Set<Session> sessions = new HashSet<>();
+
 
 }
