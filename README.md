@@ -37,7 +37,6 @@ Also we have [lombok](https://projectlombok.org) plug-in for less words.
 ```
 spring.freemarker.expose-request-attributes=true
 ```
-=======
 ### To see your database in Idea
 1) Click vertical button **Database** in the right side
 2) Click "**+**"
