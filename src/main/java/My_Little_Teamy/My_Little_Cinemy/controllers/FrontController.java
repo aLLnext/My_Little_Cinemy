@@ -1,6 +1,5 @@
-package My_Little_Teamy.My_Little_Cinemy;
+package My_Little_Teamy.My_Little_Cinemy.controllers;
 
-import My_Little_Teamy.My_Little_Cinemy.domain.User;
 import My_Little_Teamy.My_Little_Cinemy.repos.BookRepo;
 import My_Little_Teamy.My_Little_Cinemy.repos.FilmRepo;
 import My_Little_Teamy.My_Little_Cinemy.repos.UserRepo;
@@ -24,9 +23,10 @@ public class FrontController {
     @Autowired
     private FilmRepo films;
 
-    @RequestMapping(value = {"/index", "", "/"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/index", "", "/", "/index#registration"}, method = RequestMethod.GET)
     public ModelAndView request_index(HttpServletRequest request) {
         ModelAndView result = new ModelAndView();
+        result.addObject("signedIn", false);
         result.addObject("films_titles", films.getFilmsTitles());
         result.addObject("films_pic", films.getFilmsImages());
         result.setViewName("index");

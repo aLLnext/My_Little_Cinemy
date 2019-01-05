@@ -1,4 +1,4 @@
-package My_Little_Teamy.My_Little_Cinemy.domain;
+package My_Little_Teamy.My_Little_Cinemy.domains;
 
 import lombok.Data;
 
@@ -9,8 +9,8 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name = "countries")
-public class Country {
+@Table(name = "genres")
+public class Genre {
     @Id
     @GeneratedValue
     private long id;

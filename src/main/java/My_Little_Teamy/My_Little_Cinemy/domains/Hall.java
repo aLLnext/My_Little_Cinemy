@@ -1,4 +1,4 @@
-package My_Little_Teamy.My_Little_Cinemy.domain;
+package My_Little_Teamy.My_Little_Cinemy.domains;
 
 import lombok.Data;
 

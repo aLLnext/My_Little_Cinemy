@@ -1,4 +1,4 @@
-package My_Little_Teamy.My_Little_Cinemy.domain;
+package My_Little_Teamy.My_Little_Cinemy.domains;
 
 import My_Little_Teamy.My_Little_Cinemy.types.Group;
 import lombok.Data;
@@ -9,8 +9,12 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "users", uniqueConstraints = @UniqueConstraint(
-        columnNames = {"e_mail", "phone_number"}))
+@Table(name = "users", uniqueConstraints = {
+        @UniqueConstraint(
+                columnNames = {"e_mail", "phone_number"}),
+        @UniqueConstraint(
+                columnNames = {"name", "password"})
+})
 public class User {
     @Id
     @GeneratedValue
@@ -23,6 +27,7 @@ public class User {
     private String eMail;
     @Column(name = "phone_number")
     private String phoneNumber;
+    private String password;
 
 
     @OneToMany(targetEntity = Book.class)
