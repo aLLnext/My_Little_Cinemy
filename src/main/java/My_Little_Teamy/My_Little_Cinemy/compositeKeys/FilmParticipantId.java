@@ -5,7 +5,6 @@ import My_Little_Teamy.My_Little_Cinemy.domain.Participant;
 import lombok.Data;
 
 import javax.persistence.Embeddable;
-import javax.persistence.EmbeddedId;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;

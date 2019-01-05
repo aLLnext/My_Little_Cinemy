@@ -1,6 +1,5 @@
 package My_Little_Teamy.My_Little_Cinemy.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;

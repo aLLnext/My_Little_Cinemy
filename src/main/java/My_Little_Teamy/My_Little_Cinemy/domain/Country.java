@@ -1,10 +1,11 @@
 package My_Little_Teamy.My_Little_Cinemy.domain;
 
-import lombok.*;
+import lombok.Data;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Entity

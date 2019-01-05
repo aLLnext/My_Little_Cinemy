@@ -4,7 +4,9 @@ import My_Little_Teamy.My_Little_Cinemy.domain.Film;
 import My_Little_Teamy.My_Little_Cinemy.domain.Genre;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Data

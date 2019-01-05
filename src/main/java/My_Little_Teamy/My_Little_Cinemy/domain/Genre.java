@@ -1,7 +1,6 @@
 package My_Little_Teamy.My_Little_Cinemy.domain;
 
 import lombok.Data;
-import org.springframework.data.annotation.TypeAlias;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
