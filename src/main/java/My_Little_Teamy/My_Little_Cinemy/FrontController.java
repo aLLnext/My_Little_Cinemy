@@ -31,18 +31,17 @@ public class FrontController {
     private BookRepo bookRepo;
     @Autowired
     private FilmRepo films;
-    public static final String POST_REQUEST_INDEX_NAME = "index";
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public ModelAndView post_request_index(HttpServletRequest request) {
+    @RequestMapping(value = {"/index", "", "/"}, method = RequestMethod.GET)
+    public ModelAndView request_index(HttpServletRequest request) {
         ModelAndView result = new ModelAndView();
-        result.addObject("title", "ВАХОБ ЗОЕБАЛ");
         result.addObject("films_titles", films.getFilmsTitles());
         result.addObject("films_pic", films.getFilmsImages());
+        result.setViewName("index");
         return result;
     }
 
-    @RequestMapping(value = "/error")
+    /*@RequestMapping(value = "/error")
     public String handleError(HttpServletRequest request) {
         Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 
@@ -56,7 +55,7 @@ public class FrontController {
             }
         }
         return "error";
-    }
+    }*/
 
     /*public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name,
                            Map<String, Object> model) {

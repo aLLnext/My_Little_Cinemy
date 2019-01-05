@@ -1,26 +1,27 @@
 <#import "parts/common.ftl" as common>
+<#import "parts/auth.ftl" as auth>
 
 <#assign indexScripts>
-    <script>
+<script>
     var elems = [];
     <#list films_titles as film_title>
-        var text = document.createElement('div');
-        text.className = "text";
-        text.innerHTML = "${film_title}";
-        var obj = {};
-        obj.text = text;
-        elems.push(obj);
+    var text = document.createElement('div');
+    text.className = "text";
+    text.innerHTML = "${film_title}";
+    var obj = {};
+    obj.text = text;
+    elems.push(obj);
     <#else>
-        alert("ПОРА ЗАНЯТЬСЯ ДЕЛОМ, А НЕ ФИЛЬМЫ СМОТРЕТЬ!");
+    alert("ПОРА ЗАНЯТЬСЯ ДЕЛОМ, А НЕ ФИЛЬМЫ СМОТРЕТЬ!");
     </#list>
     var index = 0;
 
     <#list films_pic as film_pic>
-        var pic = document.createElement('img');
-        pic.className = "pic";
-        pic.src = "${film_pic}";
-        elems[index].pic = pic;
-        index = index + 1;
+    var pic = document.createElement('img');
+    pic.className = "pic";
+    pic.src = "${film_pic}";
+    elems[index].pic = pic;
+    index = index + 1;
     </#list>
 
     for (let i = 0; i < elems.length; i++) {
@@ -32,16 +33,17 @@
     }
 
     function checkSize(current_size) {
-    if (current_size.matches) {
-        $(".main").css("height", (elems.length + 1) * 500 + 206)
-    } else {
-        $(".main").css("height", ((elems.length + 1) / 1.5) * 468 + 206)
-    }}
+        if (current_size.matches) {
+            $(".main").css("height", (elems.length + 1) * 500 + 206)
+        } else {
+            $(".main").css("height", ((elems.length + 1) / 1.5) * 468 + 206)
+        }
+    }
 
     var size = window.matchMedia("(max-width: 855px)");
     checkSize(size);
     size.addListener(checkSize);
-    </script>
+</script>
 </#assign>
 
 <@common.page scripts=indexScripts>
@@ -76,7 +78,7 @@
                 <a href="#" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
             </div>
             <div class="col-md-6 col-sm-4 btn_group_account">
-                <a href="#" class="login">ВОЙТИ</a>
+                <a href="#0" class="auth_part login">ВОЙТИ</a>
                 <a href="account" class="profile">ПРОФИЛЬ</a>
             </div>
         </div>
@@ -86,4 +88,5 @@
         <p class="main_text">АФИША ВО ВЛАДИВОСТОКЕ</p>
         <div class="all_films"></div>
     </div>
+    <@auth.auth></@auth.auth>
 </@common.page>
