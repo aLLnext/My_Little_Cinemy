@@ -3,7 +3,7 @@
 ## About Us
 Course project of the students group B8203b.
 
-Command *My_Little_Teamy*.
+Team *My_Little_Teamy*.
 
 This is a simple web application that performs cinema poster.
 
@@ -13,7 +13,7 @@ This is a simple web application that performs cinema poster.
 Use CSS, HTML, JS, JQuery, Bootstrap 4
 
 USE template engine:\
-Mustache → FreeMaker
+Mustache → FreeMarker
 
 Try in adaptivity with rows and flexboxes and other crutch features
 ### Back-end tools and kits
