@@ -37,3 +37,12 @@ Also we have [lombok](https://projectlombok.org) plug-in for less words.
 ```
 spring.freemarker.expose-request-attributes=true
 ```
+=======
+### To see your database in Idea
+1) Click vertical button **Database** in the right side
+2) Click "**+**"
+3) Select your database driver. In our case it's MySQL
+4) Fill in appropriate fields
+5) Click "**Apply**"
+6) Click "Schemas"
+7) Select your schema
