@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="col-5 btn_group_account">
-                    <a href="account" class="profile">ПРОФИЛЬ</a>
+                <#if signedIn == true><a href="account" class="profile">ПРОФИЛЬ</a></#if>
                 </div>
             </div>
 
@@ -78,8 +78,8 @@
                 <a href="#" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
             </div>
             <div class="col-md-6 col-sm-4 btn_group_account">
-                <a href="#0" class="auth_part login">ВОЙТИ</a>
-                <a href="account" class="profile">ПРОФИЛЬ</a>
+                <a href="#0" id = "registration" class="auth_part login">ВОЙТИ</a>
+                <#if signedIn == true><a href="account" class="profile">ПРОФИЛЬ</a></#if>
             </div>
         </div>
     </header>

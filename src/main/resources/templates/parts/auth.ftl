@@ -2,7 +2,7 @@
     <div class="cd-user-modal"> <!-- все формы на фоне затемнения-->
         <div class="cd-user-modal-container"> <!-- основной контейнер -->
             <ul class="cd-switcher">
-                <li><a href="#0">Вход</a></li>
+                <li><a id = "registration" href="#0">Вход</a></li>
                 <li><a href="#0">Регистрация</a></li>
             </ul>
             <div id="cd-login"> <!-- форма входа -->
@@ -27,6 +27,7 @@
                     <p class="fieldset">
                         <input class="full-width" type="submit" value="Войти">
                     </p>
+                    <input type="hidden" name="_csrf" value="${_csrf.token}"><#---------------------------------------->
                 </form>
                 <p class="cd-form-bottom-message"><a href="#0">Забыли свой пароль?</a></p>
                 <!-- <a href="#0" class="cd-close-form">Close</a> -->
@@ -59,6 +60,7 @@
                     <p class="fieldset">
                         <input class="full-width has-padding" type="submit" value="Создать аккаунт">
                     </p>
+                    <input type="hidden" name="_csrf" value="${_csrf.token}"><#---------------------------------------->
                 </form>
                 <!-- <a href="#0" class="cd-close-form">Закрыть</a> -->
             </div> <!-- cd-signup -->
@@ -75,6 +77,7 @@
                     <p class="fieldset">
                         <input class="full-width has-padding" type="submit" value="Восстановить пароль">
                     </p>
+                    <input type="hidden" name="_csrf" value="${_csrf.token}"><#---------------------------------------->
                 </form>
                 <p class="cd-form-bottom-message"><a href="#0">Вернуться к входу</a></p>
             </div> <!-- cd-reset-password -->
