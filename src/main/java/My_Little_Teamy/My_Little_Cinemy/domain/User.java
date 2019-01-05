@@ -1,9 +1,9 @@
 package My_Little_Teamy.My_Little_Cinemy.domain;
 
+import My_Little_Teamy.My_Little_Cinemy.types.Group;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,7 +17,8 @@ public class User {
     private long id;
 
     private String name;
-    private String group;
+    @Enumerated(EnumType.STRING)
+    private Group group;
     @Column(name = "e_mail")
     private String eMail;
     @Column(name = "phone_number")
