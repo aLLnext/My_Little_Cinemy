@@ -69,29 +69,27 @@
             <div class="row">
                 <div class="col-md-6">
                     <p class="PersonalInfo">Персональная информация</p>
-
-                    <div class="text-field-container">
-                        <div class="text-field text-field--outlined">
-                            <input id="name_mob" type="text"/>
-                            <label for="name_mob">имя</label>
+                    <form class="info">
+                        <div class="text-field-container">
+                            <div class="text-field text-field--outlined">
+                                <input id="name_mob" type="text"/>
+                                <label for="name_mob">имя</label>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="text-field-container">
-                        <div class="text-field text-field--outlined">
-                            <input id="email_mob" type="text"/>
-                            <label for="email_mob">email</label>
+                        <div class="text-field-container">
+                            <div class="text-field text-field--outlined">
+                                <input id="email_mob" type="text"/>
+                                <label for="email_mob">email</label>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="text-field-container">
-                        <div class="text-field text-field--outlined">
-                            <input id="phone_mob" type="text"/>
-                            <label for="phone_mob">телефон</label>
+                        <div class="text-field-container">
+                            <div class="text-field text-field--outlined">
+                                <input id="phone_mob" type="text"/>
+                                <label for="phone_mob">телефон</label>
+                            </div>
                         </div>
-                    </div>
-
-                    <form>
                         <button type="submit" class="btn_save_account">
                             СОХРАНИТЬ
                         </button>
@@ -114,29 +112,27 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <p class="PersonalInfo">Персональная информация</p>
-
-                    <div class="text-field-container">
-                        <div class="text-field text-field--outlined">
-                            <input id="name" type="text"/>
-                            <label for="name">имя</label>
+                    <form class="info">
+                        <div class="text-field-container">
+                            <div class="text-field text-field--outlined">
+                                <input id="name" type="text"/>
+                                <label for="name">имя</label>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="text-field-container">
-                        <div class="text-field text-field--outlined">
-                            <input id="email" type="text"/>
-                            <label for="email">email</label>
+                        <div class="text-field-container">
+                            <div class="text-field text-field--outlined">
+                                <input id="email" type="text"/>
+                                <label for="email">email</label>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="text-field-container">
-                        <div class="text-field text-field--outlined">
-                            <input id="phone" type="text"/>
-                            <label for="phone">телефон</label>
+                        <div class="text-field-container">
+                            <div class="text-field text-field--outlined">
+                                <input id="phone" type="text"/>
+                                <label for="phone">телефон</label>
+                            </div>
                         </div>
-                    </div>
-
-                    <form>
                         <button type="submit" class="btn_save_account">
                             СОХРАНИТЬ
                         </button>
