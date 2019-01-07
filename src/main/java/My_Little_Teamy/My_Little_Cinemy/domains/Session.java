@@ -11,10 +11,10 @@ import java.util.Set;
 @Table(name = "sessions")
 public class Session {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private java.sql.Date date;
-    private java.sql.Time time;
+    private java.sql.Date session_date;
+    private java.sql.Time session_time;
     @Column(name = "film_id")
     private long filmId;
     @Column(name = "cinema_id")

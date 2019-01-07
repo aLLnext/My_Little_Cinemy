@@ -11,7 +11,7 @@ import java.util.Set;
 @Table(name = "cinemas")
 public class Cinema {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     @Column(unique = true)

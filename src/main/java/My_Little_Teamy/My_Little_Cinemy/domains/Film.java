@@ -12,7 +12,7 @@ import java.util.Set;
         columnNames = {"title", "date_release"}))
 public class Film {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
     private java.sql.Date date_release;

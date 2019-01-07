@@ -9,9 +9,10 @@ import javax.persistence.*;
 @Table(name = "reviews")
 public class Review {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String text;
+    @Column(name = "review_text")
+    private String reviewText;
     @Column(name = "publication_date")
     private java.sql.Date publicationDate;
     @Column(name = "film_id")

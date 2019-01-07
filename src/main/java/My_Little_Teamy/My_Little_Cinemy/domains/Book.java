@@ -11,9 +11,10 @@ import java.util.Set;
 @Table(name = "books")
 public class Book {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private long user_id;
+    @Column(name = "user_id")
+    private long userId;
 
     @OneToMany(targetEntity = Ticket.class)
     @JoinColumn(name = "book_id")

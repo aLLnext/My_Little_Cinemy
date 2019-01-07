@@ -11,13 +11,13 @@ import java.util.Set;
 @Table(name = "halls")
 public class Hall {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "cinema_id")
     private long cinemaId;
     private String name;
-    private long rows;
-    private long columns;
+    private long line;
+    private long place;
 
     @OneToMany(targetEntity = Session.class)
     @JoinColumn(name = "hall_id")

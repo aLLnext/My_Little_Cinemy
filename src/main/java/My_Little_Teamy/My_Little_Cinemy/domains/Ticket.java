@@ -9,12 +9,12 @@ import javax.persistence.*;
 @Table(name = "tickets")
 public class Ticket {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String status;
     @Column(name = "price_rub")
     private long priceRub;
-    private long row;
+    private long line;
     private long place;
     @Column(name = "session_id")
     private long sessionId;
