@@ -1,9 +1,6 @@
 package My_Little_Teamy.My_Little_Cinemy.domains;
 
-import My_Little_Teamy.My_Little_Cinemy.types.Group;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.HashSet;
