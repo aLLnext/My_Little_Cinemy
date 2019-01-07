@@ -17,7 +17,7 @@
                         <label class="image-replace cd-password" for="signin-password">Пароль</label>
                         <input class="full-width has-padding has-border" id="signin-password" type="password"
                                placeholder="Пароль" name="password">
-                        <a href="#0" class="hide-password">Скрыть</a>
+                        <a href="#0" class="hide-password">Показать</a>
                         <span class="cd-error-message">Здесь сообщение об ошибке!</span>
                     </p>
                     <p class="fieldset">
@@ -47,9 +47,9 @@
                     </p>
                     <p class="fieldset">
                         <label class="image-replace cd-password" for="signup-password">Пароль</label>
-                        <input class="full-width has-padding has-border" id="signup-password" type="text"
+                        <input class="full-width has-padding has-border" id="signup-password" type="password"
                                placeholder="Пароль" name="password">
-                        <a href="#0" class="hide-password">Скрыть</a>
+                        <a href="#0" class="hide-password">Показать</a>
                         <#--<span class="cd-error-message">Здесь сообщение об ошибке!</span>-->
                     </p>
                     <p class="fieldset">

@@ -57,7 +57,10 @@
                     </div>
                 </div>
                 <div class="col-5 btn_group_account">
-                <#if signedIn == true><a href="account" class="profile">ПРОФИЛЬ</a></#if>
+                <#if signedIn??>
+                    <#if signedIn == true><a href="account" class="profile">ПРОФИЛЬ</a>
+                    <#else><a href="#0" id = "registration" class="auth_part login">ВОЙТИ</a></#if>
+                </#if>
                 </div>
             </div>
 
@@ -65,7 +68,12 @@
                 <div class="LOGO">НАШ КИНО ТЕАТР</div>
                 <a href="#" class="buttonAFISHA">КИНОАФИША</a>
                 <a href="#" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
-            </ul>
+                <#if signedIn??>
+                    <#if signedIn == true>
+                        <a href="#0" id = "logout" class="auth_part login">ВЫЙТИ</a>
+                    </#if>
+                </#if>
+                </ul>
         </nav>
 
         <div class="LOGO">
@@ -78,8 +86,14 @@
                 <a href="#" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
             </div>
             <div class="col-md-6 col-sm-4 btn_group_account">
-                <a href="#0" id = "registration" class="auth_part login">ВОЙТИ</a>
-                <#if signedIn == true><a href="account" class="profile">ПРОФИЛЬ</a></#if>
+
+                <#if signedIn??>
+                    <#if signedIn == true>
+                        <a href="#0" id = "registration" class="auth_part login">ВЫЙТИ</a>
+                        <a href="account" class="profile">ПРОФИЛЬ</a>
+                    <#else><a href="#0" id = "logout" class="auth_part login">ВОЙТИ</a>
+                    </#if>
+                </#if>
             </div>
         </div>
     </header>

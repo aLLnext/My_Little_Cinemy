@@ -131,7 +131,6 @@
         text-decoration: none;
         user-select: none;
         outline: none;
-
     }
 
     nav a.buttonCINEMAS {
@@ -152,6 +151,23 @@
     }
 
     .btn_group_account a.profile {
+        text-decoration: none;
+        user-select: none;
+        outline: none;
+        padding: .6em;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        font-size: 18px;
+
+        box-sizing: border-box;
+        border-radius: 32px;
+        left: 100px;
+        color: #FFFFFF;
+    }
+
+    .btn_group_account a.login{
+        display: block;
         text-decoration: none;
         user-select: none;
         outline: none;
@@ -347,6 +363,7 @@
     }
 
     .PersonalInfo, .text-field-container {
+        width: 100%;
         text-align: center;
     }
 
@@ -359,7 +376,7 @@
     }
 
     .btn_save_account {
-        top: 0;
+        top: 1px;
     }
 
     .main_text {

@@ -5,6 +5,7 @@ import My_Little_Teamy.My_Little_Cinemy.repos.FilmRepo;
 import My_Little_Teamy.My_Little_Cinemy.repos.UserRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,7 +23,6 @@ public class FrontController {
     private FilmRepo filmRepo;
     @Autowired
     private UserRepo userRepo;
-
 
     @RequestMapping(value = {"/index", "", "/"}, method = RequestMethod.GET)
     public ModelAndView request_index(HttpServletRequest request, HttpSession session) {
@@ -95,7 +95,7 @@ public class FrontController {
         model.put("name", user.getName());
         model.put("email", user.getEMail());
         model.put("phoneNumber", user.getPhoneNumber());
+        model.put("signedIn", true);
         return "account";
     }
-
 }

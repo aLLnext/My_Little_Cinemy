@@ -12,7 +12,6 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700&amp;subset=cyrillic,cyrillic-ext"
           rel="stylesheet">
-    <script src="js/modernizr.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
@@ -28,7 +27,7 @@
                 <h6>Разделы</h6>
                 <a href="#">Кинотеатры</a>
                 <a href="#">Киноафиша</a>
-                <#if signedIn == true><a href="#">Профиль</a></#if>
+                <#if signedIn == true><a href="#">Профиль</a><#else> </#if>
             </div>
             <p>+79990009900</p>
         </div>

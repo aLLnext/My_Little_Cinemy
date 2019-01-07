@@ -69,24 +69,24 @@
             <div class="row">
                 <div class="col-md-6">
                     <p class="PersonalInfo">Персональная информация</p>
-                    <form class="info">
+                    <form class="flex-column">
                         <div class="text-field-container">
-                            <div class="text-field text-field--outlined">
-                                <input id="name_mob" type="text"/>
+                            <div class="text-field text-field--outlined <#if name??>has-value</#if>">
+                                <input id="name_mob" type="text" value="${name}"/>
                                 <label for="name_mob">имя</label>
                             </div>
                         </div>
 
                         <div class="text-field-container">
-                            <div class="text-field text-field--outlined">
-                                <input id="email_mob" type="text"/>
-                                <label for="email_mob">email</label>
+                            <div class="text-field text-field--outlined <#if email??>has-value</#if>">
+                                <input id="email_mob" type="text" value="<#if email??>${email}<#else>No email</#if>"/>
+                                <label for="email_mob">почта</label>
                             </div>
                         </div>
 
                         <div class="text-field-container">
-                            <div class="text-field text-field--outlined">
-                                <input id="phone_mob" type="text"/>
+                            <div class="text-field text-field--outlined has-value">
+                                <input id="phone_mob" type="text" value="<#if phoneNumber??>${phoneNumber}<#else>No phone</#if>"/>
                                 <label for="phone_mob">телефон</label>
                             </div>
                         </div>
@@ -114,23 +114,23 @@
                     <p class="PersonalInfo">Персональная информация</p>
                     <form class="info">
                         <div class="text-field-container">
-                            <div class="text-field text-field--outlined">
-                                <input id="name" type="text"/>
-                                <label for="name">${name}</label>
+                            <div class="text-field text-field--outlined <#if name??>has-value</#if>">
+                                <input id="name" type="text" value="${name}"/>
+                                <label for="name">имя</label>
                             </div>
                         </div>
 
                         <div class="text-field-container">
-                            <div class="text-field text-field--outlined">
-                                <input id="email" type="text"/>
-                                <label for="email">${email}</label>
+                            <div class="text-field text-field--outlined <#if email??>has-value</#if>">
+                                <input id="email" type="text" value="<#if email??>${email}<#else>No email</#if>"/>
+                                <label for="email">почта</label>
                             </div>
                         </div>
 
                         <div class="text-field-container">
-                            <div class="text-field text-field--outlined">
-                                <input id="phone" type="text"/>
-                                <label for="phone"><#if phoneNumber??>${phoneNumber}<#else>No phone</#if></label>
+                            <div class="text-field text-field--outlined has-value">
+                                <input id="phone" type="text" value="<#if phoneNumber??>${phoneNumber}<#else>No phone</#if>"/>
+                                <label for="phone">телефон</label>
                             </div>
                         </div>
                         <button type="submit" class="btn_save_account">
