@@ -33,10 +33,6 @@ Also we have [lombok](https://projectlombok.org) plug-in for less words.
 4) Set "Default JPA Provider" <_no provider_>
 5) Click _apply_
 
-### Add this in "application.properties'
-```
-spring.freemarker.expose-request-attributes=true
-```
 ### To see your database in Idea
 1) Click vertical button **Database** in the right side
 2) Click "**+**"
