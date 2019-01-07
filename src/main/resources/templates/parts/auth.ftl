@@ -6,17 +6,17 @@
                 <li><a href="#0">Регистрация</a></li>
             </ul>
             <div id="cd-login"> <!-- форма входа -->
-                <form class="cd-form">
+                <form class="cd-form" action="/login" method="post">
                     <p class="fieldset">
                         <label class="image-replace cd-email" for="signin-email">E-mail</label>
-                        <input class="full-width has-padding has-border" id="signin-email" type="email"
-                               placeholder="E-mail">
+                        <input class="full-width has-padding has-border" id="signin-email" type="text"
+                               placeholder="E-mail" name="eMail">
                         <span class="cd-error-message">Здесь сообщение об ошибке!</span>
                     </p>
                     <p class="fieldset">
                         <label class="image-replace cd-password" for="signin-password">Пароль</label>
-                        <input class="full-width has-padding has-border" id="signin-password" type="text"
-                               placeholder="Пароль">
+                        <input class="full-width has-padding has-border" id="signin-password" type="password"
+                               placeholder="Пароль" name="password">
                         <a href="#0" class="hide-password">Скрыть</a>
                         <span class="cd-error-message">Здесь сообщение об ошибке!</span>
                     </p>
@@ -27,40 +27,41 @@
                     <p class="fieldset">
                         <input class="full-width" type="submit" value="Войти">
                     </p>
-                    <input type="hidden" name="_csrf" value="${_csrf.token}"><#---------------------------------------->
                 </form>
                 <p class="cd-form-bottom-message"><a href="#0">Забыли свой пароль?</a></p>
                 <!-- <a href="#0" class="cd-close-form">Close</a> -->
             </div> <!-- конец блока с формой входа -->
             <div id="cd-signup"> <!-- блок с формой регистрации -->
-                <form class="cd-form">
+                <form class="cd-form" action="/reg" method="post">
                     <p class="fieldset">
                         <label class="image-replace cd-username" for="signup-username">Имя пользователя</label>
                         <input class="full-width has-padding has-border" id="signup-username" type="text"
-                               placeholder="Имя пользователя">
-                        <span class="cd-error-message">Здесь сообщение об ошибке!</span>
+                               placeholder="Имя пользователя" name="name">
+                        <#--<span class="cd-error-message">Здесь сообщение об ошибке!</span>-->
                     </p>
                     <p class="fieldset">
                         <label class="image-replace cd-email" for="signup-email">E-mail</label>
                         <input class="full-width has-padding has-border" id="signup-email" type="email"
-                               placeholder="E-mail">
-                        <span class="cd-error-message">Здесь сообщение об ошибке!</span>
+                               placeholder="E-mail" name="eMail">
+                        <#--<span class="cd-error-message">Здесь сообщение об ошибке!</span>-->
                     </p>
                     <p class="fieldset">
                         <label class="image-replace cd-password" for="signup-password">Пароль</label>
                         <input class="full-width has-padding has-border" id="signup-password" type="text"
-                               placeholder="Пароль">
+                               placeholder="Пароль" name="password">
                         <a href="#0" class="hide-password">Скрыть</a>
-                        <span class="cd-error-message">Здесь сообщение об ошибке!</span>
+                        <#--<span class="cd-error-message">Здесь сообщение об ошибке!</span>-->
                     </p>
                     <p class="fieldset">
                         <input type="checkbox" id="accept-terms">
                         <label for="accept-terms">Я согласен с <a href="#0">Условиями</a></label>
+                        <!--TODO: make attention if user is exists-->
+                            <h1 style="color: red">!!!USER EXISTS!!!</h1>
+                        <#------------------------------------------>
                     </p>
                     <p class="fieldset">
                         <input class="full-width has-padding" type="submit" value="Создать аккаунт">
                     </p>
-                    <input type="hidden" name="_csrf" value="${_csrf.token}"><#---------------------------------------->
                 </form>
                 <!-- <a href="#0" class="cd-close-form">Закрыть</a> -->
             </div> <!-- cd-signup -->
@@ -77,7 +78,6 @@
                     <p class="fieldset">
                         <input class="full-width has-padding" type="submit" value="Восстановить пароль">
                     </p>
-                    <input type="hidden" name="_csrf" value="${_csrf.token}"><#---------------------------------------->
                 </form>
                 <p class="cd-form-bottom-message"><a href="#0">Вернуться к входу</a></p>
             </div> <!-- cd-reset-password -->

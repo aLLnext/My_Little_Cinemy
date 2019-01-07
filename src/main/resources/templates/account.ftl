@@ -116,21 +116,21 @@
                         <div class="text-field-container">
                             <div class="text-field text-field--outlined">
                                 <input id="name" type="text"/>
-                                <label for="name">имя</label>
+                                <label for="name">${name}</label>
                             </div>
                         </div>
 
                         <div class="text-field-container">
                             <div class="text-field text-field--outlined">
                                 <input id="email" type="text"/>
-                                <label for="email">email</label>
+                                <label for="email">${email}</label>
                             </div>
                         </div>
 
                         <div class="text-field-container">
                             <div class="text-field text-field--outlined">
                                 <input id="phone" type="text"/>
-                                <label for="phone">телефон</label>
+                                <label for="phone"><#if phoneNumber??>${phoneNumber}<#else>No phone</#if></label>
                             </div>
                         </div>
                         <button type="submit" class="btn_save_account">

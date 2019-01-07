@@ -94,14 +94,14 @@ jQuery(document).ready(function ($) {
     }
 
     //при желании можно отключить - это просто, сообщения об ошибках при заполнении
-    $form_login.find('input[type="submit"]').on('click', function (event) {
-        event.preventDefault();
-        $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-    });
-    $form_signup.find('input[type="submit"]').on('click', function (event) {
-        event.preventDefault();
-        $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
-    });
+    // $form_login.find('input[type="submit"]').on('click', function (event) {
+    //     event.preventDefault();
+    //     $form_login.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+    // });
+    // $form_signup.find('input[type="submit"]').on('click', function (event) {
+    //     event.preventDefault();
+    //     $form_signup.find('input[type="email"]').toggleClass('has-error').next('span').toggleClass('is-visible');
+    // });
 
 
     //запасной placeholder для IE9
