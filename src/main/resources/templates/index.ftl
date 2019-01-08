@@ -3,40 +3,13 @@
 
 <#assign indexScripts>
 <script>
-    var elems = [];
-    <#list films_titles as film_title>
-    var text = document.createElement('div');
-    text.className = "text";
-    text.innerHTML = "${film_title}";
-    var obj = {};
-    obj.text = text;
-    elems.push(obj);
-    <#else>
-    alert("ПОРА ЗАНЯТЬСЯ ДЕЛОМ, А НЕ ФИЛЬМЫ СМОТРЕТЬ!");
-    </#list>
-    var index = 0;
-
-    <#list films_pic as film_pic>
-    var pic = document.createElement('img');
-    pic.className = "pic";
-    pic.src = "${film_pic}";
-    elems[index].pic = pic;
-    index = index + 1;
-    </#list>
-
-    for (let i = 0; i < elems.length; i++) {
-        var elem = document.createElement('div');
-        elem.className = "film_lg";
-        elem.appendChild(elems[i].pic);
-        elem.appendChild(elems[i].text);
-        $(".all_films").append(elem)
-    }
-
+    //это костыль для работы футера
     function checkSize(current_size) {
+        size =${films?size}
         if (current_size.matches) {
-            $(".main").css("height", (elems.length + 1) * 500 + 206)
+            $(".main").css("height", (size + 1) * 500 + 206)
         } else {
-            $(".main").css("height", ((elems.length + 1) / 1.5) * 468 + 206)
+            $(".main").css("height", ((size + 1) / 1.5) * 468 + 206)
         }
     }
 
@@ -86,7 +59,6 @@
                 <a href="#" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
             </div>
             <div class="col-md-6 col-sm-4 btn_group_account">
-
                 <#if signedIn??>
                     <#if signedIn == true>
                         <a href="#0" id = "registration" class="auth_part login">ВЫЙТИ</a>
@@ -100,7 +72,14 @@
     <div class="main">
         <div class="col-lg-3 col-md-3 col-sm-2"></div>
         <p class="main_text">АФИША ВО ВЛАДИВОСТОКЕ</p>
-        <div class="all_films"></div>
+        <div class="all_films">
+        <#list films as film>
+            <a class="film_lg" href="/films/${film.id}">
+                <img class="pic" src="${film.image}">
+                <div class="text">${film.title}${film.id}</div>
+            </a>
+        </#list>
+        </div>
     </div>
     <@auth.auth></@auth.auth>
 </@common.page>

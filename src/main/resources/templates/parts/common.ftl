@@ -5,11 +5,11 @@
 <head>
     <title>OurCinema</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="stylesheet" type="text/css" href="css/media.css">
-    <link rel="stylesheet" type="text/css" href="css/reg.css">
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../css/media.css">
+    <link rel="stylesheet" type="text/css" href="../css/reg.css">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     ${links}
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700&amp;subset=cyrillic,cyrillic-ext"
           rel="stylesheet">
@@ -27,8 +27,8 @@
             <div class="sections">
                 <h6>Разделы</h6>
                 <a href="#">Кинотеатры</a>
-                <a href="#">Киноафиша</a>
-                <#if signedIn == true><a href="#">Профиль</a></#if>
+                <a href="../index">Киноафиша</a>
+                <#if signedIn == true><a href="../account">Профиль</a></#if>
             </div>
             <p>+79990009900</p>
         </div>

@@ -4,11 +4,12 @@ import My_Little_Teamy.My_Little_Cinemy.domains.Film;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+
 public interface FilmRepo extends CrudRepository<Film, Long> {
-    @Query(value = "SELECT title FROM films", nativeQuery = true)
-    Iterable<String> getFilmsTitles();
+    Film findFilmById(long id);
 
-    @Query(value = "SELECT main_photo FROM films", nativeQuery = true)
-    Iterable<String> getFilmsImages();
-
+    //TODO напиши функцию без запроса
+    @Query(value = "SELECT * FROM films", nativeQuery = true)
+    List<Film> getFilms();
 }

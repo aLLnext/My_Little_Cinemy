@@ -1,5 +1,6 @@
 package My_Little_Teamy.My_Little_Cinemy.controllers;
 
+import My_Little_Teamy.My_Little_Cinemy.domains.Film;
 import My_Little_Teamy.My_Little_Cinemy.domains.User;
 import My_Little_Teamy.My_Little_Cinemy.repos.FilmRepo;
 import My_Little_Teamy.My_Little_Cinemy.repos.UserRepo;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -27,30 +29,28 @@ public class FrontController {
     @RequestMapping(value = {"/index", "", "/"}, method = RequestMethod.GET)
     public ModelAndView request_index(HttpServletRequest request, HttpSession session) {
         ModelAndView result = new ModelAndView();
-        User user = (User)session.getAttribute("user");
+        User user = (User) session.getAttribute("user");
         boolean isSigned;
-        if(user == null)
+        if (user == null)
             isSigned = false;
         else
             isSigned = user.getIsActive() == 1;
-
+        result.addObject("films", filmRepo.getFilms());
         result.addObject("signedIn", isSigned);
-        result.addObject("films_titles", filmRepo.getFilmsTitles());
-        result.addObject("films_pic", filmRepo.getFilmsImages());
         result.setViewName("index");
         return result;
     }
 
     @ModelAttribute("user")
-    public User createUser(){
+    public User createUser() {
         return new User();
     }
 
     @PostMapping("/login")
     public String login(@ModelAttribute("user") User user, HttpSession session,
-                        HttpServletRequest request, Map<String, Object> model){
+                        HttpServletRequest request, Map<String, Object> model) {
         User userInDB = userRepo.findUserByEMail(user.getEMail());
-        if(user.getPassword().equals(userInDB.getPassword())) {
+        if (user.getPassword().equals(userInDB.getPassword())) {
             user.setIsActive(1);
             user.setId(userInDB.getId());
             user.setBooks(userInDB.getBooks());
@@ -72,9 +72,9 @@ public class FrontController {
 
     @PostMapping("/reg")
     public String reg(@ModelAttribute("user") User user, HttpSession session,
-                      HttpServletRequest request, Map<String, Object> model){
+                      HttpServletRequest request, Map<String, Object> model) {
         User userFromDB = userRepo.findUserByEMailOrName(user.getEMail(), user.getName());
-        if(userFromDB != null){
+        if (userFromDB != null) {
             return "redirect:/index";
         }
         session.invalidate();
@@ -87,16 +87,24 @@ public class FrontController {
 
     }
 
-    @GetMapping("/films")
-    public String films(Map<String, Object> model, HttpSession session){
+    @RequestMapping(value = "/films/{id}", method = RequestMethod.GET)
+    public String films(@PathVariable long id, Map<String, Object> model, HttpSession session) {
+        //узнать вошел пользователь или нет
+        try {
+            Film film = filmRepo.findFilmById(id);
+            model.put("film", film);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
         model.put("signedIn", true);
         return "films";
     }
 
     @GetMapping("/account")
     public String account(Map<String, Object> model, HttpSession session) {
-        User user = (User)session.getAttribute("user");
-        if(user == null || user.getEMail() == null || user.getName() == null)
+        User user = (User) session.getAttribute("user");
+        if (user == null || user.getEMail() == null || user.getName() == null)
             return "redirect:/index";
         model.put("name", user.getName());
         model.put("email", user.getEMail());

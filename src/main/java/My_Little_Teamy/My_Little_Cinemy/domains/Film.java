@@ -19,7 +19,7 @@ public class Film {
     private long duration;
     private long rars;
     @Column(name = "main_photo")
-    private String mainPhoto;
+    private String image;
     private String description;
     @Column(name = "imdb_rate")
     private Double IMDBRate;
