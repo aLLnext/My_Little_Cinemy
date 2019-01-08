@@ -33,6 +33,7 @@ public class FrontController {
         ModelAndView result = new ModelAndView();
         User user = (User)session.getAttribute("user");
         boolean isSigned = user != null;
+        result.addObject("films", filmRepo.getFilms());
         result.addObject("signedIn", isSigned);
         result.setViewName("index");
         return result;
