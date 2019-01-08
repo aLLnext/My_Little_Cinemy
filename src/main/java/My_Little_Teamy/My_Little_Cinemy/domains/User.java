@@ -27,8 +27,6 @@ public class User{
     @Column(name = "phone_number")
     private String phoneNumber;
     private String password;
-    @Column(name = "is_active")
-    private int isActive;
 
     @OneToMany(targetEntity = Book.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")

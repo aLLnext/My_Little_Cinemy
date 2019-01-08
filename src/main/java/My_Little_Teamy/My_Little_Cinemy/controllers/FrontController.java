@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,16 +27,12 @@ public class FrontController {
     @Autowired
     private UserRepo userRepo;
 
+
     @RequestMapping(value = {"/index", "", "/"}, method = RequestMethod.GET)
-    public ModelAndView request_index(HttpServletRequest request, HttpSession session) {
+    public ModelAndView request_index(HttpSession session) {
         ModelAndView result = new ModelAndView();
-        User user = (User) session.getAttribute("user");
-        boolean isSigned;
-        if (user == null)
-            isSigned = false;
-        else
-            isSigned = user.getIsActive() == 1;
-        result.addObject("films", filmRepo.getFilms());
+        User user = (User)session.getAttribute("user");
+        boolean isSigned = user != null;
         result.addObject("signedIn", isSigned);
         result.setViewName("index");
         return result;
@@ -50,8 +47,7 @@ public class FrontController {
     public String login(@ModelAttribute("user") User user, HttpSession session,
                         HttpServletRequest request, Map<String, Object> model) {
         User userInDB = userRepo.findUserByEMail(user.getEMail());
-        if (user.getPassword().equals(userInDB.getPassword())) {
-            user.setIsActive(1);
+        if(user.getPassword().equals(userInDB.getPassword())) {
             user.setId(userInDB.getId());
             user.setBooks(userInDB.getBooks());
             user.setReviews(userInDB.getReviews());
@@ -61,7 +57,6 @@ public class FrontController {
             session.invalidate();
             session = request.getSession();
             session.setAttribute("user", user);
-            userInDB.setIsActive(1);
             model.put("signedIn", true);
         } else {
             model.put("signedIn", false);
@@ -71,8 +66,7 @@ public class FrontController {
     }
 
     @PostMapping("/reg")
-    public String reg(@ModelAttribute("user") User user, HttpSession session,
-                      HttpServletRequest request, Map<String, Object> model) {
+    public String reg(@ModelAttribute("user") User user, HttpSession session, HttpServletRequest request){
         User userFromDB = userRepo.findUserByEMailOrName(user.getEMail(), user.getName());
         if (userFromDB != null) {
             return "redirect:/index";
@@ -80,7 +74,6 @@ public class FrontController {
         session.invalidate();
         session = request.getSession();
         user.setRole("VIEWER");
-        user.setIsActive(1);
         session.setAttribute("user", user);
         userRepo.save(user);
         return "redirect:/account";
@@ -112,4 +105,18 @@ public class FrontController {
         model.put("signedIn", true);
         return "account";
     }
+
+//    @PostMapping("/updateuser")
+//    public String updateUser(Map<String, Object> model, HttpSession session) {
+//        int a = 0;
+//        return "redirect:/account";
+//    }
+
+    @GetMapping("/logout")
+    public String logout(SessionStatus sessionStatus) {
+        sessionStatus.setComplete();
+        return "redirect:/index";
+    }
+
+
 }
