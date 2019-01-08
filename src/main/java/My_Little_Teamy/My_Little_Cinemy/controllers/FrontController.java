@@ -73,7 +73,7 @@ public class FrontController {
 
     @PostMapping("/reg")
     public String reg(@ModelAttribute("user") User user, HttpSession session, HttpServletRequest request){
-        User userFromDB = userRepo.findUserByEMailOrName(user.getEMail(), user.getName());
+        User userFromDB = userRepo.findUserByEMail(user.getEMail());
         if (userFromDB != null) {
             return "redirect:/index";
         }
