@@ -44,7 +44,7 @@
         <div class="col-md-6 col-sm-4 btn_group_account">
             <#if signedIn??>
                     <#if signedIn == true>
-                        <a href="#0" id="registration" class="auth_part login">ВЫЙТИ</a>
+                        <a href="../logout" id="registration" class="login">ВЫЙТИ</a>
                         <a href="../account" class="profile">ПРОФИЛЬ</a>
                     <#else><a href="#0" id="logout" class="auth_part login">ВОЙТИ</a>
                     </#if>

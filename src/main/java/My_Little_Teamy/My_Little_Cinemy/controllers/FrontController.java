@@ -28,12 +28,17 @@ public class FrontController {
     private UserRepo userRepo;
 
 
+    private boolean isNewUser(User user){
+        return (user == null || user.getName() == null ||
+                user.getEMail() == null || user.getPassword() == null);
+    }
+
     @RequestMapping(value = {"/index", "", "/"}, method = RequestMethod.GET)
     public ModelAndView request_index(HttpSession session) {
         ModelAndView result = new ModelAndView();
         User user = (User)session.getAttribute("user");
-        boolean isSigned = user != null;
-        result.addObject("films", filmRepo.getFilms());
+        boolean isSigned = !isNewUser(user);
+        result.addObject("films", filmRepo.findAll());
         result.addObject("signedIn", isSigned);
         result.setViewName("index");
         return result;
@@ -83,7 +88,7 @@ public class FrontController {
 
     @RequestMapping(value = "/films/{id}", method = RequestMethod.GET)
     public String films(@PathVariable long id, Map<String, Object> model, HttpSession session) {
-        //узнать вошел пользователь или нет
+        boolean isSigned = !isNewUser((User)session.getAttribute("user"));
         try {
             Film film = filmRepo.findFilmById(id);
             model.put("film", film);
@@ -91,7 +96,7 @@ public class FrontController {
             System.out.println(e.getMessage());
         }
 
-        model.put("signedIn", true);
+        model.put("signedIn", isSigned);
         return "films";
     }
 

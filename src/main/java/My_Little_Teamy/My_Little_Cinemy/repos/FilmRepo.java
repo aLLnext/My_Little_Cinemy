@@ -8,8 +8,4 @@ import java.util.List;
 
 public interface FilmRepo extends CrudRepository<Film, Long> {
     Film findFilmById(long id);
-
-    //TODO напиши функцию без запроса
-    @Query(value = "SELECT * FROM films", nativeQuery = true)
-    List<Film> getFilms();
 }
