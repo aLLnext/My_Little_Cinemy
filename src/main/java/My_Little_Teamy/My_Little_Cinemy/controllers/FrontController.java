@@ -87,6 +87,12 @@ public class FrontController {
 
     }
 
+    @GetMapping("/films")
+    public String films(Map<String, Object> model, HttpSession session){
+        model.put("signedIn", true);
+        return "films";
+    }
+
     @GetMapping("/account")
     public String account(Map<String, Object> model, HttpSession session) {
         User user = (User)session.getAttribute("user");

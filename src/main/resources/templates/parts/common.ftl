@@ -1,4 +1,4 @@
-<#macro page scripts="">
+<#macro page scripts="" links="">
 <!DOCTYPE HTML>
 <!-- TODO: Change shortcut icon, title!!!-->
 <html>
@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css/reg.css">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    ${links}
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700&amp;subset=cyrillic,cyrillic-ext"
           rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -27,7 +28,7 @@
                 <h6>Разделы</h6>
                 <a href="#">Кинотеатры</a>
                 <a href="#">Киноафиша</a>
-                <#if signedIn == true><a href="#">Профиль</a><#else> </#if>
+                <#if signedIn == true><a href="#">Профиль</a></#if>
             </div>
             <p>+79990009900</p>
         </div>
