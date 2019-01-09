@@ -6,20 +6,18 @@ import My_Little_Teamy.My_Little_Cinemy.repos.FilmRepo;
 import My_Little_Teamy.My_Little_Cinemy.repos.UserRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.List;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
 @Controller
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-@SessionAttributes({"user"})
 public class FrontController {
 
     @Autowired
@@ -34,61 +32,43 @@ public class FrontController {
     }
 
     @RequestMapping(value = {"/index", "", "/"}, method = RequestMethod.GET)
-    public ModelAndView request_index(HttpSession session) {
+    public ModelAndView index(@CookieValue(value = "CINEMA-AUTH",
+                                        defaultValue = "0") String userId) {
         ModelAndView result = new ModelAndView();
-        User user = (User)session.getAttribute("user");
-        boolean isSigned = !isNewUser(user);
+        result.addObject("signedIn", userRepo.findById(Long.valueOf(userId)).isPresent());
         result.addObject("films", filmRepo.findAll());
-        result.addObject("signedIn", isSigned);
         result.setViewName("index");
         return result;
     }
 
-    @ModelAttribute("user")
-    public User createUser() {
-        return new User();
-    }
-
     @PostMapping("/login")
-    public String login(@ModelAttribute("user") User user, HttpSession session,
-                        HttpServletRequest request, Map<String, Object> model) {
+    public String login(@ModelAttribute("user") User user,
+                        Map<String, Object>          model,
+                        HttpServletResponse          response) {
         User userInDB = userRepo.findUserByEMail(user.getEMail());
         if(user.getPassword().equals(userInDB.getPassword())) {
-            user.setId(userInDB.getId());
-            user.setBooks(userInDB.getBooks());
-            user.setReviews(userInDB.getReviews());
-            user.setRole(userInDB.getRole());
-            user.setPhoneNumber(userInDB.getPhoneNumber());
-            user.setName(userInDB.getName());
-            session.invalidate();
-            session = request.getSession();
-            session.setAttribute("user", user);
             model.put("signedIn", true);
+            response.addCookie(new Cookie("CINEMA-AUTH",  userInDB.getId().toString()));
         } else {
             model.put("signedIn", false);
         }
 
-        return "redirect:/index";
+        return "redirect:/account";
     }
 
     @PostMapping("/reg")
-    public String reg(@ModelAttribute("user") User user, HttpSession session, HttpServletRequest request){
-        User userFromDB = userRepo.findUserByEMail(user.getEMail());
-        if (userFromDB != null) {
+    public String reg(@ModelAttribute("user") User user, HttpServletResponse response){
+        if (userRepo.findUserByEMail(user.getEMail()) != null) {
             return "redirect:/index";
         }
-        session.invalidate();
-        session = request.getSession();
         user.setRole("VIEWER");
-        session.setAttribute("user", user);
-        userRepo.save(user);
+        response.addCookie(new Cookie("CINEMA-AUTH", userRepo.save(user).getId().toString()));
         return "redirect:/account";
 
     }
 
     @RequestMapping(value = "/films/{id}", method = RequestMethod.GET)
-    public String films(@PathVariable long id, Map<String, Object> model, HttpSession session) {
-        boolean isSigned = !isNewUser((User)session.getAttribute("user"));
+    public String films(@PathVariable long id, Map<String, Object> model, @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId) {
         try {
             Film film = filmRepo.findFilmById(id);
             model.put("film", film);
@@ -96,14 +76,15 @@ public class FrontController {
             System.out.println(e.getMessage());
         }
 
-        model.put("signedIn", isSigned);
+        model.put("signedIn", userRepo.findById(Long.valueOf(userId)).isPresent());
         return "films";
     }
 
     @GetMapping("/account")
-    public String account(Map<String, Object> model, HttpSession session) {
-        User user = (User) session.getAttribute("user");
-        if (user == null || user.getEMail() == null || user.getName() == null)
+    public String account(Map<String, Object> model,
+                          @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId) {
+        User user = userRepo.findById(Long.valueOf(userId)).orElse(null);
+        if (isNewUser(user))
             return "redirect:/index";
         model.put("name", user.getName());
         model.put("email", user.getEMail());
@@ -112,15 +93,19 @@ public class FrontController {
         return "account";
     }
 
-//    @PostMapping("/updateuser")
-//    public String updateUser(Map<String, Object> model, HttpSession session) {
-//        int a = 0;
-//        return "redirect:/account";
-//    }
+    @PostMapping("/updateuser")
+    public String updateUser(MultiValueMap form) {
+        int a = 0;
+        return "redirect:/account";
+    }
 
     @GetMapping("/logout")
-    public String logout(SessionStatus sessionStatus) {
-        sessionStatus.setComplete();
+    public String logout(SessionStatus sessionStatus, HttpServletResponse response) {
+        Cookie cookie = new Cookie("CINEMA-AUTH", "");
+        //cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        //response.addCookie(new Cookie("CINEMA-AUTH", "empty"));
+//        sessionStatus.setComplete();
         return "redirect:/index";
     }
 

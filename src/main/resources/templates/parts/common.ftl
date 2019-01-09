@@ -27,8 +27,13 @@
             </div>
             <div class="col-5 btn_group_account">
             <#if signedIn??>
-                <#if signedIn == true><a href="account" class="profile">ПРОФИЛЬ</a>
-                <#else><a href="#0" id = "registration" class="auth_part login">ВОЙТИ</a></#if>
+                <#if signedIn == true>
+                    <a href="account" class="profile">ПРОФИЛЬ</a>
+                <#else>
+                    <a href="#0" id = "registration" class="auth_part login">ВОЙТИ</a>
+                </#if>
+                <#else>
+                    <a href="#0" id = "registration" class="auth_part login">ВОЙТИ</a>
             </#if>
             </div>
         </div>
@@ -75,7 +80,11 @@
                 <h6>Разделы</h6>
                 <a href="#">Кинотеатры</a>
                 <a href="../index">Киноафиша</a>
-                <#if signedIn == true><a href="../account">Профиль</a></#if>
+                <#if signedIn??>
+                    <#if signedIn == true>
+                        <a href="../account">Профиль</a>
+                    </#if>
+                </#if>
             </div>
             <p>+79990009900</p>
         </div>
