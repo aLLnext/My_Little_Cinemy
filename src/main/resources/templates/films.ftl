@@ -63,16 +63,16 @@
                         <div class="rateIMDB">
                             <h4 class="textrate">${film.IMDBRate}/</h4>10
                             <div class="line">
-                                <div class="rate" style="width: calc(${film.IMDBRate} * 8)"></div>
-                                <div class="rest" style="width: calc(80 - ${film.IMDBRate} * 8)"></div>
+                                <div class="rate" style="width: calc(${film.IMDBRate}px * 8)"></div>
+                                <div class="rest" style="width: calc(80px - ${film.IMDBRate}px * 8)"></div>
                             </div>
                             <p class="textrate site">IMDB</p>
                         </div>
                         <div class="rateKINO">
                             <h4 class="textrate">${film.kinopoiskRate}/</h4>10
                             <div class="line">
-                                <div class="rate" style="width: calc(${film.kinopoiskRate} * 8)"></div>
-                                <div class="rest" style="width: calc(80 - ${film.kinopoiskRate} * 8)"></div>
+                                <div class="rate" style="width: calc(${film.kinopoiskRate}px * 8)"></div>
+                                <div class="rest" style="width: calc(80px - ${film.kinopoiskRate}px * 8)"></div>
                             </div>
                             <p class="textrate site">КИНОПОИСК</p>
                         </div>
@@ -123,16 +123,16 @@
                             <div class="rateIMDB">
                                 <h4 class="textrate">${film.IMDBRate}/</h4>10
                                 <div class="line">
-                                    <div class="rate" style="width: calc(${film.IMDBRate} * 8)"></div>
-                                    <div class="rest" style="width: calc(80 - ${film.IMDBRate} * 8)"></div>
+                                    <div class="rate" style="width: calc(${film.IMDBRate}px * 8)"></div>
+                                    <div class="rest" style="width: calc(80px - ${film.IMDBRate}px * 8)"></div>
                                 </div>
                                 <p class="textrate site">IMDB</p>
                             </div>
                             <div class="rateKINO">
                                 <h4 class="textrate">${film.kinopoiskRate}/</h4>10
                                 <div class="line">
-                                    <div class="rate" style="calc(${film.kinopoiskRate} * 8)"></div>
-                                    <div class="rest" style="80 - calc(${film.kinopoiskRate} * 8)"></div>
+                                    <div class="rate" style="calc(${film.kinopoiskRate}px * 8)"></div>
+                                    <div class="rest" style="80px - calc(${film.kinopoiskRate}px * 8)"></div>
                                 </div>
                                 <p class="textrate site">КИНОПОИСК</p>
                             </div>
@@ -154,16 +154,16 @@
                         <div class="rateIMDB">
                             <h4 class="textrate">${film.IMDBRate}/</h4>10
                             <div class="line">
-                                <div class="rate" style="width: calc(${film.IMDBRate} * 8)"></div>
-                                <div class="rest" style="width: calc(80 - ${film.IMDBRate} * 8)"></div>
+                                <div class="rate" style="width: calc(${film.IMDBRate}px * 8)"></div>
+                                <div class="rest" style="width: calc(80px - ${film.IMDBRate}px * 8)"></div>
                             </div>
                             <p class="textrate site">IMDB</p>
                         </div>
                         <div class="rateKINO">
                             <h4 class="textrate">${film.kinopoiskRate}/</h4>10
                             <div class="line">
-                                <div class="rate" style="width: calc(${film.kinopoiskRate} * 8)"></div>
-                                <div class="rest" style="width: calc(80 - ${film.kinopoiskRate} * 8)"></div>
+                                <div class="rate" style="width: calc(${film.kinopoiskRate}px * 8)"></div>
+                                <div class="rest" style="width: calc(80px - ${film.kinopoiskRate}px * 8)"></div>
                             </div>
                             <p class="textrate site">КИНОПОИСК</p>
                         </div>

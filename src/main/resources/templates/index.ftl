@@ -76,7 +76,10 @@
         <#list films as film>
             <a class="film_lg" href="/films/${film.id}">
                 <img class="pic" src="${film.image}">
-                <div class="text">${film.title}${film.id}</div>
+                <div class="text">
+                    <h6 class="title"><b>${film.title}</b></h6>
+                    <p class="desc">${film.description}</p>
+                </div>
             </a>
         </#list>
         </div>
