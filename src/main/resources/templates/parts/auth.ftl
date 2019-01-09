@@ -21,10 +21,6 @@
                         <span class="cd-error-message">Здесь сообщение об ошибке!</span>
                     </p>
                     <p class="fieldset">
-                        <input type="checkbox" id="remember-me" checked>
-                        <label for="remember-me">Запомнить меня</label>
-                    </p>
-                    <p class="fieldset">
                         <input class="full-width" type="submit" value="Войти">
                     </p>
                 </form>
