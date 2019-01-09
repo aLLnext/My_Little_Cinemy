@@ -16,6 +16,53 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
+<header>
+    <nav>
+        <div class="row">
+            <div class="col-7">
+                <div class="navToggle">
+                    <div class="icon-left"></div>
+                    <div class="icon-right"></div>
+                </div>
+            </div>
+            <div class="col-5 btn_group_account">
+            <#if signedIn??>
+                <#if signedIn == true><a href="account" class="profile">ПРОФИЛЬ</a>
+                <#else><a href="#0" id = "registration" class="auth_part login">ВОЙТИ</a></#if>
+            </#if>
+            </div>
+        </div>
+        <ul>
+            <div class="LOGO">НАШ КИНО ТЕАТР</div>
+            <a href="../index" class="buttonAFISHA">КИНОАФИША</a>
+            <a href="#" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
+            <#if signedIn??>
+                <#if signedIn == true>
+                    <a href="../logout" id = "logout" class="auth_part login">ВЫЙТИ</a>
+                </#if>
+            </#if>
+        </ul>
+    </nav>
+    <div class="LOGO">
+        <p>НАШ КИНО ТЕАТР</p>
+    </div>
+    <a href="#" id="city">ВЛАДИВОСТОК</a>
+        <div class="row">
+    <div class="col-md-6 col-sm-4 btn_group_menu">
+        <a href="../index" class="buttonAFISHA">КИНОАФИША</a>
+        <a href="#" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
+    </div>
+        <div class="col-md-6 col-sm-4 btn_group_account">
+        <#if signedIn??>
+            <#if signedIn == true>
+                <a href="../logout" id = "registration" class="login">ВЫЙТИ</a>
+                <a href="../account" class="profile">ПРОФИЛЬ</a>
+            <#else><a href="#0" id = "logout" class="auth_part login">ВОЙТИ</a>
+            </#if>
+        </#if>
+        </div>
+    </div>
+</header>
 <#nested>
 <div class="footer">
     <div class="row">

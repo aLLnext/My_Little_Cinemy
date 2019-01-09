@@ -349,11 +349,11 @@ header .btn_group_account {
     font-weight: 500;
     line-height: normal;
     font-size: 16px;
-    color: #FFFFFF;
+    color: black;
     text-align: justify;
     height: 20%;
     width: 100%;
-    background: #216477;
+    background: #C4C4C4;
     opacity: 0.85;
     overflow: hidden;
     text-overflow: ellipsis;

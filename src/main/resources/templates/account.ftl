@@ -34,36 +34,6 @@
 </#assign>
 
 <@common.page scripts=accountScripts>
-    <header>
-        <nav>
-            <div class="row">
-                <div class="col-8">
-                    <div class="navToggle">
-                        <div class="icon-left"></div>
-                        <div class="icon-right"></div>
-                    </div>
-                </div>
-            </div>
-
-            <ul>
-                <div class="LOGO">НАШ КИНО ТЕАТР</div>
-                <a href="index" class="buttonAFISHA">КИНОАФИША</a>
-                <a href="#" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
-            </ul>
-        </nav>
-
-        <div class="LOGO">
-            <p>НАШ КИНО ТЕАТР</p>
-        </div>
-        <a href="#" id="tab_name">ПРОФИЛЬ</a>
-        <div class="row">
-            <div class="col-6 btn_group_menu">
-                <a href="index" class="buttonAFISHA">КИНОАФИША</a>
-                <a href="#" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
-            </div>
-        </div>
-    </header>
-
     <div class="main">
         <div class="mob_info">
             <div class="row">
