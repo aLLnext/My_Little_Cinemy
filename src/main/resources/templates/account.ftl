@@ -42,21 +42,21 @@
                     <form class="flex-column">
                         <div class="text-field-container">
                             <div class="text-field text-field--outlined <#if name??>has-value</#if>">
-                                <input id="name_mob" type="text" value="${name}"/>
+                                <input id="name_mob" type="text" value="${name}" name="name"/>
                                 <label for="name_mob">имя</label>
                             </div>
                         </div>
 
                         <div class="text-field-container">
                             <div class="text-field text-field--outlined <#if email??>has-value</#if>">
-                                <input id="email_mob" type="text" value="<#if email??>${email}<#else>No email</#if>"/>
+                                <input id="email_mob" type="text" value="<#--<#if email??>${email}<#else>No email</#if>-->ggwp" name="eMail"/>
                                 <label for="email_mob">почта</label>
                             </div>
                         </div>
 
                         <div class="text-field-container">
                             <div class="text-field text-field--outlined has-value">
-                                <input id="phone_mob" type="text" value="<#if phoneNumber??>${phoneNumber}<#else>No phone</#if>"/>
+                                <input id="phone_mob" type="text" value="<#if phoneNumber??>${phoneNumber}<#else>No phone</#if>" name="phoneNumber"/>
                                 <label for="phone_mob">телефон</label>
                             </div>
                         </div>
@@ -82,24 +82,24 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <p class="PersonalInfo">Персональная информация</p>
-                    <form class="info">
+                    <form class="info" action="/updateuser" method="post">
                         <div class="text-field-container">
                             <div class="text-field text-field--outlined <#if name??>has-value</#if>">
-                                <input id="name" type="text" value="${name}"/>
+                                <input id="name" type="text" value="${name}" name="name"/>
                                 <label for="name">имя</label>
                             </div>
                         </div>
 
                         <div class="text-field-container">
                             <div class="text-field text-field--outlined <#if email??>has-value</#if>">
-                                <input id="email" type="text" value="<#if email??>${email}<#else>No email</#if>"/>
+                                <input id="email" type="text" value="<#if email??>${email}<#else>No email</#if>" name="eMail"/>
                                 <label for="email">почта</label>
                             </div>
                         </div>
 
                         <div class="text-field-container">
                             <div class="text-field text-field--outlined has-value">
-                                <input id="phone" type="text" value="<#if phoneNumber??>${phoneNumber}<#else>No phone</#if>"/>
+                                <input id="phone" type="text" value="<#if phoneNumber??>${phoneNumber}<#else>No phone</#if>" name="phoneNumber"/>
                                 <label for="phone">телефон</label>
                             </div>
                         </div>
