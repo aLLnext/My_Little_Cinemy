@@ -8,12 +8,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "users", uniqueConstraints = {
-        @UniqueConstraint(
-                columnNames = {"e_mail", "phone_number"}),
-        @UniqueConstraint(
-                columnNames = {"name", "password"})
-})
+@Table(name = "users")
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +17,7 @@ public class User{
     @Column(name = "name")
     private String name;
     private String role;
-    @Column(name = "e_mail")
+    @Column(name = "e_mail", unique = true, nullable = false)
     private String eMail;
     @Column(name = "phone_number")
     private String phoneNumber;
