@@ -1,7 +1,7 @@
 package My_Little_Teamy.My_Little_Cinemy.compositeKeys;
 
-import My_Little_Teamy.My_Little_Cinemy.domains.Film;
-import My_Little_Teamy.My_Little_Cinemy.domains.Participant;
+import My_Little_Teamy.My_Little_Cinemy.Model.Film;
+import My_Little_Teamy.My_Little_Cinemy.Model.Participant;
 import lombok.Data;
 
 import javax.persistence.Embeddable;

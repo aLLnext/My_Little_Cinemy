@@ -1,8 +1,8 @@
 package My_Little_Teamy.My_Little_Cinemy.controller;
 
-import My_Little_Teamy.My_Little_Cinemy.domains.User;
-import My_Little_Teamy.My_Little_Cinemy.repos.UserRepo;
-import My_Little_Teamy.My_Little_Cinemy.types.UpdatingUser;
+import My_Little_Teamy.My_Little_Cinemy.Model.User;
+import My_Little_Teamy.My_Little_Cinemy.ModelRepo.UserRepo;
+import My_Little_Teamy.My_Little_Cinemy.CustomType.UpdatingUser;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,8 +1,8 @@
 package My_Little_Teamy.My_Little_Cinemy.controller;
 
-import My_Little_Teamy.My_Little_Cinemy.domains.Film;
-import My_Little_Teamy.My_Little_Cinemy.repos.FilmRepo;
-import My_Little_Teamy.My_Little_Cinemy.repos.UserRepo;
+import My_Little_Teamy.My_Little_Cinemy.Model.Film;
+import My_Little_Teamy.My_Little_Cinemy.ModelRepo.FilmRepo;
+import My_Little_Teamy.My_Little_Cinemy.ModelRepo.UserRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
