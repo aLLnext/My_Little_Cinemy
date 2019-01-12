@@ -1,8 +1,8 @@
 package My_Little_Teamy.My_Little_Cinemy.controller;
 
+import My_Little_Teamy.My_Little_Cinemy.CustomType.UpdatingUser;
 import My_Little_Teamy.My_Little_Cinemy.Model.User;
 import My_Little_Teamy.My_Little_Cinemy.ModelRepo.UserRepo;
-import My_Little_Teamy.My_Little_Cinemy.CustomType.UpdatingUser;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,7 +37,7 @@ public class UserController {
     public String updateUser(@ModelAttribute UpdatingUser updatingUser,
                              @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId) {
         User user = userRepo.findById(Long.valueOf(userId)).orElse(null);
-        if (user == null){
+        if (user == null) {
             return "redirect:/index";
         }
         user.setPhoneNumber(updatingUser.getPhoneNumber());
@@ -49,6 +49,6 @@ public class UserController {
             return "redirect:/account";
         }
 
-         return "redirect:/account";
+        return "redirect:/account";
     }
 }

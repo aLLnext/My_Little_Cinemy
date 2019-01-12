@@ -24,9 +24,9 @@ public class AuthController {
                         Map<String, Object> model,
                         HttpServletResponse response) {
         User userInDB = userRepo.findUserByEMail(user.getEMail());
-        if(user.getPassword().equals(userInDB.getPassword())) {
+        if (user.getPassword().equals(userInDB.getPassword())) {
             model.put("signedIn", true);
-            response.addCookie(new Cookie("CINEMA-AUTH",  userInDB.getId().toString()));
+            response.addCookie(new Cookie("CINEMA-AUTH", userInDB.getId().toString()));
         } else {
             model.put("signedIn", false);
             return "redirect:/index";
@@ -36,7 +36,7 @@ public class AuthController {
     }
 
     @PostMapping("/reg")
-    public String reg(@ModelAttribute("user") User user, HttpServletResponse response){
+    public String reg(@ModelAttribute("user") User user, HttpServletResponse response) {
         if (userRepo.findUserByEMail(user.getEMail()) != null) {
             return "redirect:/index";
         }
