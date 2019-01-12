@@ -3,10 +3,55 @@
     <link rel="stylesheet" type="text/css" href="../css/films.css">
 </#assign>
 
-<@common.page links=links>
+<#assign script>
+    <script>
+        function toggleSubCategories(_category, init) {
+            if (!init) {
+                document.querySelectorAll('.dropdown').forEach(function(category) {
+                    if (category !== _category) {
+                        category.classList.remove('show');
+                    }
+                });
+                _category.classList.toggle('show');
+            }
+        }
+
+        document.querySelectorAll('.dropdown_shedule').forEach(function(category) {
+            toggleSubCategories(category.children[1], true);
+            category.addEventListener('click', function(e) {
+                toggleSubCategories(category.children[1], false);
+                e.preventDefault();
+            });
+        });
+        /*function DropDown(el) {
+            this.dd = el;
+            this.initEvents();
+        }
+        DropDown.prototype = {
+            initEvents: function() {
+                var obj = this;
+
+                obj.dd.on("click", function(event) {
+                    $(this).toggleClass("active");
+                    event.stopPropagation();
+                });
+            }
+        };
+
+        $(function() {
+            var dd = new DropDown($("#dd1"));
+            $(document).click(function() {
+                // all dropdowns
+                $(".dropdown_shedule").removeClass("active");
+            });
+        });*/
+    </script>
+</#assign>
+
+<@common.page links=links scripts=script>
     <div class="main">
         <div class="desktop_view">
-            <div class="row about">
+            <div class="about">
                 <div class="col-lg-12 col-md-12">
                     <div class="pic">
                         <img src="${film.image}">
@@ -165,9 +210,128 @@
                 <div class="bottom_text">
                     <p>${film.description}</p>
                 </div>
-
                 <div class="col-sm-2"></div>
             </div>
         </div>
+        <div class="shedule container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Расписание сеансов</h2>
+                    <div class="list-structure">
+                        <ul class="dropdown_main">
+                            <li class="dropdown_shedule">
+                                <p class="dropdown_title" href="#">Понедельник</p>
+                                <ul class=" dropdown">
+                                    <li>
+                                        <a class="line_li_a" href="#">14:00</a>
+                                        <a class="line_li_a" href="#">НашКинотетар</a>
+                                        <a class="line_li_a" href="#">Самый большой зал</a>
+                                        <button class="line_li_a">купить</button>
+                                    </li>
+                                    <li><a href="#">Подкатегория 1</a></li>
+                                </ul>
+                            </li>
+                            <li class="test dropdown_shedule">
+                                <p class="dropdown_title" href="#">Понедельник</p>
+                                <ul class="dropdown">
+                                    <li><a href="#">Подкатегория 1</a></li>
+                                    <li><a href="#">Подкатегория 1</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="dropdown_shedule">
+                                <p class="dropdown_title" href="#">Понедельник</p>
+                                <ul class=" dropdown">
+                                    <li><a href="#">Подкатегория 1</a></li>
+                                    <li><a href="#">Подкатегория 1</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown_shedule">
+                                <p class="dropdown_title" href="#">Понедельник</p>
+                                <ul class=" dropdown">
+                                    <li><a href="#">Подкатегория 1</a></li>
+                                    <li><a href="#">Подкатегория 1</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown_shedule">
+                                <p class="dropdown_title" href="#">Понедельник</p>
+                                <ul class=" dropdown">
+                                    <li><a href="#">Подкатегория 1</a></li>
+                                    <li><a href="#">Подкатегория 1</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown_shedule">
+                                <p class="dropdown_title" href="#">Понедельник</p>
+                                <ul class=" dropdown">
+                                    <li><a href="#">Подкатегория 1</a></li>
+                                    <li><a href="#">Подкатегория 1</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown_shedule">
+                                <p class="dropdown_title" href="#">Понедельник</p>
+                                <ul class="dropdown">
+                                    <li><a href="#">Подкатегория 1</a></li>
+                                    <li><a href="#">Подкатегория 1</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!--<div class="shedule">
+        <h2>Расписание сеансов</h2>
+        <div id="dd1" class="dropdown_shedule">
+            расписание
+            <ul class="dropdown">
+                <li><a><i>ПН</i></a></li>
+                <li><a><i>ПН</i></a></li>
+                <li><a><i>ПН</i></a></li>
+            </ul>
+        </div>
+        <div id="dd2" class="dropdown_shedule">
+            расписание
+            <ul class="dropdown">
+                <li><a><i>ПН</i></a></li>
+                <li><a><i>ПН</i></a></li>
+                <li><a><i>ПН</i></a></li>
+            </ul>
+        </div>
+        <div id="dd3" class="dropdown_shedule">
+            расписание
+            <ul class="dropdown">
+                <li><a><i>ПН</i></a></li>
+                <li><a><i>ПН</i></a></li>
+                <li><a><i>ПН</i></a></li>
+            </ul>
+        </div>
+        <div id="dd4" class="dropdown_shedule">
+            расписание
+            <ul class="dropdown">
+                <li><a><i>ПН</i></a></li>
+                <li><a><i>ПН</i></a></li>
+                <li><a><i>ПН</i></a></li>
+            </ul>
+        </div>
+        <div id="dd5" class="dropdown_shedule">
+            расписание
+            <ul class="dropdown">
+                <li><a><i>ПН</i></a></li>
+                <li><a><i>ПН</i></a></li>
+                <li><a><i>ПН</i></a></li>
+            </ul>
+        </div>
+        <div id="dd6" class="dropdown_shedule">
+            расписание
+            <ul class="dropdown">
+                <li><a><i>ПН</i></a></li>
+                <li><a><i>ПН</i></a></li>
+                <li><a><i>ПН</i></a></li>
+            </ul>
+        </div>
+    </div>-->
     </div>
+
 </@common.page>
