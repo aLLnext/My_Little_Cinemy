@@ -24,7 +24,8 @@ public class AuthController {
                         Map<String, Object> model,
                         HttpServletResponse response) {
         User userInDB = userRepo.findUserByEMail(user.getEMail());
-        if (user.getPassword().equals(userInDB.getPassword())) {
+
+        if (userInDB != null && user.getPassword().equals(userInDB.getPassword())) {
             model.put("signedIn", true);
             response.addCookie(new Cookie("CINEMA-AUTH", userInDB.getId().toString()));
         } else {
