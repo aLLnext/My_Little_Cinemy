@@ -105,9 +105,10 @@
 }
 
 .shedule {
-    margin-top: 5%;
-    margin-left: 15%;
+    margin-top: 12%;
+    margin-left: 18%;
     margin-right: 15%;
+    position: absolute;
 }
 
 .list-structure,
