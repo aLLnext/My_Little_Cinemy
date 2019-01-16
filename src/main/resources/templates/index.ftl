@@ -29,7 +29,7 @@
                 <img class="pic" src="${film.image}">
                 <div class="text">
                     <h6 class="title"><b>${film.title}</b></h6>
-                    <p class="desc">${film.description}</p>
+                    <blockquote class="desc">${film.description}</blockquote>
                 </div>
             </a>
         </#list>

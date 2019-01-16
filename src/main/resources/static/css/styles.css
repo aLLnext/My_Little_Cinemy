@@ -332,7 +332,7 @@ header .btn_group_account {
     grid-gap: 20px;
     height: 100%;
     grid-template-columns: repeat(auto-fit, minmax(326px, 1fr));
-    grid-template-rows: repeat(10, 468px);
+    grid-template-rows: repeat(10, 500px);
 }
 
 .film_lg .pic {

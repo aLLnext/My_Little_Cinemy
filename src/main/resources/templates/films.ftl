@@ -106,28 +106,11 @@
             }
             return div;
         }
-        /*function DropDown(el) {
-            this.dd = el;
-            this.initEvents();
-        }
-        DropDown.prototype = {
-            initEvents: function() {
-                var obj = this;
 
-                obj.dd.on("click", function(event) {
-                    $(this).toggleClass("active");
-                    event.stopPropagation();
-                });
-            }
-        };
 
-        $(function() {
-            var dd = new DropDown($("#dd1"));
-            $(document).click(function() {
-                // all dropdowns
-                $(".dropdown_shedule").removeClass("active");
-            });
-        });*/
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+        })
     </script>
 </#assign>
 
@@ -380,6 +363,31 @@
                     By clicking <strong>Submit</strong>, I authorize the sharing of my name and review on the web. (email will not be shared)
                   </span>
                 </form>
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                Запустить модальное окно
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="container-fluid footer">
                     <div class="row">

@@ -1,6 +1,5 @@
 package My_Little_Teamy.My_Little_Cinemy.controller;
 
-import My_Little_Teamy.My_Little_Cinemy.CustomType.CinemaNameHallName;
 import My_Little_Teamy.My_Little_Cinemy.Model.Session;
 import My_Little_Teamy.My_Little_Cinemy.ModelRepo.FilmRepo;
 import My_Little_Teamy.My_Little_Cinemy.ModelRepo.SessionRepo;
