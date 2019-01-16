@@ -36,4 +36,37 @@
         </div>
     </div>
     <@auth.auth></@auth.auth>
+    <div class="footer">
+    <div class="row">
+    <div class="first_column col-lg-3 col-md-4 col-sm-6">
+        <div class="LOGO">НАШ КИНО ТЕАТР</div>
+        <p>@2018 ourcinema.ru</p>
+    </div>
+    <div class="second_column col-lg-2 col-md-2 col-sm-6">
+    <div class="sections">
+    <h6>Разделы</h6>
+    <a href="#">Кинотеатры</a>
+    <a href="../index">Киноафиша</a>
+    <#if signedIn??>
+        <#if signedIn == true>
+            <a href="../account">Профиль</a>
+        </#if>
+    </#if>
+    </div>
+    <p>+79990009900</p>
+    </div>
+    <div class="third_column col-lg-3 col-md-3 col-sm-6">
+        <div class="sections">
+            <h6>Информация</h6>
+            <a href="#">Пользовательское соглашение</a>
+            <a href="#">Вернуть билет</a>
+        </div>
+        <a href="#">bilet@ourcinema.ru</a>
+    </div>
+    <div class="fourth_column col-lg-4 col-md-2 col-sm-6">
+        <a href="#">Правила и условия</a>
+        <a href="#">Реклама</a>
+    </div>
+    </div>
+    </div>
 </@common.page>
