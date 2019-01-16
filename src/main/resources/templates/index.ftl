@@ -5,7 +5,7 @@
 <script>
     //это костыль для работы футера
     function checkSize(current_size) {
-        size =${films?size}
+        size = ${films?size}
         if (current_size.matches) {
             $(".main").css("height", (size + 1) * 500 + 206)
         } else {

@@ -219,11 +219,12 @@
                     <h2>Расписание сеансов</h2>
                     <div class="list-structure">
                         <ul class="dropdown_main">
+                            <#list sessions as session>
                             <li class="dropdown_shedule">
-                                <p class="dropdown_title" href="#">Понедельник</p>
-                                <ul class=" dropdown">
+                                <p class="dropdown_title" href="#">${session.session_date}</p>
+                                <ul class="dropdown">
                                     <li>
-                                        <a class="line_li_a" href="#">14:00</a>
+                                        <a class="line_li_a" href="#">${session.session_time}</a>
                                         <a class="line_li_a" href="#">НашКинотетар</a>
                                         <a class="line_li_a" href="#">Самый большой зал</a>
                                         <button class="line_li_a">купить</button>
@@ -231,55 +232,36 @@
                                     <li><a href="#">Подкатегория 1</a></li>
                                 </ul>
                             </li>
-                            <li class="test dropdown_shedule">
-                                <p class="dropdown_title" href="#">Понедельник</p>
-                                <ul class="dropdown">
-                                    <li><a href="#">Подкатегория 1</a></li>
-                                    <li><a href="#">Подкатегория 1</a></li>
-
-                                </ul>
-                            </li>
-                            <li class="dropdown_shedule">
-                                <p class="dropdown_title" href="#">Понедельник</p>
-                                <ul class=" dropdown">
-                                    <li><a href="#">Подкатегория 1</a></li>
-                                    <li><a href="#">Подкатегория 1</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown_shedule">
-                                <p class="dropdown_title" href="#">Понедельник</p>
-                                <ul class=" dropdown">
-                                    <li><a href="#">Подкатегория 1</a></li>
-                                    <li><a href="#">Подкатегория 1</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown_shedule">
-                                <p class="dropdown_title" href="#">Понедельник</p>
-                                <ul class=" dropdown">
-                                    <li><a href="#">Подкатегория 1</a></li>
-                                    <li><a href="#">Подкатегория 1</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown_shedule">
-                                <p class="dropdown_title" href="#">Понедельник</p>
-                                <ul class=" dropdown">
-                                    <li><a href="#">Подкатегория 1</a></li>
-                                    <li><a href="#">Подкатегория 1</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown_shedule">
-                                <p class="dropdown_title" href="#">Понедельник</p>
-                                <ul class="dropdown">
-                                    <li><a href="#">Подкатегория 1</a></li>
-                                    <li><a href="#">Подкатегория 1</a></li>
-                                </ul>
-                            </li>
+                            </#list>
                         </ul>
                     </div>
                 </div>
             </div>
+            <div class="Review">
+                <div class="Review-details">
+                    <img src="https://randomuser.me/api/portraits/med/men/29.jpg">
+                    <div class="Review-meta">
+                        <p class="Review-author">Zachary Richardson</p>
+                        <p class="Review-date">3 days ago</p>
+                        <div class="Review-rating">
+                            <span class="Review-star Review-star--active">&#9733;</span>
+                            <span class="Review-star Review-star--active">&#9733;</span>
+                            <span class="Review-star Review-star--active">&#9733;</span>
+                            <span class="Review-star">&#9733;</span>
+                            <span class="Review-star">&#9733;</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="Review-body">
+                    <h3 class="Review-title">The heat had forced its shells apart, and the meat, salmon-colored, was thoroughly cooked.</h3>
+                    <p>That makes what I call one hundred. Remember that word—one hundred. Now I put this pebble in Hare-Lip's hand. It stands for ten grains of sand, or ten tens of fingers, or <strong>one hundred fingers</strong>. I put in ten pebbles. They stand for a <em>thousand</em> fingers. I take a mussel-shell, and it stands for ten pebbles, or one hundred grains of sand, or one thousand fingers&hellip;" And so on, laboriously, and with much reiteration, he strove to build up in their minds a crude conception of numbers.<br><br>
+                        As the quantities increased, he had the boys holding different magnitudes in each of their hands. For still higher sums, he laid the symbols on the log of driftwood; and for symbols he was hard put, being compelled to use the teeth from the skulls for millions, and the crab-shells for billions.</p>
+
+                </div>
+            </div>
         </div>
+
 
     <!--<div class="shedule">
         <h2>Расписание сеансов</h2>
