@@ -110,11 +110,11 @@
 
         <#list sessions as session>
             <#list session as ses>
-                var modalb = document.getElementById('modalbody');
+                var modalb = document.getElementById('modalbody${ses[0].id}');
                 var hall = document.createElement('div');
                 hall.classList.add('hall');
-                var row_count = 10;
-                var place_count = 12;
+                var row_count = ${ses[2].line};
+                var place_count = ${ses[2].place};
                 for (var i = 0; i < row_count; i++) {
                     var row = document.createElement('div');
                     row.classList.add('hall_row');
@@ -438,7 +438,7 @@
                     </button>
                 </div>
                 <form>
-                <div id="modalbody" class="modal-body"></div>
+                <div id="modalbody${ses[0].id}" class="modal-body"></div>
                     <div style="text-align: center">
                         <div style="display: inline-block; width: 100%">
                             <p style="display: inline-block"><b>Кинотеатр, зал  </b></p>
