@@ -6,7 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface FilmRepo extends CrudRepository<Film, Long> {
-    @Query(value = "SELECT * FROM films inner join " +
-            "sessions on films.id = film_id where cinema_id = :cinemaId", nativeQuery = true)
-    Iterable<Film> findFilmByCinemaId(@Param("cinemaId") Long id);
+    //@Query(value = "SELECT * FROM films f inner join sessions s on f.id = s.film_id where s.cinema_id = :id;", nativeQuery = true)
+    //Iterable<Film> findFilmsByCinemaId(@Param("id") Long id);
+    @Query(value = "SELECT * FROM sessions s JOIN films f on f.id = s.film_id WHERE s.Cinema_id = :Id GROUP BY f.title ORDER BY f.date_release", nativeQuery = true)
+    Iterable<Film> findFilmsByCinemaId(@Param("Id") Long id);
 }

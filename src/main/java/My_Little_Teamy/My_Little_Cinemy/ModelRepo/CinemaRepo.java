@@ -7,5 +7,6 @@ import org.springframework.data.repository.query.Param;
 
 public interface CinemaRepo extends CrudRepository<Cinema, Long> {
     Cinema findCinemaById(Long id);
+    Iterable<Cinema> findAllBy();
 }
 

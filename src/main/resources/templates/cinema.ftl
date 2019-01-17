@@ -21,85 +21,41 @@
                 <div class="col-md-8 offset-md-2 offset-sm-2">
                     <div class="row m-2 p-1 custom-card">
                         <div class="col-md-4 pt-1">
-                            <img class="img-thumbnail" src="../img/">
-                            <h5>Cinema Name</h5>
+                            <img class="img-thumbnail" src="${cinema.icon}">
+                            <h5>${cinema.name}</h5>
                         </div>
                         <div class="col-md-8 ">
-                            <p>phone and email </p>
-                            <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem orem ipsum lorem ipsum
-                                lorem ipsum lorem ipsum lorem ipsum lorem lorem ipsum lorem ipsum lorem ipsum lorem
-                                ipsum lorem ipsum lorem orem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-                                lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ip</p>
+                            <p><#if cinema.EMail??>${cinema.EMail}</#if></p>
+                            <p>${cinema.adress}</p>
+                            <p>${cinema.description}</p>
                         </div>
                     </div>
-                    <div class="row m-2 p-1 custom-card">
-                        <div class="col-md-12 text-center">
-                            Film Name
-                            <small>12+</small>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img class="img-thumbnail" src="test2.jpg" style="object-fit: cover;">
+                    <#list films as film>
+                    <#if film??>
+                        <div class="row m-2 p-1 custom-card">
+                            <div class="col-md-12 text-center">
+                                ${film.title}
+                                <small>${film.rars}</small>
                             </div>
-                            <div class="col-md-8 ">
-                                <div class="row col-12">
-                                    <div class="row col-12">
-                                        <p>2D</p>
-                                    </div>
-                                    <div class="row col-12">
-                                        <button type="button" class="btn btn-outline-primary btn-sm">Primary</button>
-                                    </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img class="img-thumbnail" src="${film.image}" style="object-fit: cover;">
                                 </div>
-
-                                <div class="row col-12 pt-3">
-                                    <div class="row col-12">
-                                        <p>2D</p>
-                                    </div>
-                                    <div class="row col-12">
-                                        <button type="button" class="btn btn-outline-primary btn-sm">Primary</button>
-                                        <button type="button" class="btn btn-outline-primary btn-sm ml-2">Primary
-                                        </button>
-                                        <button type="button" class="btn btn-outline-primary btn-sm ml-2">Primary
-                                        </button>
+                                <div class="col-md-8 ">
+                                    <div class="row col-12 pt-3">
+                                        <div class="row col-12">
+                                            <#list sessions as session>
+                                                <#if film.id = session.filmId>
+                                                    <button onclick="../films/${film.id}" type="button" class="btn btn-outline-primary btn-sm ml-2">${session.sessionTime}</button>
+                                                </#if>
+                                            </#list>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row m-2 p-1 custom-card">
-                        <div class="col-md-12 text-center">
-                            Film Name
-                            <small>12+</small>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <img class="img-thumbnail" src="test2.jpg" style="object-fit: cover;">
-                            </div>
-                            <div class="col-md-8 ">
-                                <div class="row col-12">
-                                    <div class="row col-12">
-                                        <p>2D</p>
-                                    </div>
-                                    <div class="row col-12">
-                                        <button type="button" class="btn btn-outline-primary btn-sm">Primary</button>
-                                    </div>
-                                </div>
-
-                                <div class="row col-12 pt-3">
-                                    <div class="row col-12">
-                                        <p>2D</p>
-                                    </div>
-                                    <div class="row col-12">
-                                        <button type="button" class="btn btn-outline-primary btn-sm">Primary</button>
-                                        <button type="button" class="btn btn-outline-primary btn-sm ml-2">Primary
-                                        </button>
-                                        <button type="button" class="btn btn-outline-primary btn-sm ml-2">Primary
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </#if>
+                    </#list>
 
                 </div>
             </div>
