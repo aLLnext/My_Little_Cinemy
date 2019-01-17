@@ -5,18 +5,19 @@
 
 <@common.page links=links>
 <div class="main">
+    <#list cinemas as cinema>
     <div class="container-fluid text-center">
         <div class="row content">
             <div class="offset-sm-2 col-sm-8 text-left">
-                <div onclick="location.href='cinemas/'" style="cursor: pointer;" class="jumbotron jumbotron-fluid about_cinema">
+                <div onclick="location.href='cinemas/${cinema.id}'" style="cursor: pointer;" class="jumbotron jumbotron-fluid about_cinema">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <img class="img-thumbnail" style="width: 300px; height: 150px" src="img/iphone360_370.jpg">
+                                    <img class="img-thumbnail" style="width: 300px; height: 150px" src="${cinema.icon}">
                                 </div>
                                 <div class="col-sm-8">
-                                    <h1 class="display-4">Fluid jumbotron</h1>
-                                    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                                    <h1 class="display-4">${cinema.name}</h1>
+                                    <p class="lead">${cinema.description}</p>
                                 </div>
                             </div>
                         </div>
@@ -24,28 +25,7 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid text-center">
-        <div class="row content">
-            <div class="col-sm-2 sidenav"></div>
-            <div class="col-sm-8 text-left">
-                 <div onclick="location.href='cinemas/'" style="cursor: pointer;" class="jumbotron jumbotron-fluid about_cinema">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <img class="img-thumbnail" style="width: 300px; height: 150px" src="img/iphone360_370.jpg">
-                            </div>
-                            <div class="col-sm-8">
-                                <h1 class="display-4">Fluid jumbotron</h1>
-                                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-            </div>
-            <div class="col-sm-2 sidenav"></div>
-        </div>
-    </div>
-
+    </#list>
 
     <footer class="container-fluid text-center">
         <div class="jumbotron jumbotron-fluid about_cinema">

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public interface SessionRepo extends CrudRepository<Session, Long> {
     Iterable<Session> findByFilmIdOrderBySessionDateAsc(Long id);
-
+    Iterable<Session> findSessionByCinemaId(Long id);
     //id, session_date, session_time, halls.name, cinemas.name
     //Iterable<Session> findSessionByFilmIdOrderBySession_date(Long id);
     //Iterable<Session> findSessionByFilmIdAndSession_date(Long id, java.sql.Date date);

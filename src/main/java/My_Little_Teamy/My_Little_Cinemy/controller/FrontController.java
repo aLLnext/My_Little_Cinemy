@@ -1,5 +1,6 @@
 package My_Little_Teamy.My_Little_Cinemy.controller;
 
+import My_Little_Teamy.My_Little_Cinemy.Model.Film;
 import My_Little_Teamy.My_Little_Cinemy.Model.Session;
 import My_Little_Teamy.My_Little_Cinemy.Model.Ticket;
 import My_Little_Teamy.My_Little_Cinemy.ModelRepo.*;
@@ -51,13 +52,16 @@ public class FrontController {
 
     @RequestMapping(value = "/cinemas", method = RequestMethod.GET)
     public String cinemas(Map<String, Object> model, @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId){
-
+        model.put("cinemas", cinemaRepo.findAllBy());
         return "all_cinemas";
     }
 
     @RequestMapping(value = "/cinemas/{id}", method = RequestMethod.GET)
     public String current_cinema(@PathVariable long id, Map<String, Object> model, @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId){
-
+        model.put("cinema", cinemaRepo.findCinemaById(id));
+        Iterable<Film> films = filmRepo.findFilmsByCinemaId(id);
+        model.put("films", filmRepo.findFilmsByCinemaId(id));
+        model.put("sessions", sessionRepo.findSessionByCinemaId(id));
         return "cinema";
     }
 
