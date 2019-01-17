@@ -234,6 +234,47 @@ p.dropdown_title {
     display: block;
 }
 
+/*places in hall*/
+
+.hall_row{
+    text-align: center;
+}
+
+.hall_row div{
+    display: inline-block;
+}
+
+.hall_row .place{
+    position: relative;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    background: white;
+    border: 1px solid #216477;
+    border-radius: 2px;
+    margin: 2px;
+}
+
+.place .booked{
+    background: #A61860;
+}
+
+.place.selected{
+    background: #057D9F;
+}
+
+.place p{
+    margin-top: -10%;
+}
+
+.hall_row .place:hover{
+    cursor: pointer;
+    background: #C4C4C4;
+}
+
+/*----*/
+
+
 @media screen and (max-width: 1135px) {
     .dropdown_shedule {
         margin-left: 10%;

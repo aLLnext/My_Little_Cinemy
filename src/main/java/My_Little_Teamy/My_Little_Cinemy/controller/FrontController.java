@@ -42,7 +42,7 @@ public class FrontController {
     @RequestMapping(value = "/films/{id}", method = RequestMethod.GET)
     public String films(@PathVariable long id, Map<String, Object> model, @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId) {
         model.put("film", filmRepo.findById(id).orElse(null));
-        //TODO
+        //TODO(НУЖНО ПО ID ДОСТАТЬ НАЗВАНИЯ)
         ArrayList<Session> all_sessions = sessionRepo.findSessionByFilmOrderByDate(id);
         ArrayList<ArrayList<Session>> sessions = new ArrayList<>();
         ArrayList<Session> inner = new ArrayList<>();

@@ -7,6 +7,10 @@ html {
     overflow-x: hidden;
 }
 
+p{
+    margin-bottom: 0.2rem;
+}
+
 body {
     height: 100%;
 }
