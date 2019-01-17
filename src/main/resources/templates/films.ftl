@@ -140,9 +140,9 @@
             </#list>
         </#list>
         function showrow() {
-            //alert(this.id);
-
-            var counter = document.getElementById('count_b');
+            alert((((this.parentNode).parentNode).parentNode).nextSibling);
+            var counter = this.parentNode.closest('count_b');
+            alert(counter);
             var cost = document.getElementById('cost');
             if(this.classList.contains('selected')){
                 counter.innerText = parseInt(counter.innerText) - 1;
@@ -191,7 +191,7 @@
 </div>
     <div>
 <h5><b>В прокате с</b></h5>
-    <h5><b>${film.date_release}</b></h5>
+    <h5><b>${film.dateRelease}</b></h5>
     </div>
     <div>
 <p><b>Ограничение по возрасту:</b></p>
@@ -283,7 +283,7 @@
 </div>
     <div>
 <h5><b>В прокате с</b></h5>
-    <h5><b>${film.date_release}</b></h5>
+    <h5><b>${film.dateRelease}</b></h5>
     </div>
     <div>
 <p><b>Ограничение по возрасту:</b></p>
@@ -443,7 +443,7 @@
                         <div style="display: inline-block; width: 100%">
                             <p style="display: inline-block"><b>Кинотеатр, зал  </b></p>
                             <p style="display: inline-block">${ses[1].name} </p>
-                            <p style="display: inline-block">зал: ${ses[2].name} </p>
+                            <p style="display: inline-block"> ${ses[2].name} </p>
                         </div>
                         <div style="display: inline-block; width: 100%">
                             <p style="display: inline-block"><b>Дата, время  </b></p>
@@ -456,9 +456,9 @@
                         </div>
                         <div style="display: inline-block; width: 100%">
                             <p style="display: inline-block"><b>Выбрано </b></p>
-                            <p style="display: inline-block" id="count_b">0</p>
-                            <p style="display: inline-block" id="count_name"> бил </p>
-                            <p style="display: inline-block" id="cost">0</p>
+                            <p style="display: inline-block" class="count_b">0</p>
+                            <p style="display: inline-block" class="count_name"> бил </p>
+                            <p style="display: inline-block" class="cost">0</p>
                             <p style="display: inline-block"> руб</p>
                         </div>
                     </div>
