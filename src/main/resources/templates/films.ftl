@@ -327,11 +327,11 @@
     <ul class="dropdown_main">
     <#list sessions as session>
         <li class="dropdown_shedule">
-        <p class="dropdown_title" href="#">${session[0].session_date}</p>
+        <p class="dropdown_title" href="#">${session[0].sessionDate}</p>
         <ul class="dropdown">
         <#list session as ses>
             <li>
-            <a class="line_li_a" href="#">${ses.session_time}</a>
+            <a class="line_li_a" href="#">${ses.sessionTime}</a>
             <a class="line_li_a" href="#">${ses.cinemaId}</a>
             <a class="line_li_a" href="#">${ses.hallId}</a>
             <button type="button" class="btn btn-primary line_li_a" data-toggle="modal" data-target="#buyticket">купить</button>

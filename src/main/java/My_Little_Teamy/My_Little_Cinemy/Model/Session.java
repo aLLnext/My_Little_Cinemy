@@ -13,8 +13,10 @@ public class Session {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private java.sql.Date session_date;
-    private java.sql.Time session_time;
+    @Column(name = "session_date")
+    private java.sql.Date sessionDate;
+    @Column(name = "session_time")
+    private java.sql.Time sessionTime;
     @Column(name = "film_id")
     private long filmId;
     @Column(name = "cinema_id")
