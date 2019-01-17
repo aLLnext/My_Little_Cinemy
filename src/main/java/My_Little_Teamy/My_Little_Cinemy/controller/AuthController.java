@@ -3,6 +3,7 @@ package My_Little_Teamy.My_Little_Cinemy.controller;
 import My_Little_Teamy.My_Little_Cinemy.Model.User;
 import My_Little_Teamy.My_Little_Cinemy.ModelRepo.UserRepo;
 import lombok.AllArgsConstructor;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,7 @@ public class AuthController {
                         Map<String, Object> model,
                         HttpServletResponse response) {
         User userInDB = userRepo.findUserByEMail(user.getEMail());
-
+        user.setPassword(DigestUtils.md5Hex(user.getPassword()));
         if (userInDB != null && user.getPassword().equals(userInDB.getPassword())) {
             model.put("signedIn", true);
             response.addCookie(new Cookie("CINEMA-AUTH", userInDB.getId().toString()));
@@ -42,6 +43,7 @@ public class AuthController {
             return "redirect:/index";
         }
         user.setRole("VIEWER");
+        user.setPassword(DigestUtils.md5Hex(user.getPassword()));
         response.addCookie(new Cookie("CINEMA-AUTH", userRepo.save(user).getId().toString()));
         return "redirect:/account";
 
