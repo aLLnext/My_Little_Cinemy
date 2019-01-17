@@ -191,7 +191,7 @@
 </div>
     <div>
 <h5><b>В прокате с</b></h5>
-    <h5><b>${film.date_release}</b></h5>
+    <h5><b>${film.dateRelease}</b></h5>
     </div>
     <div>
 <p><b>Ограничение по возрасту:</b></p>
@@ -283,7 +283,7 @@
 </div>
     <div>
 <h5><b>В прокате с</b></h5>
-    <h5><b>${film.date_release}</b></h5>
+    <h5><b>${film.dateRelease}</b></h5>
     </div>
     <div>
 <p><b>Ограничение по возрасту:</b></p>
