@@ -140,10 +140,8 @@
             </#list>
         </#list>
         function showrow() {
-            alert((((this.parentNode).parentNode).parentNode).nextSibling);
-            var counter = this.parentNode.closest('count_b');
-            alert(counter);
-            var cost = document.getElementById('cost');
+            var counter = ((((this.parentNode).parentNode).parentNode).parentNode).getElementsByClassName('count_b')[0];
+            var cost = ((((this.parentNode).parentNode).parentNode).parentNode).getElementsByClassName('cost')[0];
             if(this.classList.contains('selected')){
                 counter.innerText = parseInt(counter.innerText) - 1;
                 cost.innerText = parseInt(cost.innerText) - 300
