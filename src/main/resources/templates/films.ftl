@@ -109,35 +109,37 @@
 
 
         <#list sessions as session>
-            <#list session as ses>
-                var modalb = document.getElementById('modalbody${ses[0].id}');
-                var hall = document.createElement('div');
-                hall.classList.add('hall');
-                var row_count = ${ses[2].line};
-                var place_count = ${ses[2].place};
-                for (var i = 0; i < row_count; i++) {
-                    var row = document.createElement('div');
-                    row.classList.add('hall_row');
-                    var div_row_n = document.createElement('div');
-                    var row_n = document.createElement('h6');
-                    row_n.innerText = i + 1;
-                    div_row_n.appendChild(row_n);
-                    row.appendChild(div_row_n);
-                    for (var j = 0; j < place_count; j++) {
-                        var place = document.createElement('div');
-                        place.classList.add('place');
-                        place.id = (i + 1) +"."+ (j + 1);
-                        place.addEventListener("click", showrow);
-                        //if уже куплен place.classList.add('booked')
-                        var num = document.createElement('p');
-                        num.innerText = j + 1;
-                        place.appendChild(num);
-                        row.appendChild(place);
+            <#if session[0]??>
+                <#list session as ses>
+                    var modalb = document.getElementById('modalbody${ses[0].id}');
+                    var hall = document.createElement('div');
+                    hall.classList.add('hall');
+                    var row_count = ${ses[2].line};
+                    var place_count = ${ses[2].place};
+                    for (var i = 0; i < row_count; i++) {
+                        var row = document.createElement('div');
+                        row.classList.add('hall_row');
+                        var div_row_n = document.createElement('div');
+                        var row_n = document.createElement('h6');
+                        row_n.innerText = i + 1;
+                        div_row_n.appendChild(row_n);
+                        row.appendChild(div_row_n);
+                        for (var j = 0; j < place_count; j++) {
+                            var place = document.createElement('div');
+                            place.classList.add('place');
+                            place.id = (i + 1) +"."+ (j + 1);
+                            place.addEventListener("click", showrow);
+                            //if уже куплен place.classList.add('booked')
+                            var num = document.createElement('p');
+                            num.innerText = j + 1;
+                            place.appendChild(num);
+                            row.appendChild(place);
+                        }
+                        hall.appendChild(row);
                     }
-                    hall.appendChild(row);
-                }
-                modalb.appendChild(hall);
-            </#list>
+                    modalb.appendChild(hall);
+                </#list>
+            </#if>
         </#list>
         function showrow() {
             var counter = ((((this.parentNode).parentNode).parentNode).parentNode).getElementsByClassName('count_b')[0];
@@ -323,27 +325,31 @@
     <div class="row">
 <div class="col-2"></div>
     <div class="col-8">
-<h2>Расписание сеансов</h2>
-    <div class="list-structure">
-    <ul class="dropdown_main">
-    <#list sessions as session>
-        <li class="dropdown_shedule">
-        <p class="dropdown_title" href="#">${session[0][0].sessionDate}</p>
-        <ul class="dropdown">
-        <#list session as ses>
-            <li>
-            <a class="line_li_a" href="#">${ses[0].sessionTime}</a>
-            <a class="line_li_a" href="#">${ses[1].name}</a>
-            <a class="line_li_a" href="#">${ses[2].name}</a>
-            <button type="button" class="btn btn-primary line_li_a" data-toggle="modal" data-target="#buyticket${ses[0].id}">купить</button>
-            </li>
+    <#if sessions[0][0]??>
+        <h2>Расписание сеансов</h2>
+        <div class="list-structure">
+        <ul class="dropdown_main">
+        <#list sessions as session>
+            <#if session[0]??>
+                <li class="dropdown_shedule">
+                <p class="dropdown_title" href="#">${session[0][0].sessionDate}</p>
+                <ul class="dropdown">
+                <#list session as ses>
+                    <li>
+                    <a class="line_li_a" href="#">${ses[0].sessionTime}</a>
+                    <a class="line_li_a" href="#">${ses[1].name}</a>
+                    <a class="line_li_a" href="#">${ses[2].name}</a>
+                    <button type="button" class="btn btn-primary line_li_a" data-toggle="modal" data-target="#buyticket${ses[0].id}">купить</button>
+                    </li>
+                </#list>
+                </ul>
+                </li>
+            </#if>
         </#list>
         </ul>
-        </li>
-    </#list>
-    </ul>
-    </div>
-    </div>
+        </div>
+        </div>
+    <#else><h2>Сеансов нет</h2></#if>
 <div class="col-2"></div>
     </div>
 <div class="Review container">
@@ -423,52 +429,56 @@
 </div>
 
 <!-- Modal -->
+
 <#list sessions as session>
-    <#list session as ses>
-    <div class="modal fade" id="buyticket${ses[0].id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Купить билет</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form>
-                <div id="modalbody${ses[0].id}" class="modal-body"></div>
-                    <div style="text-align: center">
-                        <div style="display: inline-block; width: 100%">
-                            <p style="display: inline-block"><b>Кинотеатр, зал  </b></p>
-                            <p style="display: inline-block">${ses[1].name} </p>
-                            <p style="display: inline-block"> ${ses[2].name} </p>
-                        </div>
-                        <div style="display: inline-block; width: 100%">
-                            <p style="display: inline-block"><b>Дата, время  </b></p>
-                            <p style="display: inline-block">${ses[0].sessionDate} </p>
-                            <p style="display: inline-block">${ses[0].sessionTime} </p>
-                        </div>
-                        <div style="display: inline-block; width: 100%">
-                            <p><b>Ограничение по возрасту</b></p>
-                            <p>Для детей старше 12 лет</p>
-                        </div>
-                        <div style="display: inline-block; width: 100%">
-                            <p style="display: inline-block"><b>Выбрано </b></p>
-                            <p style="display: inline-block" class="count_b">0</p>
-                            <p style="display: inline-block" class="count_name"> бил </p>
-                            <p style="display: inline-block" class="cost">0</p>
-                            <p style="display: inline-block"> руб</p>
-                        </div>
+    <#if sessions[0]??>
+        <#list session as ses>
+        <div class="modal fade" id="buyticket${ses[0].id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Купить билет</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal">Продолжить</button>
+                    <form>
+                    <div id="modalbody${ses[0].id}" class="modal-body"></div>
+                        <div style="text-align: center">
+                            <div style="display: inline-block; width: 100%">
+                                <p style="display: inline-block"><b>Кинотеатр, зал  </b></p>
+                                <p style="display: inline-block">${ses[1].name} </p>
+                                <p style="display: inline-block"> ${ses[2].name} </p>
+                            </div>
+                            <div style="display: inline-block; width: 100%">
+                                <p style="display: inline-block"><b>Дата, время  </b></p>
+                                <p style="display: inline-block">${ses[0].sessionDate} </p>
+                                <p style="display: inline-block">${ses[0].sessionTime} </p>
+                            </div>
+                            <div style="display: inline-block; width: 100%">
+                                <p><b>Ограничение по возрасту</b></p>
+                                <p>Для детей старше 12 лет</p>
+                            </div>
+                            <div style="display: inline-block; width: 100%">
+                                <p style="display: inline-block"><b>Выбрано </b></p>
+                                <p style="display: inline-block" class="count_b">0</p>
+                                <p style="display: inline-block" class="count_name"> бил </p>
+                                <p style="display: inline-block" class="cost">0</p>
+                                <p style="display: inline-block"> руб</p>
+                            </div>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Продолжить</button>
+                    </div>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
-    </div>
-    </#list>
+        </#list>
+    </#if>
 </#list>
+
 
     <div class="container-fluid footer">
         <div class="row">
