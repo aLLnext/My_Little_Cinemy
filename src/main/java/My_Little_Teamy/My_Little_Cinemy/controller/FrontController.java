@@ -31,6 +31,12 @@ public class FrontController {
     private CinemaRepo cinemaRepo;
     @Autowired
     private HallRepo hallRepo;
+    @Autowired
+    private GenreRepo genreRepo;
+    @Autowired
+    private ParticipantRepo participantRepo;
+
+
 
 
     @RequestMapping(value = {"/index", "", "/"}, method = RequestMethod.GET)
@@ -58,6 +64,7 @@ public class FrontController {
     @RequestMapping(value = "/films/{id}", method = RequestMethod.GET)
     public String films(@PathVariable long id, Map<String, Object> model, @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId) {
         model.put("film", filmRepo.findById(id).orElse(null));
+        model.put("genre", genreRepo.findGenresByFilmId(id));
         //TODO(НУЖНО ПО ID ДОСТАТЬ НАЗВАНИЯ)
         Iterable<Session> all_sessions = sessionRepo.findByFilmIdOrderBySessionDateAsc(id);
         ArrayList<ArrayList<Object>> sessions = new ArrayList<>();

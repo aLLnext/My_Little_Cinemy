@@ -348,8 +348,8 @@
         </#list>
         </ul>
         </div>
-        </div>
     <#else><h2>Сеансов нет</h2></#if>
+    </div>
 <div class="col-2"></div>
     </div>
 <div class="Review container">
