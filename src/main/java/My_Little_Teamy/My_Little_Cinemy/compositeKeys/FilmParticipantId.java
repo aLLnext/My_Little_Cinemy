@@ -17,7 +17,7 @@ public class FilmParticipantId implements Serializable {
     private Film film;
 
     @ManyToOne
-    @JoinColumn(name = "participant_id")
+    @JoinColumn(name = "person_id")
     private Participant participant;
 
     private String post;

@@ -35,7 +35,9 @@ public class FrontController {
     @Autowired
     private GenreRepo genreRepo;
     @Autowired
-    private ParticipantRepo participantRepo;
+    CountryRepo countryRepo;
+    @Autowired
+    ParticipantRepo participantRepo;
 
 
 
@@ -67,8 +69,14 @@ public class FrontController {
 
     @RequestMapping(value = "/films/{id}", method = RequestMethod.GET)
     public String films(@PathVariable long id, Map<String, Object> model, @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId) {
-        model.put("film", filmRepo.findById(id).orElse(null));
-        model.put("genre", genreRepo.findGenresByFilmId(id));
+        Film filmFromDB = filmRepo.findById(id).orElse(null);
+        model.put("film", filmFromDB);
+        model.put("genres", genreRepo.findGenresByFilmId(id));
+        model.put("countries", countryRepo.findCountriesByFilmId(id));
+        model.put("directors",participantRepo.findPartisipantsByfilmIdAndPost(id, "director"));
+        model.put("producers",participantRepo.findPartisipantsByfilmIdAndPost(id, "producer"));
+        model.put("screenwriters",participantRepo.findPartisipantsByfilmIdAndPost(id, "screenwriter"));
+        model.put("actors",participantRepo.findPartisipantsByfilmIdAndPost(id, "actor"));
         //TODO(НУЖНО ПО ID ДОСТАТЬ НАЗВАНИЯ)
         Iterable<Session> all_sessions = sessionRepo.findByFilmIdOrderBySessionDateAsc(id);
         ArrayList<ArrayList<Object>> sessions = new ArrayList<>();

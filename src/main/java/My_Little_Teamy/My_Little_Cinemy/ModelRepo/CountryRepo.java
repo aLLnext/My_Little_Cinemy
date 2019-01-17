@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 public interface CountryRepo extends CrudRepository<Country, Long> {
-    @Query(value = "select name from countries inner join films_countries on " +
+    @Query(value = "select `name` from countries inner join films_countries on " +
             "countries.id = country_id where film_id = :filmId", nativeQuery = true)
     Iterable<String> findCountriesByFilmId(@Param("filmId") Long filmId);
 }
