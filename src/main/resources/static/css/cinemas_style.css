@@ -1,0 +1,17 @@
+.custom-card {
+    background: #FFFFFF;
+    border-radius: 4px;
+    box-shadow: 0px 0px 20px -2px rgba(0, 0, 0, 0.78);
+}
+
+
+.current_cinema{
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    outline: none; /* убирать контур в Mozilla */
+}
+
+.cinema_cont{
+    background: rgba(2, 81, 103, 0.15);
+}
+
