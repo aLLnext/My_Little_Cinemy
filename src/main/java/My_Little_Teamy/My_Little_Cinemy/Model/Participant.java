@@ -6,13 +6,10 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "people",
-        uniqueConstraints = @UniqueConstraint(
-                columnNames = {"name", "surname"}))
+@Table(name = "people")
 public class Participant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private String surname;
 }

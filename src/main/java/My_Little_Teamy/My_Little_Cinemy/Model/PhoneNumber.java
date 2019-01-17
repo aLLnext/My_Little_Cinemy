@@ -12,5 +12,6 @@ public class PhoneNumber {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private long cinema_id;
+    @Column(name = "cinema_id")
+    private long cinemaId;
 }

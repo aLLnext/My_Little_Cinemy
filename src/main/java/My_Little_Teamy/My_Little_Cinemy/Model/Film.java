@@ -15,7 +15,8 @@ public class Film {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
-    private java.sql.Date date_release;
+    @Column(name = "date_release")
+    private java.sql.Date dateRelease;
     private long duration;
     private long rars;
     @Column(name = "main_photo")

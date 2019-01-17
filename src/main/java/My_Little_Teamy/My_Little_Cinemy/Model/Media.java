@@ -12,5 +12,6 @@ public class Media {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String picture;
-    private long film_id;
+    @Column(name = "film_id")
+    private long filmId;
 }
