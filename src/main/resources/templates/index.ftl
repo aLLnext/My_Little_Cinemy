@@ -20,7 +20,7 @@
 </#assign>
 
 <@common.page scripts=indexScripts>
-    <div class="main">
+<div class="main">
         <div class="col-lg-3 col-md-3 col-sm-2"></div>
         <p class="main_text">АФИША ВО ВЛАДИВОСТОКЕ</p>
         <div class="all_films">
@@ -34,7 +34,7 @@
             </a>
         </#list>
         </div>
-    </div>
+</div>
     <@auth.auth></@auth.auth>
     <div class="footer">
     <div class="row">
@@ -69,4 +69,5 @@
     </div>
     </div>
     </div>
+
 </@common.page>

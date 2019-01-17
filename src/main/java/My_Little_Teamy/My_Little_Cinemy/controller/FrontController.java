@@ -38,6 +38,17 @@ public class FrontController {
         return result;
     }
 
+    @RequestMapping(value = "/cinemas", method = RequestMethod.GET)
+    public String cinemas(Map<String, Object> model, @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId){
+
+        return "all_cinemas";
+    }
+
+    @RequestMapping(value = "/cinemas/{id}", method = RequestMethod.GET)
+    public String current_cinema(@PathVariable long id, Map<String, Object> model, @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId){
+
+        return "cinema";
+    }
 
     @RequestMapping(value = "/films/{id}", method = RequestMethod.GET)
     public String films(@PathVariable long id, Map<String, Object> model, @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId) {
