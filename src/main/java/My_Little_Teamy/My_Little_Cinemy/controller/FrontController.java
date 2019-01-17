@@ -1,9 +1,8 @@
 package My_Little_Teamy.My_Little_Cinemy.controller;
 
 import My_Little_Teamy.My_Little_Cinemy.Model.Session;
-import My_Little_Teamy.My_Little_Cinemy.ModelRepo.FilmRepo;
-import My_Little_Teamy.My_Little_Cinemy.ModelRepo.SessionRepo;
-import My_Little_Teamy.My_Little_Cinemy.ModelRepo.UserRepo;
+import My_Little_Teamy.My_Little_Cinemy.Model.Ticket;
+import My_Little_Teamy.My_Little_Cinemy.ModelRepo.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +25,12 @@ public class FrontController {
     private UserRepo userRepo;
     @Autowired
     private SessionRepo sessionRepo;
+    @Autowired
+    private TicketRepo ticketRepo;
+    @Autowired
+    private CinemaRepo cinemaRepo;
+    @Autowired
+    private HallRepo hallRepo;
 
 
     @RequestMapping(value = {"/index", "", "/"}, method = RequestMethod.GET)
@@ -54,28 +59,36 @@ public class FrontController {
     public String films(@PathVariable long id, Map<String, Object> model, @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId) {
         model.put("film", filmRepo.findById(id).orElse(null));
         //TODO(НУЖНО ПО ID ДОСТАТЬ НАЗВАНИЯ)
-        ArrayList<Session> all_sessions = sessionRepo.findSessionByFilmOrderByDate(id);
-        ArrayList<ArrayList<Session>> sessions = new ArrayList<>();
-        ArrayList<Session> inner = new ArrayList<>();
+        Iterable<Session> all_sessions = sessionRepo.findByFilmIdOrderBySessionDateAsc(id);
+        ArrayList<ArrayList<Object>> sessions = new ArrayList<>();
+        ArrayList<Object> inner = new ArrayList<>();
         for (Session session : all_sessions) {
             if(inner.size() > 0) {
-                if (session.getSession_date() == (inner.get(0)).getSession_date()) {
-                    inner.add(session);
+                if (session.getSessionDate() == ((Session)((ArrayList)inner.get(0)).get(0)).getSessionDate()) {
+                    inner.add(InsertIntoSession(session));
                 } else {
                     sessions.add(inner);
                     inner = new ArrayList<>();
-                    inner.add(session);
+                    inner.add(InsertIntoSession(session));
                 }
             }
             else{
-                inner.add(session);
+                inner.add(InsertIntoSession(session));
             }
         }
         sessions.add(inner);
         model.put("sessions", sessions);
         model.put("signedIn", userRepo.findById(Long.valueOf(userId)).isPresent());
+
         return "films";
     }
 
-
+    public ArrayList<Object> InsertIntoSession(Session session){
+        ArrayList<Object> inner = new ArrayList<>();
+        inner.add(session);
+        inner.add(cinemaRepo.findCinemaById(session.getCinemaId()));
+        inner.add(hallRepo.findHallById(session.getHallId()));
+        inner.add(ticketRepo.findTicketBySessionId(session.getId()));
+        return inner;
+    }
 }
