@@ -28,4 +28,8 @@ public class Cinema {
     @OneToMany(targetEntity = Session.class)
     @JoinColumn(name = "cinema_id")
     private Set<Session> sessions = new HashSet<>();
+
+    @OneToMany(targetEntity = PhoneNumber.class)
+    @JoinColumn(name = "cinema_id")
+    private Set<PhoneNumber> phoneNumbers = new HashSet<>();
 }
