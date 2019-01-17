@@ -12,5 +12,5 @@ import javax.persistence.Table;
 @Table(name = "films_genres")
 public class FilmGenre {
     @EmbeddedId
-    private FilmGenreId filmGenre;
+    private FilmGenreId filmGenreId;
 }
