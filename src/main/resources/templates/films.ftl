@@ -341,57 +341,47 @@
                         <p>${film.description}</p>
                     </div>
 
-    </div>
-    <div class="bottom_text">
-    <p>${film.description}</p>
-    </div>
-<div class="col-sm-2"></div>
-    </div>
-    </div>
-    <div class="shedule container-fluid">
-    <div class="row">
-<div class="col-2"></div>
-    <div class="col-8">
-    <#if sessions[0][0]??>
-        <h2>Расписание сеансов</h2>
-        <div class="list-structure">
-        <ul class="dropdown_main">
-        <#list sessions as session>
-            <#if session[0]??>
-                <li class="dropdown_shedule">
-                <p class="dropdown_title" href="#">${session[0][0].sessionDate}</p>
-                <ul class="dropdown">
-                <#list session as ses>
-                    <li>
-                    <a class="line_li_a" href="#">${ses[0].sessionTime}</a>
-                    <a class="line_li_a" href="#">${ses[1].name}</a>
-                    <a class="line_li_a" href="#">${ses[2].name}</a>
-                    <button type="button" class="btn btn-primary line_li_a" data-toggle="modal" data-target="#buyticket${ses[0].id}">купить</button>
-                    </li>
-                </#list>
-                </ul>
-                </li>
-            </#if>
-        </#list>
-        </ul>
-        </div>
-    <#else><h2>Сеансов нет</h2></#if>
-    </div>
-<div class="col-2"></div>
-    </div>
-<div class="Review container">
-    <div class="Review-details">
-        <img src="https://randomuser.me/api/portraits/med/men/29.jpg">
-        <div class="Review-meta">
-            <p class="Review-author">Zachary Richardson</p>
-            <p class="Review-date">3 days ago</p>
-            <div class="Review-rating">
-                <span class="Review-star Review-star--active">&#9733;</span>
-                <span class="Review-star Review-star--active">&#9733;</span>
-                <span class="Review-star Review-star--active">&#9733;</span>
-                <span class="Review-star">&#9733;</span>
-                <span class="Review-star">&#9733;</span>
+                </div>
+                <div class="bottom_text">
+                    <p>${film.description}</p>
+                </div>
+                <div class="col-sm-2"></div>
             </div>
+        </div>
+
+        <div class="shedule container-fluid">
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                <#if sessions[0][0]??>
+                    <h2>Расписание сеансов</h2>
+                    <div class="list-structure">
+                    <ul class="dropdown_main">
+                    <#list sessions as session>
+                        <#if session[0]??>
+                            <li class="dropdown_shedule">
+                            <p class="dropdown_title" href="#">${session[0][0].sessionDate}</p>
+                            <ul class="dropdown">
+                            <#list session as ses>
+                                <li>
+                                <a class="line_li_a" href="#">${ses[0].sessionTime}</a>
+                                <a class="line_li_a" href="#">${ses[1].name}</a>
+                                <a class="line_li_a" href="#">${ses[2].name}</a>
+                                <button type="button" class="btn btn-primary line_li_a" data-toggle="modal" data-target="#buyticket${ses[0].id}">купить</button>
+                                </li>
+                            </#list>
+                            </ul>
+                            </li>
+                        </#if>
+                    </#list>
+                    </ul>
+                    </div>
+                <#else><h2>Сеансов нет</h2></#if>
+                </div>
+                <div class="col-2"></div>
+            </div>
+
+
             <div class="Review container">
                 <div class="Review-details">
                     <img src="https://randomuser.me/api/portraits/med/men/29.jpg">
@@ -475,10 +465,10 @@
                   </span>
                 </form>
             </div>
-
-<!-- Modal -->
-
-<#list sessions as session>
+        </div>
+    </div>
+    <!-- Modal -->
+    <#list sessions as session>
     <#if sessions[0]??>
         <#list session as ses>
         <div class="modal fade" id="buyticket${ses[0].id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -528,7 +518,7 @@
 </#list>
 
 
-    <div class="container-fluid footer">
+        <div class="container-fluid footer">
         <div class="row">
             <div class="first_column col-lg-3 col-md-4 col-sm-6">
                 <div class="LOGO">НАШ КИНО ТЕАТР</div>
@@ -561,8 +551,6 @@
                     </div>
                 </div>
             </div>
-
-        </div>
     </div>
 
 </@common.page>
