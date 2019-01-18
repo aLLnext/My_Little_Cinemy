@@ -1,6 +1,7 @@
 package My_Little_Teamy.My_Little_Cinemy.controller;
 
 import My_Little_Teamy.My_Little_Cinemy.Model.Film;
+import My_Little_Teamy.My_Little_Cinemy.Model.Review;
 import My_Little_Teamy.My_Little_Cinemy.Model.Session;
 import My_Little_Teamy.My_Little_Cinemy.Model.Ticket;
 import My_Little_Teamy.My_Little_Cinemy.ModelRepo.*;
@@ -70,6 +71,16 @@ public class FrontController {
     @RequestMapping(value = "/films/{id}", method = RequestMethod.GET)
     public String films(@PathVariable long id, Map<String, Object> model, @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId) {
         Film filmFromDB = filmRepo.findById(id).orElse(null);
+        System.out.println(filmFromDB.getReviews());
+        ArrayList<Object> reviews = new ArrayList<>();
+
+        for(Review review: filmFromDB.getReviews()){
+            ArrayList<Object> name = new ArrayList<>();
+            name.add(review);
+            name.add(userRepo.findUserNameById(review.getUserId()));
+            reviews.add(name);
+        }
+        model.put("reviews", reviews);
         model.put("film", filmFromDB);
         model.put("genres", genreRepo.findGenresByFilmId(id));
         model.put("countries", countryRepo.findCountriesByFilmId(id));

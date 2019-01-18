@@ -383,90 +383,75 @@
                 <div class="col-2"></div>
             </div>
 
-
-            <div class="Review container">
-                <div class="Review-details">
-                    <img src="https://randomuser.me/api/portraits/med/men/29.jpg">
-                    <div class="Review-meta">
-                        <p class="Review-author">Zachary Richardson</p>
-                        <p class="Review-date">3 days ago</p>
-                        <div class="Review-rating">
-                            <span class="Review-star Review-star--active">&#9733;</span>
-                            <span class="Review-star Review-star--active">&#9733;</span>
-                            <span class="Review-star Review-star--active">&#9733;</span>
-                            <span class="Review-star">&#9733;</span>
-                            <span class="Review-star">&#9733;</span>
+            <#list reviews as review>
+                <div class="Review container">
+                    <div class="Review-details">
+                        <div class="Review-meta">
+                            <p class="Review-author">${review[1]}</p>
+                            <p class="Review-date">${review[0].publicationDate}</p>
+                            <div class="Review-rating">
+                                <span class="Review-star Review-star--active">&#9733;</span>
+                                <span class="Review-star Review-star--active">&#9733;</span>
+                                <span class="Review-star Review-star--active">&#9733;</span>
+                                <span class="Review-star">&#9733;</span>
+                                <span class="Review-star">&#9733;</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="Review-body">
-                    <h3 class="Review-title">The heat had forced its shells apart, and the meat, salmon-colored, was
-                        thoroughly
-                        cooked.</h3>
-                    <p>That makes what I call one hundred. Remember that word—one hundred. Now I put this pebble in
-                        Hare-Lip's hand.
-                        It stands for ten grains of sand, or ten tens of fingers, or <strong>one hundred
-                            fingers</strong>. I put in
-                        ten pebbles. They stand for a <em>thousand</em> fingers. I take a mussel-shell, and it stands
-                        for ten
-                        pebbles, or one hundred grains of sand, or one thousand fingers&hellip;" And so on, laboriously,
-                        and with
-                        much reiteration, he strove to build up in their minds a crude conception of numbers.<br><br>
-                        As the quantities increased, he had the boys holding different magnitudes in each of their
-                        hands. For still
-                        higher sums, he laid the symbols on the log of driftwood; and for symbols he was hard put, being
-                        compelled
-                        to use the teeth from the skulls for millions, and the crab-shells for billions.</p>
-                </div>
-            </div>
-            <div class="container">
-                <form id="review-form" action="index" method="post">
-                    <h2>Write Your Review</h2>
-                    <div id="rating">
-                        <svg class="star" id="1" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
-                 style="fill: #f39c12;">
-                      <polygon
-                              points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
-                    </svg>
-            <svg class="star" id="2" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
-                 style="fill: #f39c12;">
-                      <polygon
-                              points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
-                    </svg>
-            <svg class="star" id="3" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
-                 style="fill: #f39c12;">
-                      <polygon
-                              points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
-                    </svg>
-            <svg class="star" id="4" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
-                 style="fill: #f39c12;">
-                      <polygon
-                              points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
-                    </svg>
-            <svg class="star" id="5" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
-                 style="fill: #808080;">
-                      <polygon
-                              points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
-                    </svg>
+                    <div class="Review-body">
+                        <p>${review[0].reviewText}</p>
                     </div>
-                    <span id="starsInfo" class="help-block">
-                    Click on a star to change your rating 1 - 5, where 5 = great! and 1 = really bad
-                  </span>
-                    <div class="form-group">
-                        <label class="control-label" for="review">Your Review:</label>
-                        <textarea class="form-control" rows="10" placeholder="Your Reivew" name="review"
-                                  id="review"></textarea>
-                        <span id="reviewInfo" class="help-block pull-right">
-                      <span id="remaining">999</span> Characters remaining
-                    </span>
-                    </div>
-                    <a href="#" id="submit" class="btn btn-primary">Submit</a>
-                    <input id="submitForm" type="submit" style="display:none;">
-                    <span id="submitInfo" class="help-block">
-                    By clicking <strong>Submit</strong>, I authorize the sharing of my name and review on the web. (email will not be shared)
-                  </span>
-                </form>
-            </div>
+                </div>
+            </#list>
+                <div class="container">
+                    <form id="review-form" action="index" method="post">
+                        <h2>Оставьте отзыв</h2>
+                        <div id="rating">
+                            <svg class="star" id="1" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
+                     style="fill: #f39c12;">
+                          <polygon
+                                  points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                        </svg>
+                <svg class="star" id="2" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
+                     style="fill: #f39c12;">
+                          <polygon
+                                  points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                        </svg>
+                <svg class="star" id="3" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
+                     style="fill: #f39c12;">
+                          <polygon
+                                  points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                        </svg>
+                <svg class="star" id="4" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
+                     style="fill: #f39c12;">
+                          <polygon
+                                  points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                        </svg>
+                <svg class="star" id="5" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
+                     style="fill: #808080;">
+                          <polygon
+                                  points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                        </svg>
+                        </div>
+                        <span id="starsInfo" class="help-block">
+                        Поставьте оценку
+                      </span>
+                        <div class="form-group">
+                            <label class="control-label" for="review">Ваш отзыв:</label>
+                            <textarea class="form-control" rows="10" placeholder="Отзыв" name="review"
+                                      id="review"></textarea>
+                            <span id="reviewInfo" class="help-block pull-right">
+                          <span id="remaining">999</span> Символов осталось
+                        </span>
+                        </div>
+                        <a href="#" id="submit" class="btn btn-primary">Сохранить</a>
+                        <input id="submitForm" type="submit" style="display:none;">
+                        <span id="submitInfo" class="help-block">
+                        Нажимая <strong>Сохранить</strong>, Я соглашаюсь с политикой конфиденциальности.
+                      </span>
+                    </form>
+                </div>
+
 
         <div class="container-fluid footer">
         <div class="row">
