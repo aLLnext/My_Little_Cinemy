@@ -110,7 +110,6 @@ public class FrontController {
         sessions.add(inner);
         model.put("sessions", sessions);
         model.put("signedIn", userRepo.findById(Long.valueOf(userId)).isPresent());
-
         return "films";
     }
 

@@ -108,44 +108,66 @@
             }
             return div;
         }
-
-
         <#list sessions as session>
             <#if session[0]??>
                 <#list session as ses>
                     var modalb = document.getElementById('modalbody${ses[0].id}');
                     var hall = document.createElement('div');
                     hall.classList.add('hall');
-                    var row_count = ${ses[2].line};
-                    var place_count = ${ses[2].place};
-                    for (var i = 0; i < row_count; i++) {
-                        var row = document.createElement('div');
-                        row.classList.add('hall_row');
-                        var div_row_n = document.createElement('div');
-                        var row_n = document.createElement('h6');
-                        row_n.innerText = i + 1;
-                        div_row_n.appendChild(row_n);
-                        row.appendChild(div_row_n);
-                        for (var j = 0; j < place_count; j++) {
+
+                    var row = document.createElement('div');
+                    row.classList.add('hall_row');
+                    var div_row_n = document.createElement('div');
+                    var row_n = document.createElement('h6');
+                    row_n.innerText = ${ses[3][0].line};
+                    div_row_n.appendChild(row_n);
+                    row.appendChild(div_row_n);
+                    <#list ses[3] as ticket>
+                        if(row.childNodes.length <= ${ses[2].place}){
                             var place = document.createElement('div');
                             place.classList.add('place');
-                            place.id = (i + 1) +"."+ (j + 1);
+                            place.id = ${ticket.line} +"."+ ${ticket.place};
                             place.addEventListener("click", showrow);
-                            //if уже куплен place.classList.add('booked')
+                            <#if ticket.bookId?has_content>
+                            place.classList.add('booked');
+                            </#if>
                             var num = document.createElement('p');
-                            num.innerText = j + 1;
+                            num.innerText = ${ticket.place};
+                            place.appendChild(num);
+                            row.appendChild(place);
+                        }else{
+                            hall.appendChild(row);
+                            var row = document.createElement('div');
+                            row.classList.add('hall_row');
+                            var div_row_n = document.createElement('div');
+                            var row_n = document.createElement('h6');
+                            row_n.innerText = ${ticket.line};
+                            div_row_n.appendChild(row_n);
+                            row.appendChild(div_row_n);
+
+                            var place = document.createElement('div');
+                            place.classList.add('place');
+                            place.id = ${ticket.line} +"."+ ${ticket.place};
+                            place.addEventListener("click", showrow);
+                            <#if ticket.bookId?has_content>
+                            place.classList.add('booked');
+                            </#if>
+                            var num = document.createElement('p');
+                            num.innerText = ${ticket.place};
                             place.appendChild(num);
                             row.appendChild(place);
                         }
-                        hall.appendChild(row);
-                    }
+                    </#list>
                     modalb.appendChild(hall);
                 </#list>
             </#if>
         </#list>
+        
         function showrow() {
             var counter = ((((this.parentNode).parentNode).parentNode).parentNode).getElementsByClassName('count_b')[0];
             var cost = ((((this.parentNode).parentNode).parentNode).parentNode).getElementsByClassName('cost')[0];
+            if(this.classList.contains('booked'))
+                return
             if(this.classList.contains('selected')){
                 counter.innerText = parseInt(counter.innerText) - 1;
                 cost.innerText = parseInt(cost.innerText) - 300

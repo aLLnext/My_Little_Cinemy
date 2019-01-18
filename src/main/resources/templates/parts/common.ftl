@@ -36,7 +36,7 @@
     <ul>
 <div class="LOGO">НАШ КИНО ТЕАТР</div>
 <a href="../index" class="buttonAFISHA">КИНОАФИША</a>
-<a href="#" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
+<a href="../cinemas" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
     <#if signedIn??>
         <#if signedIn == true>
             <a href="../logout" id = "logout" class="auth_part login">ВЫЙТИ</a>
@@ -51,7 +51,7 @@
     <div class="row">
 <div class="col-md-6 col-sm-4 btn_group_menu">
     <a href="../index" class="buttonAFISHA">КИНОАФИША</a>
-    <a href="#" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
+    <a href="../cinemas" class="buttonCINEMAS">КИНОТЕАТРЫ</a>
 </div>
     <div class="col-md-6 col-sm-4 btn_group_account">
     <#if signedIn??>

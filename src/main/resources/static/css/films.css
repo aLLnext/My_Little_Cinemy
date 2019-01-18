@@ -255,7 +255,7 @@ p.dropdown_title {
     margin: 2px;
 }
 
-.place .booked{
+.place.booked{
     background: #A61860;
 }
 
