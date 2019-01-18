@@ -77,10 +77,11 @@ public class FrontController {
         model.put("producers",participantRepo.findPartisipantsByfilmIdAndPost(id, "producer"));
         model.put("screenwriters",participantRepo.findPartisipantsByfilmIdAndPost(id, "screenwriter"));
         model.put("actors",participantRepo.findPartisipantsByfilmIdAndPost(id, "actor"));
-        //TODO(НУЖНО ПО ID ДОСТАТЬ НАЗВАНИЯ)
+
         Iterable<Session> all_sessions = sessionRepo.findByFilmIdOrderBySessionDateAsc(id);
         ArrayList<ArrayList<Object>> sessions = new ArrayList<>();
         ArrayList<Object> inner = new ArrayList<>();
+
         for (Session session : all_sessions) {
             if(inner.size() > 0) {
                 if (session.getSessionDate() == ((Session)((ArrayList)inner.get(0)).get(0)).getSessionDate()) {

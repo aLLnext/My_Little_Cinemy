@@ -1,4 +1,6 @@
 <#import "parts/common.ftl" as common>
+<#import "parts/auth.ftl" as auth>
+
 <#assign links>
     <link rel="stylesheet" type="text/css" href="../css/films.css">
 </#assign>
@@ -466,9 +468,9 @@
                 </form>
             </div>
         </div>
-    </div>
-    <!-- Modal -->
-    <#list sessions as session>
+        </div>
+        <!-- Modal -->
+        <#list sessions as session>
     <#if sessions[0]??>
         <#list session as ses>
         <div class="modal fade" id="buyticket${ses[0].id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -516,8 +518,6 @@
         </#list>
     </#if>
 </#list>
-
-
         <div class="container-fluid footer">
         <div class="row">
             <div class="first_column col-lg-3 col-md-4 col-sm-6">
@@ -552,5 +552,5 @@
                 </div>
             </div>
     </div>
-
+    <@auth.auth></@auth.auth>
 </@common.page>

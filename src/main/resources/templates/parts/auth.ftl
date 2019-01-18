@@ -51,9 +51,6 @@
                     <p class="fieldset">
                         <input type="checkbox" id="accept-terms">
                         <label for="accept-terms">Я согласен с <a href="#0">Условиями</a></label>
-                        <!--TODO: make attention if user is exists-->
-                            <h1 style="color: red">!!!USER EXISTS!!!</h1>
-                        <#------------------------------------------>
                     </p>
                     <p class="fieldset">
                         <input class="full-width has-padding" type="submit" value="Создать аккаунт">
