@@ -4,6 +4,7 @@
     <html>
     <head>
     <title>OurCinema</title>
+    <link rel="shortcut icon" href="../img/logo.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
     <link rel="stylesheet" type="text/css" href="../css/media.css">

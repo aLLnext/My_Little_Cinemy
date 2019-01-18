@@ -404,7 +404,7 @@
                 </div>
             </#list>
                 <div class="container">
-                    <form id="review-form" action="index" method="post">
+                    <form id="review-form" action="/leaveReview/${film.id}" method="post">
                         <h2>Оставьте отзыв</h2>
                         <div id="rating">
                             <svg class="star" id="1" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
@@ -438,14 +438,13 @@
                       </span>
                         <div class="form-group">
                             <label class="control-label" for="review">Ваш отзыв:</label>
-                            <textarea class="form-control" rows="10" placeholder="Отзыв" name="review"
-                                      id="review"></textarea>
+                            <input type="text" class="form-control" rows="10" placeholder="Отзыв" name="review"
+                                      id="review">
                             <span id="reviewInfo" class="help-block pull-right">
                           <span id="remaining">999</span> Символов осталось
                         </span>
                         </div>
-                        <a href="#" id="submit" class="btn btn-primary">Сохранить</a>
-                        <input id="submitForm" type="submit" style="display:none;">
+                        <input class="btn btn-primary" id="submitForm" type="submit" value="Сохранить">
                         <span id="submitInfo" class="help-block">
                         Нажимая <strong>Сохранить</strong>, Я соглашаюсь с политикой конфиденциальности.
                       </span>

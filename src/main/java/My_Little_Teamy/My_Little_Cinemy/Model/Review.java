@@ -19,6 +19,6 @@ public class Review {
     private long filmId;
     @Column(name = "user_id")
     private long userId;
-    private Double mark;
+    private Long mark;
 
 }

@@ -9,12 +9,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
 @Controller
@@ -36,9 +34,11 @@ public class FrontController {
     @Autowired
     private GenreRepo genreRepo;
     @Autowired
-    CountryRepo countryRepo;
+    private CountryRepo countryRepo;
     @Autowired
-    ParticipantRepo participantRepo;
+    private ParticipantRepo participantRepo;
+    @Autowired
+    private ReviewRepo reviewRepo;
 
 
 
@@ -113,6 +113,24 @@ public class FrontController {
 
         return "films";
     }
+
+    @PostMapping("/leaveReview/{id}")
+    public String leaveReview(@ModelAttribute("review") String reviewBody,
+                              @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId,
+                                @PathVariable Long id){
+        Date date = new Date();
+        Review review = new Review();
+        review.setFilmId(id);
+        review.setMark(new Long(3));
+        review.setReviewText(reviewBody);
+        review.setUserId(Long.valueOf(userId));
+        long millis=System.currentTimeMillis();
+//        java.sql.Date dateSql=new java.sql.Date(millis);
+        review.setPublicationDate(new java.sql.Date(millis));
+        reviewRepo.save(review);
+        return "redirect:/films/"+id;
+    }
+
 
     public ArrayList<Object> InsertIntoSession(Session session){
         ArrayList<Object> inner = new ArrayList<>();
