@@ -369,7 +369,10 @@
                                 <a class="line_li_a" href="#">${ses[0].sessionTime}</a>
                                 <a class="line_li_a" href="#">${ses[1].name}</a>
                                 <a class="line_li_a" href="#">${ses[2].name}</a>
-                                <button type="button" class="btn btn-primary line_li_a" data-toggle="modal" data-target="#buyticket${ses[0].id}">купить</button>
+                                <#if signedIn??>
+                                    <#if signedIn == true><button type="button" class="btn btn-primary line_li_a" data-toggle="modal" data-target="#buyticket${ses[0].id}">купить</button></#if>
+                                </#if>
+
                                 </li>
                             </#list>
                             </ul>
@@ -403,6 +406,8 @@
                     </div>
                 </div>
             </#list>
+    <#if signedIn??>
+        <#if signedIn == true>
                 <div class="container">
                     <form id="review-form" action="/leaveReview/${film.id}" method="post">
                         <h2>Оставьте отзыв</h2>
@@ -450,6 +455,8 @@
                       </span>
                     </form>
                 </div>
+        </#if>
+        </#if>
 
 
         <div class="container-fluid footer">
