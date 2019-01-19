@@ -65,15 +65,15 @@
                 state = starsReducer(state, {
                     type: 'HOVER_STAR',
                     value: this.id
-                })
+                });
                 render(state.starsHover);
-            })
+            });
 
             StarComponents[i].addEventListener('click', function () {
                 state = starsReducer(state, {
                     type: 'CLICK_STAR',
                     value: this.id
-                })
+                });
                 render(state.starsHover);
             })
         }
@@ -94,13 +94,13 @@
             var test = "KEKUS";
             var pass = "pass";
             var selected = document.getElementsByClassName("selected");
+            let ses_id = (selected.item(0).parentNode).id;
             let places = [];
             for(let i = 0; i < selected.length; i++){
                 places.push(selected.item(i).id);
             }
-            alert(JSON.stringify(places));
             var xhttp = new XMLHttpRequest();
-            var body = "places=" + encodeURIComponent(JSON.stringify(places));
+            var body = "places=" + encodeURIComponent(JSON.stringify(places)) + "&session_id=" + encodeURIComponent(ses_id);
             xhttp.open("POST", "/test", true);
             xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhttp.send(body);
@@ -135,6 +135,7 @@
                     hall.classList.add('hall');
 
                     var row = document.createElement('div');
+                    row.id = ${ses[0].id}
                     row.classList.add('hall_row');
                     var div_row_n = document.createElement('div');
                     var row_n = document.createElement('h6');
@@ -153,10 +154,11 @@
                             var num = document.createElement('p');
                             num.innerText = ${ticket.place};
                             place.appendChild(num);
-                            row.appendChild(place);
+                            row.appendChild(place);row.id = ${ses[0].id}
                         }else{
                             hall.appendChild(row);
                             var row = document.createElement('div');
+                            row.id = ${ses[0].id}
                             row.classList.add('hall_row');
                             var div_row_n = document.createElement('div');
                             var row_n = document.createElement('h6');

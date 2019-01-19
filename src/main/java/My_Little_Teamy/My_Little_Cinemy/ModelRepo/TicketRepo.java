@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface TicketRepo extends CrudRepository<Ticket, Long> {
     Iterable<Ticket> findTicketBySessionId(Long id);
+    Ticket findTicketByLineAndPlaceAndSessionId(Long line, Long place, Long session_id);
 }
