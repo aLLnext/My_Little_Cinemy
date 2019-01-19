@@ -7,6 +7,9 @@
 
 <#assign script>
     <script>
+
+
+
         function toggleSubCategories(_category, init) {
             if (!init) {
                 document.querySelectorAll('.dropdown').forEach(function (category) {
@@ -25,7 +28,6 @@
                 e.preventDefault();
             });
         });
-
         function starsReducer(state, action) {
             switch (action.type) {
                 case 'HOVER_STAR': {
@@ -91,14 +93,14 @@
         
         function order() {
 
-            var test = "KEKUS";
-            var pass = "pass";
             var selected = document.getElementsByClassName("selected");
             let ses_id = (selected.item(0).parentNode).id;
             let places = [];
             for(let i = 0; i < selected.length; i++){
-                places.push(selected.item(i).id);
+                places.push({posX: selected.item(i).id[0], posY: selected.item(i).id[2]});
             }
+            // alert(places);
+            // alert(JSON.stringify({p: places}));
             var xhttp = new XMLHttpRequest();
             var body = "places=" + encodeURIComponent(JSON.stringify(places)) + "&session_id=" + encodeURIComponent(ses_id);
             xhttp.open("POST", "/test", true);
