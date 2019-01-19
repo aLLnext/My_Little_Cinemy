@@ -1,10 +1,10 @@
 package My_Little_Teamy.My_Little_Cinemy.controller;
 
-import My_Little_Teamy.My_Little_Cinemy.Model.Film;
-import My_Little_Teamy.My_Little_Cinemy.Model.Review;
-import My_Little_Teamy.My_Little_Cinemy.Model.Session;
-import My_Little_Teamy.My_Little_Cinemy.Model.Ticket;
+import My_Little_Teamy.My_Little_Cinemy.CustomType.BookedTicket;
+import My_Little_Teamy.My_Little_Cinemy.Model.*;
 import My_Little_Teamy.My_Little_Cinemy.ModelRepo.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +39,8 @@ public class FrontController {
     private ParticipantRepo participantRepo;
     @Autowired
     private ReviewRepo reviewRepo;
+    @Autowired
+    private BookRepo bookRepo;
 
 
 
@@ -114,9 +116,26 @@ public class FrontController {
 
     @PostMapping("/test")
     public String test(@ModelAttribute("places") String places,
-                       @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId){
-        System.out.println(places);
-        return "index";
+                       @ModelAttribute("session_id") String sessionId,
+                       @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId) throws Exception{
+        Book book = new Book();
+        book.setUserId(Long.valueOf(userId));
+        book = bookRepo.save(book);
+        ArrayList<Ticket> allTickets = ticketRepo.findTicketsBySessionId(Long.valueOf(sessionId));
+        ObjectMapper mapper = new ObjectMapper();
+        Object[] bookedTickets = mapper.readValue(places, Set.class).toArray();
+        for (Object bookedTicket : bookedTickets) {
+            for (Ticket allTicket : allTickets) {
+                if (allTicket.getLine() == Long.valueOf(((LinkedHashMap<String, String>)bookedTicket).get("posX")) &&
+                        allTicket.getPlace() == Long.valueOf(((LinkedHashMap<String, String>)bookedTicket).get("posY"))) {
+                    allTicket.setStatus("booked");
+                    allTicket.setBookId(book.getId());
+                    break;
+                }
+            }
+        }
+        ticketRepo.saveAll(allTickets);
+        return "redirect:/index";
     }
 
     @PostMapping("/leaveReview/{id}")
@@ -130,7 +149,6 @@ public class FrontController {
         review.setReviewText(reviewBody);
         review.setUserId(Long.valueOf(userId));
         long millis=System.currentTimeMillis();
-//        java.sql.Date dateSql=new java.sql.Date(millis);
         review.setPublicationDate(new java.sql.Date(millis));
         reviewRepo.save(review);
         return "redirect:/films/"+id;
