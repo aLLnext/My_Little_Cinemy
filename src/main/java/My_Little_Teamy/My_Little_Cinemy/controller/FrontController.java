@@ -71,7 +71,6 @@ public class FrontController {
     @RequestMapping(value = "/films/{id}", method = RequestMethod.GET)
     public String films(@PathVariable long id, Map<String, Object> model, @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId) {
         Film filmFromDB = filmRepo.findById(id).orElse(null);
-        System.out.println(filmFromDB.getReviews());
         ArrayList<Object> reviews = new ArrayList<>();
 
         for(Review review: filmFromDB.getReviews()){
@@ -113,6 +112,13 @@ public class FrontController {
         return "films";
     }
 
+    @PostMapping("/test")
+    public String test(@ModelAttribute("places") String places,
+                       @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId){
+        System.out.println(places);
+        return "index";
+    }
+
     @PostMapping("/leaveReview/{id}")
     public String leaveReview(@ModelAttribute("review") String reviewBody,
                               @CookieValue(value = "CINEMA-AUTH", defaultValue = "0") String userId,
@@ -129,6 +135,8 @@ public class FrontController {
         reviewRepo.save(review);
         return "redirect:/films/"+id;
     }
+
+
 
 
     public ArrayList<Object> InsertIntoSession(Session session){

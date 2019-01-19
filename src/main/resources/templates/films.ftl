@@ -80,15 +80,34 @@
 
         StarContainer.addEventListener('mouseleave', function () {
             render(state.starsSet);
-        })
+        });
 
         var review = document.getElementById('review');
         var remaining = document.getElementById('remaining');
         review.addEventListener('input', function (e) {
             review.value = (e.target.value.slice(0, 999));
             remaining.innerHTML = (999 - e.target.value.length);
-        })
+        });
+        
+        function order() {
 
+            var test = "KEKUS";
+            var pass = "pass";
+            var selected = document.getElementsByClassName("selected");
+            let places = [];
+            for(let i = 0; i < selected.length; i++){
+                places.push(selected.item(i).id);
+            }
+            alert(JSON.stringify(places));
+            var xhttp = new XMLHttpRequest();
+            var body = "places=" + encodeURIComponent(JSON.stringify(places));
+            xhttp.open("POST", "/test", true);
+            xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhttp.send(body);
+            xhttp.onreadystatechange = function () {
+                console.log(xhttp.responseText);
+            }
+        }
         function ReviewStarContainer(stars) {
             var div = document.createElement('div');
             div.className = "stars-container";
@@ -162,7 +181,7 @@
                 </#list>
             </#if>
         </#list>
-        
+
         function showrow() {
             var counter = ((((this.parentNode).parentNode).parentNode).parentNode).getElementsByClassName('count_b')[0];
             var cost = ((((this.parentNode).parentNode).parentNode).parentNode).getElementsByClassName('cost')[0];
@@ -394,7 +413,6 @@
                                 <#if signedIn??>
                                     <#if signedIn == true><button type="button" class="btn btn-primary line_li_a" data-toggle="modal" data-target="#buyticket${ses[0].id}">купить</button></#if>
                                 </#if>
-
                                 </li>
                             </#list>
                             </ul>
@@ -428,57 +446,57 @@
                     </div>
                 </div>
             </#list>
-    <#if signedIn??>
-        <#if signedIn == true>
-                <div class="container">
-                    <form id="review-form" action="/leaveReview/${film.id}" method="post">
-                        <h2>Оставьте отзыв</h2>
-                        <div id="rating">
-                            <svg class="star" id="1" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
-                     style="fill: #f39c12;">
-                          <polygon
-                                  points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
-                        </svg>
-                <svg class="star" id="2" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
-                     style="fill: #f39c12;">
-                          <polygon
-                                  points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
-                        </svg>
-                <svg class="star" id="3" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
-                     style="fill: #f39c12;">
-                          <polygon
-                                  points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
-                        </svg>
-                <svg class="star" id="4" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
-                     style="fill: #f39c12;">
-                          <polygon
-                                  points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
-                        </svg>
-                <svg class="star" id="5" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
-                     style="fill: #808080;">
-                          <polygon
-                                  points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
-                        </svg>
+            <#if signedIn??>
+                <#if signedIn == true>
+                        <div class="container">
+                            <form id="review-form" action="/leaveReview/${film.id}" method="post">
+                                <h2>Оставьте отзыв</h2>
+                                <div id="rating">
+                                    <svg class="star" id="1" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
+                             style="fill: #f39c12;">
+                                  <polygon
+                                          points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                                </svg>
+                        <svg class="star" id="2" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
+                             style="fill: #f39c12;">
+                                  <polygon
+                                          points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                                </svg>
+                        <svg class="star" id="3" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
+                             style="fill: #f39c12;">
+                                  <polygon
+                                          points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                                </svg>
+                        <svg class="star" id="4" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
+                             style="fill: #f39c12;">
+                                  <polygon
+                                          points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                                </svg>
+                        <svg class="star" id="5" viewBox="0 12.705 512 486.59" x="0px" y="0px" xml:space="preserve"
+                             style="fill: #808080;">
+                                  <polygon
+                                          points="256.814,12.705 317.205,198.566 512.631,198.566 354.529,313.435 414.918,499.295 256.814,384.427 98.713,499.295 159.102,313.435 1,198.566 196.426,198.566"></polygon>
+                                </svg>
+                                </div>
+                                <span id="starsInfo" class="help-block">
+                                Поставьте оценку
+                              </span>
+                                <div class="form-group">
+                                    <label class="control-label" for="review">Ваш отзыв:</label>
+                                    <input type="text" class="form-control" rows="10" placeholder="Отзыв" name="review"
+                                              id="review">
+                                    <span id="reviewInfo" class="help-block pull-right">
+                                  <span id="remaining">999</span> Символов осталось
+                                </span>
+                                </div>
+                                <input class="btn btn-primary" id="submitForm" type="submit" value="Сохранить">
+                                <span id="submitInfo" class="help-block">
+                                Нажимая <strong>Сохранить</strong>, Я соглашаюсь с политикой конфиденциальности.
+                              </span>
+                            </form>
                         </div>
-                        <span id="starsInfo" class="help-block">
-                        Поставьте оценку
-                      </span>
-                        <div class="form-group">
-                            <label class="control-label" for="review">Ваш отзыв:</label>
-                            <input type="text" class="form-control" rows="10" placeholder="Отзыв" name="review"
-                                      id="review">
-                            <span id="reviewInfo" class="help-block pull-right">
-                          <span id="remaining">999</span> Символов осталось
-                        </span>
-                        </div>
-                        <input class="btn btn-primary" id="submitForm" type="submit" value="Сохранить">
-                        <span id="submitInfo" class="help-block">
-                        Нажимая <strong>Сохранить</strong>, Я соглашаюсь с политикой конфиденциальности.
-                      </span>
-                    </form>
-                </div>
-        </#if>
-        </#if>
+                </#if>
+                </#if>
 
 
         <div class="container-fluid footer">
@@ -518,53 +536,53 @@
         </div>
         <!-- Modal -->
         <#list sessions as session>
-    <#if sessions[0]??>
-        <#list session as ses>
-        <div class="modal fade" id="buyticket${ses[0].id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Купить билет</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form>
-                    <div id="modalbody${ses[0].id}" class="modal-body"></div>
-                        <div style="text-align: center">
-                            <div style="display: inline-block; width: 100%">
-                                <p style="display: inline-block"><b>Кинотеатр, зал  </b></p>
-                                <p style="display: inline-block">${ses[1].name} </p>
-                                <p style="display: inline-block"> ${ses[2].name} </p>
+            <#if sessions[0]??>
+                <#list session as ses>
+                <div class="modal fade" id="buyticket${ses[0].id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Купить билет</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
-                            <div style="display: inline-block; width: 100%">
-                                <p style="display: inline-block"><b>Дата, время  </b></p>
-                                <p style="display: inline-block">${ses[0].sessionDate} </p>
-                                <p style="display: inline-block">${ses[0].sessionTime} </p>
+                            <form action="buy_ticket">
+                            <div id="modalbody${ses[0].id}" class="modal-body"></div>
+                                <div style="text-align: center">
+                                    <div style="display: inline-block; width: 100%">
+                                        <p style="display: inline-block"><b>Кинотеатр, зал  </b></p>
+                                        <p style="display: inline-block">${ses[1].name} </p>
+                                        <p style="display: inline-block"> ${ses[2].name} </p>
+                                    </div>
+                                    <div style="display: inline-block; width: 100%">
+                                        <p style="display: inline-block"><b>Дата, время  </b></p>
+                                        <p style="display: inline-block">${ses[0].sessionDate} </p>
+                                        <p style="display: inline-block">${ses[0].sessionTime} </p>
+                                    </div>
+                                    <div style="display: inline-block; width: 100%">
+                                        <p><b>Ограничение по возрасту</b></p>
+                                        <p>Для детей старше 12 лет</p>
+                                    </div>
+                                    <div style="display: inline-block; width: 100%">
+                                        <p style="display: inline-block"><b>Выбрано </b></p>
+                                        <p style="display: inline-block" class="count_b">0</p>
+                                        <p style="display: inline-block" class="count_name"> бил </p>
+                                        <p style="display: inline-block" class="cost">0</p>
+                                        <p style="display: inline-block"> руб</p>
+                                    </div>
+                                </div>
+                            <div class="modal-footer">
+                                <button type="submit" onclick="order()" class="btn btn-primary" data-dismiss="modal">Продолжить</button>
                             </div>
-                            <div style="display: inline-block; width: 100%">
-                                <p><b>Ограничение по возрасту</b></p>
-                                <p>Для детей старше 12 лет</p>
-                            </div>
-                            <div style="display: inline-block; width: 100%">
-                                <p style="display: inline-block"><b>Выбрано </b></p>
-                                <p style="display: inline-block" class="count_b">0</p>
-                                <p style="display: inline-block" class="count_name"> бил </p>
-                                <p style="display: inline-block" class="cost">0</p>
-                                <p style="display: inline-block"> руб</p>
-                            </div>
+                            </form>
                         </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Продолжить</button>
                     </div>
-                    </form>
                 </div>
-            </div>
-        </div>
+                </#list>
+            </#if>
         </#list>
-    </#if>
-</#list>
     </div>
     <@auth.auth></@auth.auth>
 </@common.page>
