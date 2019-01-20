@@ -487,8 +487,8 @@
                               </span>
                                 <div class="form-group">
                                     <label class="control-label" for="review">Ваш отзыв:</label>
-                                    <input type="text" class="form-control" rows="10" placeholder="Отзыв" name="review"
-                                              id="review">
+                                    <textarea type="text" class="form-control" rows="10" placeholder="Отзыв" name="review"
+                                              id="review"></textarea>
                                     <span id="reviewInfo" class="help-block pull-right">
                                   <span id="remaining">999</span> Символов осталось
                                 </span>
