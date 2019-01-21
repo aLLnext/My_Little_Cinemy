@@ -92,23 +92,35 @@
         });
         
         function order() {
-
             var selected = document.getElementsByClassName("selected");
-            let ses_id = (selected.item(0).parentNode).id;
-            let places = [];
-            for(let i = 0; i < selected.length; i++){
-                places.push({posX: selected.item(i).id[0], posY: selected.item(i).id[2]});
+            if (selected.length > 0) {
+                let ses_id = (selected.item(0).parentNode).id;
+                let places = [];
+                for (let i = 0; i < selected.length; i++) {
+                    places.push({posX: selected.item(i).id[0], posY: selected.item(i).id[2]});
+                    selected[i].classList.add('booked');
+                    selected[i].classList.remove('selected');
+                }
+                var counter = document.getElementsByClassName('count_b');
+                var cost = document.getElementsByClassName('cost');
+                for (var i = 0; i < counter.length; i++)
+                {
+                    counter[i].innerText = '0';
+                    cost[i].innerText = '0';
+                }
+                // alert(places);
+                // alert(JSON.stringify({p: places}));
+                var xhttp = new XMLHttpRequest();
+                var body = "places=" + encodeURIComponent(JSON.stringify(places)) + "&session_id=" + encodeURIComponent(ses_id);
+                xhttp.open("POST", "/test", true);
+                xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhttp.send(body);
+                xhttp.onreadystatechange = function () {
+                    console.log(xhttp.responseText);
+                }
             }
-            // alert(places);
-            // alert(JSON.stringify({p: places}));
-            var xhttp = new XMLHttpRequest();
-            var body = "places=" + encodeURIComponent(JSON.stringify(places)) + "&session_id=" + encodeURIComponent(ses_id);
-            xhttp.open("POST", "/test", true);
-            xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhttp.send(body);
-            xhttp.onreadystatechange = function () {
-                console.log(xhttp.responseText);
-            }
+
+
         }
         function ReviewStarContainer(stars) {
             var div = document.createElement('div');
@@ -173,7 +185,7 @@
                             place.id = ${ticket.line} +"."+ ${ticket.place};
                             place.addEventListener("click", showrow);
                             <#if ticket.bookId?has_content>
-                            place.classList.add('booked');
+                                place.classList.add('booked');
                             </#if>
                             var num = document.createElement('p');
                             num.innerText = ${ticket.place};
@@ -190,7 +202,7 @@
             var counter = ((((this.parentNode).parentNode).parentNode).parentNode).getElementsByClassName('count_b')[0];
             var cost = ((((this.parentNode).parentNode).parentNode).parentNode).getElementsByClassName('cost')[0];
             if(this.classList.contains('booked'))
-                return
+                return;
             if(this.classList.contains('selected')){
                 counter.innerText = parseInt(counter.innerText) - 1;
                 cost.innerText = parseInt(cost.innerText) - 300
